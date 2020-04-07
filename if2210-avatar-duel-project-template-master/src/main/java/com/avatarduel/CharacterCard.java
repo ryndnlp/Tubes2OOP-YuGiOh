@@ -39,7 +39,7 @@ class CharacterCard extends Card{
     }
 
     public void cekKartu(){
-        System.out.println("Skill card");
+        System.out.println("Character card");
         super.cekKartu();
         System.out.println(power + "\n" + attack + "\n" + defense);
     }

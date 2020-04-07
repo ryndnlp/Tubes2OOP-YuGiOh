@@ -67,7 +67,7 @@ abstract class Card{
 
 
 
-    //untuk kartu setelah di baca di csv
+    //untuk kartu setelah di baca di csv(masih error)
     public List<Card> copyCardCharacter(List<String[]> cardList){
         List<Card> characterList= new ArrayList<Card>(); 
         String type = "CharacterCard";

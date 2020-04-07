@@ -9,6 +9,7 @@ class LandCard extends Card{
     // }
 
     public void cekKartu(){
+        System.out.println("Land card");
         super.cekKartu();
     }
 
