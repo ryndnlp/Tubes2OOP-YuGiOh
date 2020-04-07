@@ -31,7 +31,7 @@ class SkillCard extends Card{
         this.power = power;
     }
 
-    public void setAttack(int power){
+    public void setAttack(int attack){
         this.attack = attack;
     }
 
