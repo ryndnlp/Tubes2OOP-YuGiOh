@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="180.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <fx:include layoutX="43" layoutY="5" source="ActiveCard.fxml" />
+        <fx:include layoutX="121" layoutY="5" source="ActiveCard.fxml" />
+        <fx:include layoutX="199" layoutY="5" source="ActiveCard.fxml" />
+        <fx:include layoutX="277" layoutY="5" source="ActiveCard.fxml" />
+        <fx:include layoutX="355" layoutY="5" source="ActiveCard.fxml" />
+        <fx:include layoutX="433" layoutY="5" source="ActiveCard.fxml" />
+        <fx:include layoutX="511" layoutY="5" source="ActiveCard.fxml" />
+        <fx:include layoutX="589" layoutY="5" source="ActiveCard.fxml" />
+
+        <fx:include layoutX="43" layoutY="95" source="ActiveCard.fxml" />
+        <fx:include layoutX="121" layoutY="95" source="ActiveCard.fxml" />
+        <fx:include layoutX="199" layoutY="95" source="ActiveCard.fxml" />
+        <fx:include layoutX="277" layoutY="95" source="ActiveCard.fxml" />
+        <fx:include layoutX="355" layoutY="95" source="ActiveCard.fxml" />
+        <fx:include layoutX="433" layoutY="95" source="ActiveCard.fxml" />
+        <fx:include layoutX="511" layoutY="95" source="ActiveCard.fxml" />
+        <fx:include layoutX="589" layoutY="95" source="ActiveCard.fxml" />
+    </children>
+</AnchorPane>

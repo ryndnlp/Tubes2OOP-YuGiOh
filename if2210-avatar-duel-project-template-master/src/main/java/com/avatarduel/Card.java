@@ -68,60 +68,60 @@ abstract class Card{
 
 
     //untuk kartu setelah di baca di csv(masih error)
-    public List<Card> copyCardCharacter(List<String[]> cardList){
-        List<Card> characterList= new ArrayList<Card>(); 
-        String type = "CharacterCard";
-        CharacterCard character = CardFactory.getCard(type);
-        String[] temp;
+//    public List<Card> copyCardCharacter(List<String[]> cardList){
+//        List<Card> characterList= new ArrayList<Card>();
+//        String type = "CharacterCard";
+//        CharacterCard character = CardFactory.getCard(type);
+//        String[] temp;
+//
+//        for(int i = 0;i < cardList.size(); i++){
+//            temp = cardList.get(i);
+//            character.setId(Integer.parseInt(temp[0]));
+//            character.setName(temp[1]);
+//            character.setElement(temp[2]);
+//            character.setDescription(temp[3]);
+//            character.setImagepath(temp[4]);
+//            character.setAttack(Integer.parseInt(temp[5]));
+//            character.setDefense(Integer.parseInt(temp[6]));
+//            character.setPower(Integer.parseInt(temp[7]));
+//            characterList.add(character);
+//        }
+//    }
 
-        for(int i = 0;i < cardList.size(); i++){
-            temp = cardList.get(i);
-            character.setId(Integer.parseInt(temp[0]));
-            character.setName(temp[1]);
-            character.setElement(temp[2]);
-            character.setDescription(temp[3]);
-            character.setImagepath(temp[4]);
-            character.setAttack(Integer.parseInt(temp[5]));
-            character.setDefense(Integer.parseInt(temp[6]));
-            character.setPower(Integer.parseInt(temp[7]));
-            characterList.add(character);
-        }
-    }
-
-    public List<Card> copyCardSkill(List<String[]> cardList){
-        List<Card> skillList= new ArrayList<Card>(); 
-        String type = "SkillCard";
-        SkillCard skill = CardFactory.getCard(type);
-        String[] temp;
-
-        for(int i = 0;i < cardList.size(); i++){
-            temp = cardList.get(i);
-            skill.setId(Integer.parseInt(temp[0]));
-            skill.setName(temp[1]);
-            skill.setElement(temp[2]);
-            skill.setDescription(temp[3]);
-            skill.setImagepath(temp[4]);
-            skill.setAttack(Integer.parseInt(temp[5]));
-            skill.setDefense(Integer.parseInt(temp[6]));
-            skill.setPower(Integer.parseInt(temp[7]));
-            skillList.add(skill);
-        }
-    }
-
-    public List<Card> copyCardLand(List<String[]> cardList){
-        List<Card> landList= new ArrayList<Card>(); 
-        String type = "ListCard";
-        LandCard land = CardFactory.getCard(type);
-        String[] temp;
-
-        for(int i = 0;i < cardList.size(); i++){
-            temp = cardList.get(i);
-            land.setId(Integer.parseInt(temp[0]));
-            land.setName(temp[1]);
-            land.setElement(temp[2]);
-            land.setDescription(temp[3]);
-            land.setImagepath(temp[4]);
-            landList.add(land);
-        }
-    }
+//    public List<Card> copyCardSkill(List<String[]> cardList){
+//        List<Card> skillList= new ArrayList<Card>();
+//        String type = "SkillCard";
+//        SkillCard skill = CardFactory.getCard(type);
+//        String[] temp;
+//
+//        for(int i = 0;i < cardList.size(); i++){
+//            temp = cardList.get(i);
+//            skill.setId(Integer.parseInt(temp[0]));
+//            skill.setName(temp[1]);
+//            skill.setElement(temp[2]);
+//            skill.setDescription(temp[3]);
+//            skill.setImagepath(temp[4]);
+//            skill.setAttack(Integer.parseInt(temp[5]));
+//            skill.setDefense(Integer.parseInt(temp[6]));
+//            skill.setPower(Integer.parseInt(temp[7]));
+//            skillList.add(skill);
+//        }
+//    }
+//
+//    public List<Card> copyCardLand(List<String[]> cardList){
+//        List<Card> landList= new ArrayList<Card>();
+//        String type = "ListCard";
+//        LandCard land = CardFactory.getCard(type);
+//        String[] temp;
+//
+//        for(int i = 0;i < cardList.size(); i++){
+//            temp = cardList.get(i);
+//            land.setId(Integer.parseInt(temp[0]));
+//            land.setName(temp[1]);
+//            land.setElement(temp[2]);
+//            land.setDescription(temp[3]);
+//            land.setImagepath(temp[4]);
+//            landList.add(land);
+//        }
+//    }
 }
