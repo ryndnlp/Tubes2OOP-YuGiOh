@@ -1,11 +1,11 @@
 package com.avatarduel;
-import java.util.*;
+import com.avatarduel.model.Element;
 
 abstract class Card{
 
     protected int id;
     protected String name;
-    protected String element;
+    protected Element element;
     protected String description;
     protected String imagepath;
 
@@ -16,7 +16,7 @@ abstract class Card{
 //     public Card(int id, String name, String element, String description, String imagepath){
 //         this.id = id;
 //         this.name = name;
-//         this.element = element;
+//         this.element = element; Ngikut yang ada di data
 //         this.description = description;
 //         this.imagepath = imagepath;
 //     }
@@ -30,7 +30,7 @@ abstract class Card{
         return name;
     }
 
-    public String getElement(){
+    public Element getElement(){
         return element;
     }
 
@@ -50,7 +50,7 @@ abstract class Card{
         this.name = name;
     }
 
-    public void setElement(String element){
+    public void setElement(Element element){
         this.element = element;
     }
 

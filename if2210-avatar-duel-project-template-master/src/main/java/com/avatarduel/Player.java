@@ -2,19 +2,21 @@ package com.avatarduel;
 
 import  com.avatarduel.Deck;
 import  com.avatarduel.Hand;
+import com.avatarduel.model.Element;
 import com.avatarduel.Field;
 
 import java.util.List;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Queue;
 
 import javax.print.DocFlavor.STRING;
 
 class Player {
     private String name;
     private int health;
-    private int power;
+    private HashMap<Element,Tuple<Integer,Integer>> power; //key = Element, tuple<val,limit>
     private Deck deck;
     private Hand hand;
     private Field field;
@@ -25,7 +27,12 @@ class Player {
         deck = listdeck;
         hand = listhand;
         field = new Field();
-        power = 0;
+        power = new HashMap<Element,Tuple<Integer,Integer>>();
+        //inisiasi
+        power.put(Element.EARTH, new Tuple<Integer,Integer>(0,0));
+        power.put(Element.FIRE, new Tuple<Integer,Integer>(0,0));
+        power.put(Element.WATER, new Tuple<Integer,Integer>(0,0));
+        power.put(Element.AIR, new Tuple<Integer,Integer>(0,0));
     }
 
     public String getName(){
@@ -36,19 +43,19 @@ class Player {
         return health;
     }
 
-    public int getPower(){
+    public HashMap<Element,Tuple<Integer,Integer>> getPower(){
         return power;
     }
 
-    public ArrayList<Card> getDeck(){
-        return deck.getCardOnDeck();
+    public Queue<Card> getDeck(){
+        return this.deck.getCardOnDeck();
     }
 
     public ArrayList<Card> getHand(){
-        return hand.getCardOnHand();
+        return this.hand.getCardOnHand();
     }
 
-    public Map<Integer,String> getField(){
+    public HashMap<Tuple<Integer,Integer>, Card> getField(){
         return field.getCardOnField();
     }
 }

@@ -15,6 +15,14 @@ public abstract class Phase {
         this.turn = turn;//P1 true for P2
         this.type = "";//type of phase {D,M1,B,M2,E}
     }
+    public Player seekTurn() {
+        if(this.turn) { //P2 : true
+            return this.P2;
+        }
+        else { //P1 : false
+            return this.P1;
+        }
+    }
     public abstract Phase run();
     public abstract Phase nextPhase();
 }

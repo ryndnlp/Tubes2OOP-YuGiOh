@@ -5,12 +5,12 @@ import com.avatarduel.Card;
 import java.util.*;
 
 public class Field{
-    private Map<Integer,String> cardOnField;
+    private HashMap<Tuple<Integer,Integer>, Card> cardOnField;
     public Field(){
-        this.cardOnField = new HashMap<Integer, String>();
+        this.cardOnField = new HashMap<Tuple<Integer,Integer>, Card>();
     }
 
-    public Map<Integer,String> getCardOnField() {
+    public HashMap<Tuple<Integer,Integer>, Card> getCardOnField() {
         return this.cardOnField;
     }
 }
