@@ -1,3 +1,5 @@
+package com.avatarduel;
+
 class SkillCard extends Card{
 
     private int power;

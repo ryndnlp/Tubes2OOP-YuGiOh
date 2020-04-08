@@ -1,3 +1,4 @@
+package com.avatarduel;
 import java.util.*;
 
 abstract class Card{

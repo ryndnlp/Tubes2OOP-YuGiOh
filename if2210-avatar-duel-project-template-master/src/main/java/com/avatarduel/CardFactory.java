@@ -1,3 +1,5 @@
+package com.avatarduel;
+
 public class CardFactory{
 
     public static Card getCard(String cardType){

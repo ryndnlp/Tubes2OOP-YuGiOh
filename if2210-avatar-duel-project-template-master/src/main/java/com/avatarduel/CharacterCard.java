@@ -1,3 +1,5 @@
+package com.avatarduel;
+
 class CharacterCard extends Card{
     private int power;
     private int attack;

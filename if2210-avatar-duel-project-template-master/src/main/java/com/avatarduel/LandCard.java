@@ -1,3 +1,5 @@
+package com.avatarduel;
+
 class LandCard extends Card{
 
     public LandCard(){
