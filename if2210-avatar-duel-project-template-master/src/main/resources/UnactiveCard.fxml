@@ -2,10 +2,11 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="card" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="120.0" prefWidth="80.0" styleClass="unactivecard" stylesheets="@style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.avatarduel.CardController">
+<AnchorPane fx:id="card" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseEntered="#mouseEntered" prefHeight="120.0" prefWidth="64.0" styleClass="unactivecard" stylesheets="@style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.avatarduel.CardController">
     <children>
         <AnchorPane layoutX="2.0" layoutY="2.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="17.0" prefWidth="46.0" style="-fx-border-color: black;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
@@ -14,15 +15,14 @@
                         <Font name="Segoe UI Semilight" size="8.0" />
                     </font>
                 </Label>
-                <Label layoutX="28.0" layoutY="-1.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="18.0" prefWidth="13.0" text="O" AnchorPane.rightAnchor="0.0">
+                <Label fx:id="elemLabel" layoutX="28.0" layoutY="-1.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="18.0" prefWidth="13.0" text="O" AnchorPane.rightAnchor="0.0">
                     <font>
                         <Font size="7.0" />
                     </font>
                 </Label>
             </children>
         </AnchorPane>
-        <Label layoutX="8.0" layoutY="24.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="48.0" prefWidth="75.0" text="Label" AnchorPane.leftAnchor="6.0" AnchorPane.rightAnchor="6.0" AnchorPane.topAnchor="22.0" />
-        <Label layoutX="2.0" layoutY="72.0" prefHeight="12.0" prefWidth="46.0" text="Desc" AnchorPane.leftAnchor="0.0">
+        <Label fx:id="status" layoutX="2.0" layoutY="72.0" prefHeight="12.0" prefWidth="46.0" text="Desc" AnchorPane.leftAnchor="0.0">
             <font>
                 <Font size="5.0" />
             </font>
@@ -32,6 +32,7 @@
                 <Font size="5.0" />
             </font>
         </Label>
+      <ImageView fx:id="gambar" fitHeight="49.0" fitWidth="60.0" layoutX="2.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true" styleClass="image" />
     </children>
     <padding>
         <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />

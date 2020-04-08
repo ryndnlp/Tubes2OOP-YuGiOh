@@ -55,15 +55,15 @@ public class CardLoader {
         List<String[]> charRows = charReader.read();
         for (String[] row : charRows) {
             CardFactory cardFactory = new CardFactory();
-            Card charc = cardFactory.getCard("CharacterCard");
+            CharacterCard charc = (CharacterCard)cardFactory.getCard("CharacterCard");
             charc.setDescription(row[3]);
             charc.setElement(row[2]);
             charc.setId(Integer.parseInt(row[0]));
             charc.setName(row[1]);
             charc.setImagepath(row[4]);
-//            charc.setPower(Integer.parseInt(row[7]));
-//            charc.setAttack(Integer.parseInt(row[5]));
-//            charc.setDefense(Integer.parseInt(row[6]));
+           charc.setPower(Integer.parseInt(row[7]));
+           charc.setAttack(Integer.parseInt(row[5]));
+           charc.setDefense(Integer.parseInt(row[6]));
             this.listCharCard.add(charc);
             //Land l = new Land(row[1], row[3], Element.valueOf(row[2]));
         }
@@ -76,7 +76,7 @@ public class CardLoader {
         List<String[]> skillrow = skillReader.read();
         for (String[] row : skillrow) {
             CardFactory cardFactory = new CardFactory();
-            Card skillc = cardFactory.getCard("SkillCard");
+            SkillCard skillc = (SkillCard)cardFactory.getCard("SkillCard");
             skillc.setDescription(row[3]);
             skillc.setElement(row[2]);
             skillc.setId(Integer.parseInt(row[0]));
@@ -113,5 +113,17 @@ public class CardLoader {
             this.handCard.add(deckCard.get(idx));
             this.deckCard.remove(idx);
         }
+    }
+
+    public List<Card> getCharacterCard(){
+        return listCharCard;
+    }
+
+    public List<Card> getSkillCard(){
+        return listSkillCard;
+    }
+
+    public List<Card> getLandCard(){
+        return listLandCard;
     }
 }
