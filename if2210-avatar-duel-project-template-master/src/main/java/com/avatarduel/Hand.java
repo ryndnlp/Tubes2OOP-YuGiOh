@@ -3,15 +3,14 @@ package com.avatarduel;
 import com.avatarduel.Card;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class Hand{
-    private List<Card> cardOnHand;
-    public Hand(List<Card> listHand){
-        cardOnHand = listHand;
+    private ArrayList<Card> cardOnHand;
+    public Hand(ArrayList<Card> listHand){
+        this.cardOnHand = listHand;
     }
 
-    public List<Card> getCardOnHand() {
-        return cardOnHand;
+    public ArrayList<Card> getCardOnHand() {
+        return this.cardOnHand;
     }
 }

@@ -2,16 +2,15 @@ package com.avatarduel;
 
 import com.avatarduel.Card;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Queue;
 
 public class Deck{
-    private List<Card> cardOnDeck;
-    public Deck(List<Card> listdeck){
-        cardOnDeck = listdeck;
+    private Queue<Card> cardOnDeck;
+    public Deck(Queue<Card> listdeck){
+        this.cardOnDeck = listdeck;
     }
 
-    public List<Card> getCardOnDeck() {
-        return cardOnDeck;
+    public Queue<Card> getCardOnDeck() {
+        return this.cardOnDeck;
     }
 }
