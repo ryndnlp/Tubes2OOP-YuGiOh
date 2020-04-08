@@ -53,15 +53,15 @@ public class CardController {
         List<String[]> charRows = charReader.read();
         for (String[] row : charRows) {
             CardFactory cardFactory = new CardFactory();
-            Card charc = cardFactory.getCard("CharacterCard");
+            CharacterCard charc = (CharacterCard)cardFactory.getCard("CharacterCard");
             charc.setDescription(row[3]);
             charc.setElement(row[2]);
             charc.setId(Integer.parseInt(row[0]));
             charc.setName(row[1]);
             charc.setImagepath(row[4]);
-//            charc.setPower(Integer.parseInt(row[7]));
-//            charc.setAttack(Integer.parseInt(row[5]));
-//            charc.setDefense(Integer.parseInt(row[6]));
+           charc.setPower(Integer.parseInt(row[7]));
+           charc.setAttack(Integer.parseInt(row[5]));
+           charc.setDefense(Integer.parseInt(row[6]));
             this.listCharCard.add(charc);
             //Land l = new Land(row[1], row[3], Element.valueOf(row[2]));
         }
@@ -74,15 +74,15 @@ public class CardController {
         List<String[]> skillrow = skillReader.read();
         for (String[] row : skillrow) {
             CardFactory cardFactory = new CardFactory();
-            Card skillc = cardFactory.getCard("SkillCard");
+            SkillCard skillc = (SkillCard)cardFactory.getCard("SkillCard");
             skillc.setDescription(row[3]);
             skillc.setElement(row[2]);
             skillc.setId(Integer.parseInt(row[0]));
             skillc.setName(row[1]);
             skillc.setImagepath(row[4]);
-            //skillc.setPower(Integer.parseInt(row[5]));
-            //skillc.setAttack(Integer.parseInt(row[6]));
-            //skillc.setDefense(Integer.parseInt(row[7]));
+            skillc.setPower(Integer.parseInt(row[5]));
+            skillc.setAttack(Integer.parseInt(row[6]));
+            skillc.setDefense(Integer.parseInt(row[7]));
             this.listSkillCard.add(skillc);
             //Land l = new Land(row[1], row[3], Element.valueOf(row[2]));
         }
