@@ -6,12 +6,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Deck{
-    private List<Card> cardOnDeck;
-    public Deck(List<Card> listdeck){
-        cardOnDeck = listdeck;
+    private ArrayList<Card> cardOnDeck;
+    public Deck(ArrayList<Card> listdeck){
+        this.cardOnDeck = listdeck;
     }
 
-    public List<Card> getCardOnDeck() {
-        return cardOnDeck;
+    public ArrayList<Card> getCardOnDeck() {
+        return this.cardOnDeck;
     }
 }

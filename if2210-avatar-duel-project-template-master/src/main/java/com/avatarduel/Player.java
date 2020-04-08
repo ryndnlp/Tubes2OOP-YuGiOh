@@ -40,11 +40,11 @@ class Player {
         return power;
     }
 
-    public List<Card> getDeck(){
+    public ArrayList<Card> getDeck(){
         return deck.getCardOnDeck();
     }
 
-    public List<Card> getHand(){
+    public ArrayList<Card> getHand(){
         return hand.getCardOnHand();
     }
 
