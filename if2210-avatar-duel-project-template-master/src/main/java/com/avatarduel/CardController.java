@@ -59,7 +59,7 @@ public class CardController {
             charc.setId(Integer.parseInt(row[0]));
             charc.setName(row[1]);
             charc.setImagepath(row[4]);
-//            charc.setPower(Integer.parseInt(row[7]));//inohdauif
+//            charc.setPower(Integer.parseInt(row[7]));
 //            charc.setAttack(Integer.parseInt(row[5]));
 //            charc.setDefense(Integer.parseInt(row[6]));
             this.listCharCard.add(charc);

@@ -1,5 +1,9 @@
 package com.avatarduel;
 
+import  com.avatarduel.Deck;
+import  com.avatarduel.Hand;
+import com.avatarduel.Field;
+
 import java.util.List;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -11,16 +15,16 @@ class Player {
     private String name;
     private int health;
     private int power;
-    private List<Card> deck;
-    private List<Card> hand;
-    private Map<Integer,String> field;
+    private Deck deck;
+    private Hand hand;
+    private Field field;
 
-    public Player (String name){
+    public Player (String name, Deck listdeck, Hand listhand){
         this.name = name;
         health = 80;
-        deck = new ArrayList<Card>();
-        hand = new ArrayList<Card>();
-        field = new HashMap<Integer,String>();
+        deck = listdeck;
+        hand = listhand;
+        field = new Field();
         power = 0;
     }
 
@@ -37,14 +41,14 @@ class Player {
     }
 
     public List<Card> getDeck(){
-        return deck;
+        return deck.getCardOnDeck();
     }
 
     public List<Card> getHand(){
-        return hand;
+        return hand.getCardOnHand();
     }
 
     public Map<Integer,String> getField(){
-        return field;
+        return field.getCardOnField();
     }
 }
