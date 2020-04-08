@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="440.0" prefWidth="175.0" style="-fx-border-color: black; -fx-background-color: white;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <AnchorPane prefHeight="220.0" prefWidth="175.0">
+         <children>
+            <AnchorPane prefHeight="31.0" prefWidth="175.0">
+               <children>
+                  <Label layoutY="9.0" prefHeight="17.0" prefWidth="58.0" text="Nama" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+               </children>
+            </AnchorPane>
+            <Label layoutX="23.0" layoutY="31.0" prefHeight="95.0" prefWidth="175.0" text="Gambar" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="30.0" />
+            <Label layoutX="8.0" layoutY="124.0" prefHeight="95.0" prefWidth="175.0" text="Desc" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutY="229.0" prefHeight="220.0" prefWidth="175.0" AnchorPane.bottomAnchor="0.0">
+         <children>
+            <Label prefHeight="220.0" prefWidth="175.0" text="Detail" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

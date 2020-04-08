@@ -4,9 +4,9 @@ class LandCard extends Card{
         super();
     }
 
-    // public LandCard(int id, String name, String element, String description, String imagepath){
-    //     super(id, name, element, description, imagepath);
-    // }
+//     public LandCard(int id, String name, String element, String description, String imagepath){
+//         super(id, name, element, description, imagepath);
+//     }
 
     public void cekKartu(){
         System.out.println("Land card");

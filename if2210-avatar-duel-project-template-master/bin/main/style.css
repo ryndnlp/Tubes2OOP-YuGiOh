@@ -1,0 +1,16 @@
+.arena{
+    -fx-background-image: url("bg.jpg");
+    -fx-background-repeat: stretch;   
+    -fx-background-position: center center;
+}
+
+.activecard, .unactivecard{
+    -fx-background-color: #f2f2f2;
+}
+
+.unactivecard:hover{
+    -fx-border-color: yellow;
+    -fx-border-radius: 1px;
+    -fx-translate-y:-10px;
+    -fx-cursor: hand;
+}

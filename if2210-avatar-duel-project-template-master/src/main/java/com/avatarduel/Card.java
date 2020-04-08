@@ -12,13 +12,13 @@ abstract class Card{
 
     }
 
-    // public Card(int id, String name, String element, String description, String imagepath){
-    //     this.id = id;
-    //     this.name = name;
-    //     this.element = element;
-    //     this.description = description;
-    //     this.imagepath = imagepath;
-    // }
+//     public Card(int id, String name, String element, String description, String imagepath){
+//         this.id = id;
+//         this.name = name;
+//         this.element = element;
+//         this.description = description;
+//         this.imagepath = imagepath;
+//     }
 
 
     public int getId(){
