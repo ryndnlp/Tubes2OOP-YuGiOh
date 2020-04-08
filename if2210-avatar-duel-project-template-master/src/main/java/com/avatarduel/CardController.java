@@ -112,4 +112,18 @@ public class CardController {
             this.deckCard.remove(idx);
         }
     }
+
+    public List<Card> getCharacterCard(){
+        return listCharCard;
+    }
+
+    public List<Card> getSkillCard(){
+        return listSkillCard;
+    }
+
+    public List<Card> getLandCard(){
+        return listLandCard;
+    }
+
+
 }
