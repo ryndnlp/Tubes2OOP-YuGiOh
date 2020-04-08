@@ -11,7 +11,7 @@
       <AnchorPane layoutX="-2.0" layoutY="55.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="175.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <fx:include fx:id="active" layoutY="5" source="Player.fxml" />
-            <fx:include layoutY="105" source="DetailCard.fxml" />
+            <fx:include fx:id="detail" layoutY="105" source="DetailCard.fxml" />
             <fx:include fx:id="nonactive" layoutY="545" source="Player.fxml" />
          </children></AnchorPane>
       <AnchorPane layoutX="465.0" layoutY="80.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="187.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -28,8 +28,8 @@
       </AnchorPane>
       <AnchorPane layoutX="194.0" layoutY="376.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="270.0" prefWidth="650.0" AnchorPane.leftAnchor="185.0" AnchorPane.rightAnchor="175.0" AnchorPane.topAnchor="340.0">
          <children>
-            <fx:include layoutY="10" source="Field.fxml" AnchorPane.topAnchor="10.0" />
-            <fx:include layoutY="180" source="Hand.fxml" AnchorPane.topAnchor="180.0" />
+            <fx:include fx:id="field" layoutY="10" source="Field.fxml" AnchorPane.topAnchor="10.0" />
+            <fx:include fx:id="hand" layoutY="180" source="Hand.fxml" AnchorPane.topAnchor="180.0" />
          </children>
       </AnchorPane>
       <Label alignment="CENTER" layoutX="173.0" prefHeight="17.0" prefWidth="85.0" text="Ini buat phase" AnchorPane.bottomAnchor="285.0" AnchorPane.leftAnchor="175.0" AnchorPane.rightAnchor="190.0" AnchorPane.topAnchor="285.0">

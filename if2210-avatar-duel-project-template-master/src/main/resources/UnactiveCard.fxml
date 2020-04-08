@@ -6,33 +6,39 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="card" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseEntered="#mouseEntered" prefHeight="120.0" prefWidth="64.0" styleClass="unactivecard" stylesheets="@style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.avatarduel.CardController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseEntered="#mouseEntered" prefHeight="120.0" prefWidth="64.0" styleClass="unactivecard" stylesheets="@style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.avatarduel.CardController">
     <children>
         <AnchorPane layoutX="2.0" layoutY="2.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="17.0" prefWidth="46.0" style="-fx-border-color: black;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
-                <Label fx:id="nameLabel" onAction="#handleWindowEvent" layoutX="1.0" layoutY="-1.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="17.0" prefWidth="27.0" text="Aang" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                <Label fx:id="name" layoutX="1.0" layoutY="-1.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="17.0" prefWidth="27.0" text="Aang" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <font>
                         <Font name="Segoe UI Semilight" size="8.0" />
                     </font>
                 </Label>
-                <Label fx:id="elemLabel" layoutX="28.0" layoutY="-1.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="18.0" prefWidth="13.0" text="O" AnchorPane.rightAnchor="0.0">
-                    <font>
-                        <Font size="7.0" />
-                    </font>
-                </Label>
+            <ImageView fx:id="element" fitHeight="15.0" fitWidth="18.0" layoutX="41.0" layoutY="1.0" onMouseEntered="#mouseEntered" pickOnBounds="true" preserveRatio="true" styleClass="image" />
             </children>
         </AnchorPane>
-        <Label fx:id="status" layoutX="2.0" layoutY="72.0" prefHeight="12.0" prefWidth="46.0" text="Desc" AnchorPane.leftAnchor="0.0">
+        <Label fx:id="desc" layoutX="3.0" layoutY="71.0" prefHeight="12.0" prefWidth="46.0" text="Desc" AnchorPane.leftAnchor="0.0">
             <font>
                 <Font size="5.0" />
             </font>
         </Label>
-        <Label layoutX="2.0" layoutY="87.0" prefHeight="12.0" prefWidth="46.0" text="Status" AnchorPane.leftAnchor="0.0">
+        <Label fx:id="attack" layoutX="6.0" layoutY="87.0" prefHeight="9.0" prefWidth="14.0" text="Att:" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0">
             <font>
                 <Font size="5.0" />
             </font>
         </Label>
-      <ImageView fx:id="gambar" fitHeight="49.0" fitWidth="60.0" layoutX="2.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true" styleClass="image" />
+      <Label fx:id="def" layoutX="21.0" layoutY="86.0" prefHeight="9.0" prefWidth="15.0" text="Def:" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="21.0">
+         <font>
+            <Font size="5.0" />
+         </font>
+      </Label>
+      <Label fx:id="power" layoutX="42.0" layoutY="86.0" prefHeight="9.0" prefWidth="15.0" text="Pow:" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="2.0">
+         <font>
+            <Font size="5.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="gambar" fitHeight="48.0" fitWidth="61.0" layoutX="2.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
     </children>
     <padding>
         <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
