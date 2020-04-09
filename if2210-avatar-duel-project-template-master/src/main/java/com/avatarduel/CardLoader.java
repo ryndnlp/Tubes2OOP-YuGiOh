@@ -39,7 +39,7 @@ public class CardLoader {
             CardFactory cardFactory = new CardFactory();
             Card landc = cardFactory.getCard("LandCard");
             landc.setDescription(row[3]);
-            landc.setElement(row[2]);
+            //landc.setElement(row[2]);
             landc.setId(Integer.parseInt(row[0]));
             landc.setName(row[1]);
             landc.setImagepath(row[4]);
@@ -57,7 +57,7 @@ public class CardLoader {
             CardFactory cardFactory = new CardFactory();
             CharacterCard charc = (CharacterCard)cardFactory.getCard("CharacterCard");
             charc.setDescription(row[3]);
-            charc.setElement(row[2]);
+            //charc.setElement(row[2]);
             charc.setId(Integer.parseInt(row[0]));
             charc.setName(row[1]);
             charc.setImagepath(row[4]);
@@ -78,7 +78,7 @@ public class CardLoader {
             CardFactory cardFactory = new CardFactory();
             SkillCard skillc = (SkillCard)cardFactory.getCard("SkillCard");
             skillc.setDescription(row[3]);
-            skillc.setElement(row[2]);
+            //skillc.setElement(row[2]);
             skillc.setId(Integer.parseInt(row[0]));
             skillc.setName(row[1]);
             skillc.setImagepath(row[4]);

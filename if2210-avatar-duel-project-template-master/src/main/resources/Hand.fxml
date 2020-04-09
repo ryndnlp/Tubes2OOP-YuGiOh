@@ -2,7 +2,7 @@
 
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="130.0" prefWidth="685.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane onMouseEntered="#mouseEntered" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="130.0" prefWidth="685.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.avatarduel.HandController">
    <children>
        <fx:include fx:id="hc1" layoutX="5" layoutY="5" source="UnactiveCard.fxml" />
        <fx:include fx:id="hc2" layoutX="90" layoutY="5" source="UnactiveCard.fxml" />

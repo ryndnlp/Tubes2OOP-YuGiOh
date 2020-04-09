@@ -6,7 +6,9 @@ public class BattlePhase extends Phase {
         this.isEndphase = false;
     }
     //methods
-    public void attack()
+    public void attack(){
+        
+    }
 
      //implement abstract method
      public Phase nextPhase() {

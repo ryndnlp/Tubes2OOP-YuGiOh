@@ -4,36 +4,32 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class ArenaController  {
-    @FXML
-    private CardController cc;
+    @FXML private DetailCardController detailCardController;
 
-    @FXML
-    private DetailCardController dc;
-
-    @FXML
-    private Label desc;
+    @FXML private HandController handController;
 
     @FXML
     private ImageView gambar;
 
-    @FXML
-    private Label detail;
+    //private  detailcard;
 
-    @FXML public void initialize() {
-        cc.init(this);
-        dc.init(this);
+    public void initialize() {
+        handController.init(this);
+        detailCardController.init(this);
     }
 
     public void setCard(){
-        dc.setName("Ryan");
-        dc.setAttack("10");
-        dc.setDef("15");
-        dc.setPower("3");
+        detailCardController.setName("Ryan");
+        detailCardController.setAttack("10");
+        detailCardController.setDef("15");
+        detailCardController.setPower("3");
+        detailCardController.setDetail("sad");
     }
-
+    
 }

@@ -36,20 +36,21 @@ public class DetailCardController {
         this.ac = ac;
     }
 
-    public String getDesc(){
-        return desc.getText();
-    }
 
     public void setName(String name){
         this.name.setText(name);
     }
     public void setAttack(String Attack){
-        this.attack.setText("Att: " + attack);
+        this.attack.setText("Att: " + Attack);
     }
     public void setDef(String Def){
-        this.defense.setText("Def: " + defense);
+        this.defense.setText("Def: " + Def);
     }
     public void setPower(String power){
         this.power.setText("Pow: " + power);
     }
+    public void setDetail(String detail){
+        this.detail.setText("detail");
+    }
+
 }
