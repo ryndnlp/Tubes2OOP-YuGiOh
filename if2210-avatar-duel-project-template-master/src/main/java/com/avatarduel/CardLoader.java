@@ -39,7 +39,7 @@ public class CardLoader {
             CardFactory cardFactory = new CardFactory();
             Card landc = cardFactory.getCard("LandCard");
             landc.setDescription(row[3]);
-            //landc.setElement(row[2]);
+            landc.setElement(row[2]);
             landc.setId(Integer.parseInt(row[0]));
             landc.setName(row[1]);
             landc.setImagepath(row[4]);
@@ -57,7 +57,7 @@ public class CardLoader {
             CardFactory cardFactory = new CardFactory();
             CharacterCard charc = (CharacterCard)cardFactory.getCard("CharacterCard");
             charc.setDescription(row[3]);
-            //charc.setElement(row[2]);
+            charc.setElement(row[2]);
             charc.setId(Integer.parseInt(row[0]));
             charc.setName(row[1]);
             charc.setImagepath(row[4]);
@@ -78,13 +78,13 @@ public class CardLoader {
             CardFactory cardFactory = new CardFactory();
             SkillCard skillc = (SkillCard)cardFactory.getCard("SkillCard");
             skillc.setDescription(row[3]);
-            //skillc.setElement(row[2]);
+            skillc.setElement(row[2]);
             skillc.setId(Integer.parseInt(row[0]));
             skillc.setName(row[1]);
             skillc.setImagepath(row[4]);
-            //skillc.setPower(Integer.parseInt(row[5]));
-            //skillc.setAttack(Integer.parseInt(row[6]));
-            //skillc.setDefense(Integer.parseInt(row[7]));
+            skillc.setPower(Integer.parseInt(row[5]));
+            skillc.setAttack(Integer.parseInt(row[6]));
+            skillc.setDefense(Integer.parseInt(row[7]));
             this.listSkillCard.add(skillc);
             //Land l = new Land(row[1], row[3], Element.valueOf(row[2]));
         }
@@ -126,4 +126,8 @@ public class CardLoader {
     public List<Card> getLandCard(){
         return listLandCard;
     }
+
+    public List<Card> getDeckCard() { return deckCard;}
+
+    public List<Card> getHandCard() { return handCard;}
 }
