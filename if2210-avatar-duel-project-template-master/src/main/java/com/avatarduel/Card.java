@@ -8,6 +8,7 @@ abstract class Card{
     protected Element element;
     protected String description;
     protected String imagepath;
+    protected Character type; //C(Character),L(Land),S(Skill)
 
     public Card(){
 
@@ -60,6 +61,10 @@ abstract class Card{
 
     public void setImagepath(String imagepath){
         this.imagepath = imagepath;
+    }
+
+    public Character getType() {
+        return this.type;
     }
 
     public void cekKartu(){

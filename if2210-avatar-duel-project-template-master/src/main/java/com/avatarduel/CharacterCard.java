@@ -39,8 +39,20 @@ class CharacterCard extends Card{
         this.attack = attack;
     }
 
+    public boolean getPosition() {
+        return this.position;
+    }
+
     public void setDefense(int defense){
         this.defense = defense;
+    }
+
+    public int getPoint() {
+        if(this.position) {
+            return this.attack;
+        } else {
+            return this.defense;
+        }
     }
 
     public void cekKartu(){

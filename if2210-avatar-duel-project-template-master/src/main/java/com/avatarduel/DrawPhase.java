@@ -30,7 +30,7 @@ public class DrawPhase extends Phase{
 
     //implement abstract method
     public Phase nextPhase() {
-        Phase nextPhase = new MainPhase(this.P1,this.P2,this.turn,"M1"); //create new phase
+        Phase nextPhase = new MainPhase(this.P1,this.P2,this.turn); //create new phase
         return nextPhase;
     }
     public Phase run() {

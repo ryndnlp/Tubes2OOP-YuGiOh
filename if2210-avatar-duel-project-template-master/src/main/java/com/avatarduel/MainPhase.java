@@ -5,9 +5,19 @@ import java.util.*;
 import com.avatarduel.model.Element;
 public class MainPhase extends Phase {
     //constructor
-    public MainPhase(Player P1, Player P2, boolean turn,String type) {
-        super(P1,P2,turn,type);
+    public ArrayList<Tuple<Integer,Integer>> alreadyAttack;
+    public boolean isLandCardUsed;
+    public MainPhase(Player P1, Player P2, boolean turn) {
+        super(P1,P2,turn,"M1");
         this.isEndphase = false;
+        this.isLandCardUsed = false;
+        this.alreadyAttack = new ArrayList<Tuple<Integer,Integer>>();
+    }
+    public MainPhase(Player P1, Player P2, boolean turn,ArrayList<Tuple<Integer,Integer>> alreadyAttack, boolean isLandCardUsed ) {
+        super(P1,P2,turn,"M2");
+        this.isEndphase = false;
+        this.isLandCardUsed = isLandCardUsed;
+        this.alreadyAttack = alreadyAttack;
     }
     //methods
 
@@ -75,6 +85,12 @@ public class MainPhase extends Phase {
     public void placeCard(LandCard card) {
         Player p = this.seekTurn();
         HashMap<Element,Tuple<Integer,Integer>> power = p.getPower();
+
+        //errr
+        if(this.isLandCardUsed) {
+            //throw error cuz land card already used
+        }
+        
         if(card.element.equals(Element.WATER)) {
             power.put(Element.WATER, new Tuple<Integer,Integer>(power.get(Element.WATER).getFirst()+1,power.get(Element.WATER).getSecond()+1));
         }
@@ -101,7 +117,15 @@ public class MainPhase extends Phase {
                 //TODO:
                 //throw error here cuz selected card may not character card
             } else {
-                // CharacterCard C = p.getField().get(location).changePosition(); //gabisa karena musti pake adapter kali wkwk wmager masihan
+                if(!this.alreadyAttack.contains(location)) {
+                    if(p.getField().get(location).getType().equals('C')) {
+                        CharacterCard c = (CharacterCard)p.getField().get(location); //gabisa karena musti pake adapter kali wkwk wmager masihan
+                        c.changePosition();
+                        p.getField().put(location, c);
+                    } else {
+                        //throw error cuz not character card
+                    }
+                } //else can't change cuz already attack
             }
         } else {
             //TODO:
@@ -112,8 +136,8 @@ public class MainPhase extends Phase {
     //implement abstract method
     public Phase nextPhase() {
         if(this.type.equals("M1")) {
-            Phase nextPhase = new BattlePhase(this.P1,this.P2,this.turn); //create new phase
-            return nextPhase;       
+            Phase nextPhase = new BattlePhase(this.P1,this.P2,this.turn,this.alreadyAttack,this.isLandCardUsed); //create new phase
+            return nextPhase;
         } else {
             Phase nextPhase = new EndPhase(this.P1, this.P2, this.turn); 
             return nextPhase;
