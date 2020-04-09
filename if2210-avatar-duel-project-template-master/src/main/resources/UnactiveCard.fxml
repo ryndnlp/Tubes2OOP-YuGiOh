@@ -16,7 +16,7 @@
                         <Font name="Segoe UI Semilight" size="8.0" />
                     </font>
                 </Label>
-            <ImageView fx:id="element" fitHeight="15.0" fitWidth="18.0" layoutX="41.0" layoutY="1.0" onMouseEntered="#mouseEntered" pickOnBounds="true" preserveRatio="true" styleClass="image" />
+            <ImageView fx:id="element" fitHeight="15.0" fitWidth="18.0" layoutX="41.0" layoutY="1.0"  pickOnBounds="true" preserveRatio="true" styleClass="image" />
             </children>
         </AnchorPane>
         <Label fx:id="desc" layoutX="3.0" layoutY="71.0" prefHeight="12.0" prefWidth="46.0" text="Desc" AnchorPane.leftAnchor="0.0">
