@@ -5,8 +5,6 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 
 public class HandController {
-    @FXML private ArenaController ac;
-
     @FXML private CardController hc1Controller;
     @FXML private CardController hc2Controller;
     @FXML private CardController hc3Controller;
@@ -16,11 +14,16 @@ public class HandController {
     @FXML private CardController hc7Controller;
     @FXML private CardController hc8Controller;
 
+    private ArenaController ac;
+
     public void mouseEntered(MouseEvent event) {
         ac.renderCard();
     }
     public void mouseExited(MouseEvent event){
         ac.resetCard();
+    }
+    public void mouseClicked(MouseEvent event){
+        System.out.println("test");
     }
     public void init(ArenaController ac) {
         this.ac = ac;

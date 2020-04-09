@@ -6,36 +6,20 @@ import javafx.scene.image.ImageView;
 
 public class DetailCardController {
 
-    @FXML
-    private Label name;
-
-    @FXML
-    private ImageView element;
-
-    @FXML
-    private Label desc;
-
-    @FXML
-    private ImageView gambar;
-
-    @FXML
-    private Label detail;
-
-    @FXML
-    private Label attack;
-
-    @FXML
-    private Label defense;
-
-    @FXML
-    private Label power;
+    @FXML private Label name;
+    @FXML private ImageView element;
+    @FXML private Label desc;
+    @FXML private ImageView gambar;
+    @FXML private Label detail;
+    @FXML private Label attack;
+    @FXML private Label defense;
+    @FXML private Label power;
 
     private ArenaController ac;
 
     public void init(ArenaController ac) {
         this.ac = ac;
     }
-
     public void renderName(String name){
         this.name.setText(name);
     }
