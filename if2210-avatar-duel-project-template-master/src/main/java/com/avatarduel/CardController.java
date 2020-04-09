@@ -6,40 +6,50 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
 
-import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class CardController implements Initializable {
-
-    //@FXML
-    //private AnchorPane card;
+public class CardController {
 
     @FXML
-    private Label nameLabel;
+    private Label name;
 
     @FXML
-    private Label elemLabel;
+    private ImageView gambar;
 
     @FXML
-    private Label status;
+    private ImageView element;
 
     @FXML
-    public ImageView gambar;
+    private Label desc;
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        Image image = new Image("com/avatarduel/card/image/character/Aang.png", 60, 49, false, false);
-        gambar.setImage(image);
+    @FXML
+    private Label attack;
 
+    @FXML
+    private Label def;
+
+    @FXML
+    private Label power;
+
+//    @Override
+//    public void initialize(URL location, ResourceBundle resources) {
+//        Image image = new Image("com/avatarduel/card/image/character/Aang.png", 60, 49, false, false);
+//        gambar.setImage(image);
+//        image = new Image("com/avatarduel/card/image/element/Air.png");
+//        element.setImage(image);
+//    }
+
+
+
+    @FXML
+    public void mouseEntered(MouseEvent event) {
+//        ac.setCard();
+//        System.out.println("Masuk");
     }
 
-    @FXML
-    void mouseEntered(MouseEvent event) {
-        nameLabel.setText("Lah");
-    }
 
 
 }
+
