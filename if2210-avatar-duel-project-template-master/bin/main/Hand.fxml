@@ -2,15 +2,15 @@
 
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="130.0" prefWidth="685.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane onMouseEntered="#mouseEntered" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="130.0" prefWidth="685.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.avatarduel.HandController">
    <children>
-       <fx:include layoutX="5" layoutY="5" source="UnactiveCard.fxml" />
-       <fx:include layoutX="90" layoutY="5" source="UnactiveCard.fxml" />
-       <fx:include layoutX="175" layoutY="5" source="UnactiveCard.fxml" />
-       <fx:include layoutX="260" layoutY="5" source="UnactiveCard.fxml" />
-       <fx:include layoutX="345" layoutY="5" source="UnactiveCard.fxml" />
-       <fx:include layoutX="430" layoutY="5" source="UnactiveCard.fxml" />
-       <fx:include layoutX="515" layoutY="5" source="UnactiveCard.fxml" />
-       <fx:include layoutX="600" layoutY="5" source="UnactiveCard.fxml" />
+       <fx:include fx:id="hc1" layoutX="5" layoutY="5" source="UnactiveCard.fxml" />
+       <fx:include fx:id="hc2" layoutX="90" layoutY="5" source="UnactiveCard.fxml" />
+       <fx:include fx:id="hc3" layoutX="175" layoutY="5" source="UnactiveCard.fxml" />
+       <fx:include fx:id="hc4" layoutX="260" layoutY="5" source="UnactiveCard.fxml" />
+       <fx:include fx:id="hc5" layoutX="345" layoutY="5" source="UnactiveCard.fxml" />
+       <fx:include fx:id="hc6" layoutX="430" layoutY="5" source="UnactiveCard.fxml" />
+       <fx:include fx:id="hc7" layoutX="515" layoutY="5" source="UnactiveCard.fxml" />
+       <fx:include fx:id="hc8" layoutX="600" layoutY="5" source="UnactiveCard.fxml" />
    </children>
 </AnchorPane>

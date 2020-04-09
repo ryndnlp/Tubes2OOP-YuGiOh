@@ -58,4 +58,8 @@ class Player {
     public HashMap<Tuple<Integer,Integer>, Card> getField(){
         return field.getCardOnField();
     }
+
+    public void setHealth(int health) {
+        this.health = health;
+    }
 }
