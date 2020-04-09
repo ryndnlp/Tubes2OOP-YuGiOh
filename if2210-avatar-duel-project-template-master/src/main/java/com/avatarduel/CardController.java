@@ -10,7 +10,7 @@ import javafx.scene.input.MouseEvent;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class CardController {
+public class CardController implements Initializable{
 
     @FXML
     private Label name;
@@ -33,21 +33,16 @@ public class CardController {
     @FXML
     private Label power;
 
-//    @Override
-//    public void initialize(URL location, ResourceBundle resources) {
-//        Image image = new Image("com/avatarduel/card/image/character/Aang.png", 60, 49, false, false);
-//        gambar.setImage(image);
-//        image = new Image("com/avatarduel/card/image/element/Air.png");
-//        element.setImage(image);
-//    }
+    private ArenaController ac;
 
-
-
-    @FXML
-    public void mouseEntered(MouseEvent event) {
-//        ac.setCard();
-//        System.out.println("Masuk");
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        Image image = new Image("com/avatarduel/card/image/character/Aang.png", 60, 49, false, false);
+        gambar.setImage(image);
+        image = new Image("com/avatarduel/card/image/element/Air.png");
+        element.setImage(image);
     }
+
 
 
 

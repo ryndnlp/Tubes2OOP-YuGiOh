@@ -24,12 +24,20 @@ public class ArenaController  {
         detailCardController.init(this);
     }
 
-    public void setCard(){
-        detailCardController.setName("Ryan");
-        detailCardController.setAttack("10");
-        detailCardController.setDef("15");
-        detailCardController.setPower("3");
-        detailCardController.setDetail("sad");
+    public void renderCard(){
+        detailCardController.renderName("Ryan");
+        detailCardController.renderAttack("10");
+        detailCardController.renderDef("15");
+        detailCardController.renderPower("3");
+        detailCardController.renderDetail("sad");
     }
-    
+
+    public void resetCard(){
+        detailCardController.renderName("Default");
+        detailCardController.renderAttack("");
+        detailCardController.renderDef("");
+        detailCardController.renderPower("");
+        detailCardController.renderDetail("Default");
+    }
+
 }
