@@ -1,5 +1,7 @@
 package com.avatarduel;
 
+import com.avatarduel.card.*;
+import com.avatarduel.hand.*;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;

@@ -1,4 +1,4 @@
-package com.avatarduel.card;
+package com.avatarduel;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;

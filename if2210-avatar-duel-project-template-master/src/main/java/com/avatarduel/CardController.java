@@ -1,7 +1,6 @@
-package com.avatarduel.card;
-import com.avatarduel.*;
+package com.avatarduel;
 
-
+import com.avatarduel.card.*;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
