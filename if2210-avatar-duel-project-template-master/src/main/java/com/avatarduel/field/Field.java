@@ -1,6 +1,7 @@
-package com.avatarduel;
+package com.avatarduel.field;
 
-import com.avatarduel.Card;
+import com.avatarduel.card.*;
+import com.avatarduel.util.*;
 
 import java.util.*;
 

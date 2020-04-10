@@ -1,11 +1,5 @@
-package com.avatarduel;
+package com.avatarduel.card;
 
-import com.avatarduel.AvatarDuel;
-import com.avatarduel.CardFactory;
-import com.avatarduel.Card;
-import com.avatarduel.CharacterCard;
-import com.avatarduel.LandCard;
-import com.avatarduel.SkillCard;
 import com.avatarduel.util.CSVReader;
 
 import java.io.File;

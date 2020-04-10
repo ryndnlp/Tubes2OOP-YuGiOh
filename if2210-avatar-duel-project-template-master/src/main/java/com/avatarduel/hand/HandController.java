@@ -1,4 +1,4 @@
-package com.avatarduel;
+package com.avatarduel.hand;
 
 import javafx.fxml.FXML;
 import javafx.scene.input.MouseEvent;

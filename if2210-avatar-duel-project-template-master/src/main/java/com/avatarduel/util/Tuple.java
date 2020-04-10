@@ -1,8 +1,4 @@
-package com.avatarduel;
-
-import com.avatarduel.Card;
-
-import java.util.*;
+package com.avatarduel.util;
 
 public class Tuple<V,W>{
     private V first;

@@ -1,19 +1,14 @@
-package com.avatarduel;
+package com.avatarduel.player;
 
-import  com.avatarduel.Deck;
-import  com.avatarduel.Hand;
-import com.avatarduel.model.Element;
-import com.avatarduel.Field;
+import com.avatarduel.model.*;
+import com.avatarduel.util.*;
+import com.avatarduel.deck.*;
+import com.avatarduel.hand.*;
+import com.avatarduel.card.*;
+import com.avatarduel.field.*;
+import java.util.*;
 
-import java.util.List;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Queue;
-
-import javax.print.DocFlavor.STRING;
-
-class Player {
+public class Player {
     private String name;
     private int health;
     private HashMap<Element,Tuple<Integer,Integer>> power; //key = Element, tuple<val,limit>

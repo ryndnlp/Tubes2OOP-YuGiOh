@@ -1,6 +1,6 @@
-package com.avatarduel;
+package com.avatarduel.deck;
 
-import com.avatarduel.Card;
+import com.avatarduel.card.*;
 
 import java.util.Queue;
 

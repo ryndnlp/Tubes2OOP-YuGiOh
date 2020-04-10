@@ -1,5 +1,6 @@
-package com.avatarduel;
-import java.util.*;
+package com.avatarduel.phase;
+
+import com.avatarduel.player.*;
 
 public abstract class Phase {
     protected boolean isEndphase;

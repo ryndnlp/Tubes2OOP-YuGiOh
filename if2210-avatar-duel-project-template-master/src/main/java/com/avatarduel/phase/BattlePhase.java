@@ -1,5 +1,8 @@
-package com.avatarduel;
+package com.avatarduel.phase;
 
+import com.avatarduel.util.*;
+import com.avatarduel.player.*;
+import com.avatarduel.card.*;
 import java.util.*;
 
 public class BattlePhase extends Phase {

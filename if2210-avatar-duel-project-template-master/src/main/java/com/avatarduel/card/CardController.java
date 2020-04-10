@@ -1,4 +1,6 @@
-package com.avatarduel;
+package com.avatarduel.card;
+import com.avatarduel.*;
+
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;

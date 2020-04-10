@@ -1,8 +1,11 @@
-package com.avatarduel;
+package com.avatarduel.phase;
+
+import com.avatarduel.player.*;
+import com.avatarduel.card.*;
+import com.avatarduel.util.*;
+import com.avatarduel.model.*;
 
 import java.util.*;
-
-import com.avatarduel.model.Element;
 
 public class DrawPhase extends Phase{
     //constructor

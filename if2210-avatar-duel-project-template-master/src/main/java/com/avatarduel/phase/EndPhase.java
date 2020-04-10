@@ -1,4 +1,6 @@
-package com.avatarduel;
+package com.avatarduel.phase;
+
+import com.avatarduel.player.*;
 
 public class EndPhase extends Phase{
     //constructor

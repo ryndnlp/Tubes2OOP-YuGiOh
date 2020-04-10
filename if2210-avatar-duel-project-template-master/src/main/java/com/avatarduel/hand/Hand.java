@@ -1,6 +1,6 @@
-package com.avatarduel;
+package com.avatarduel.hand;
 
-import com.avatarduel.Card;
+import com.avatarduel.card.*;
 
 import java.util.ArrayList;
 

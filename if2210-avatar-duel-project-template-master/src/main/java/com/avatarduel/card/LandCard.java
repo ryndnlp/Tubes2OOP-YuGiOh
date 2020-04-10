@@ -1,6 +1,6 @@
-package com.avatarduel;
+package com.avatarduel.card;
 
-class LandCard extends Card{
+public class LandCard extends Card{
 
     public LandCard(){
         super();

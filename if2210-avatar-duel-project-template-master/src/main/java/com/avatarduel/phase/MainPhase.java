@@ -1,8 +1,13 @@
-package com.avatarduel;
+package com.avatarduel.phase;
+
+import com.avatarduel.util.*;
+import com.avatarduel.player.*;
+import com.avatarduel.card.*;
+import com.avatarduel.model.*;
+
 
 import java.util.*;
 
-import com.avatarduel.model.Element;
 public class MainPhase extends Phase {
     //constructor
     public ArrayList<Tuple<Integer,Integer>> alreadyAttack;
@@ -90,19 +95,19 @@ public class MainPhase extends Phase {
         if(this.isLandCardUsed) {
             //throw error cuz land card already used
         }
-        
-        if(card.element.equals(Element.WATER)) {
+        if(card.getElement().equals(Element.WATER)) {
             power.put(Element.WATER, new Tuple<Integer,Integer>(power.get(Element.WATER).getFirst()+1,power.get(Element.WATER).getSecond()+1));
         }
-        else if(card.element.equals(Element.FIRE)) {
+        else if(card.getElement().equals(Element.FIRE)) {
             power.put(Element.FIRE, new Tuple<Integer,Integer>(power.get(Element.FIRE).getFirst()+1,power.get(Element.FIRE).getSecond()+1));
         }
-        else if(card.element.equals(Element.AIR)) {
+        else if(card.getElement().equals(Element.AIR)) {
             power.put(Element.AIR, new Tuple<Integer,Integer>(power.get(Element.AIR).getFirst()+1,power.get(Element.AIR).getSecond()+1));
         }
-        else if(card.element.equals(Element.EARTH)) {
+        else if(card.getElement().equals(Element.EARTH)) {
             power.put(Element.EARTH, new Tuple<Integer,Integer>(power.get(Element.EARTH).getFirst()+1,power.get(Element.EARTH).getSecond()+1));
         }
+        this.isLandCardUsed = true;
     }
     public void drop(Card card) {
         Player p = this.seekTurn();
