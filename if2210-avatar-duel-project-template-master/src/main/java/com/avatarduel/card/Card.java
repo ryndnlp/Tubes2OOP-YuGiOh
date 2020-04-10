@@ -51,8 +51,16 @@ public abstract class Card{
         this.name = name;
     }
 
-    public void setElement(Element element){
-        this.element = element;
+    public void setElement(String element){
+        if(element == "WATER"){
+            this.element = Element.WATER;
+        }else if(element == "AIR"){
+            this.element = Element.AIR;
+        }else if(element == "FIRE"){
+            this.element = Element.FIRE;
+        }else{
+            this.element = Element.EARTH;
+        }
     }
 
     public void setDescription(String description){

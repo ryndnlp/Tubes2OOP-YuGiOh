@@ -7,6 +7,16 @@
 # BlueJ files
 *.ctxt
 
+# Bin Folder
+bin/*
+
+# Gradlew
+.gradle
+.settings
+
+#Classpath
+.classpath
+
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
 
