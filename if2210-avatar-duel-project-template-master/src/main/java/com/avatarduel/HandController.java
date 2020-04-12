@@ -23,7 +23,7 @@ public class HandController {
         ac.resetCard();
     }
     public void mouseClicked(MouseEvent event){
-        System.out.println("test");
+        //Add Summon Button
     }
     public void init(ArenaController ac) {
         this.ac = ac;

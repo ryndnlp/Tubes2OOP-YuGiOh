@@ -4,6 +4,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 
+import java.net.URL;
+
 public class DetailCardController {
 
     @FXML private Label name;
@@ -35,5 +37,6 @@ public class DetailCardController {
     public void renderDetail(String detail){
         this.detail.setText("detail");
     }
+   // public void renderImage(){}
 
 }
