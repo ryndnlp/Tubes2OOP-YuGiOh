@@ -5,14 +5,14 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="440.0" prefWidth="175.0" style="-fx-border-color: black; -fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.avatarduel.DetailCardController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="440.0" prefWidth="175.0" style="-fx-border-color: black; -fx-background-color: white;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.avatarduel.DetailCardController">
    <children>
       <AnchorPane prefHeight="220.0" prefWidth="175.0">
          <children>
             <AnchorPane prefHeight="31.0" prefWidth="175.0">
                <children>
                   <Label fx:id="name" layoutY="9.0" prefHeight="17.0" prefWidth="58.0" text="Nama" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="4.0" AnchorPane.topAnchor="0.0" />
-                  <ImageView fitHeight="47.0" fitWidth="58.0" layoutX="117.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="element" fitHeight="47.0" fitWidth="58.0" layoutX="117.0" pickOnBounds="true" preserveRatio="true" />
                </children>
             </AnchorPane>
             <Label fx:id="desc" layoutX="8.0" layoutY="124.0" prefHeight="95.0" prefWidth="175.0" text="Desc&#10;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="4.0" AnchorPane.rightAnchor="0.0" />

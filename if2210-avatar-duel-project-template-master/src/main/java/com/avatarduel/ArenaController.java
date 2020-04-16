@@ -2,9 +2,11 @@ package com.avatarduel;
 
 import com.avatarduel.card.*;
 import com.avatarduel.hand.*;
+import com.avatarduel.model.Element;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 
@@ -42,8 +44,7 @@ public class ArenaController  {
             System.out.println(e);
         }
         detailCardController.init(this);
-        //handController.init(this, handCard);
-//        handController.renderHand1("30","20","10","Ini kartu","Koizumi");
+
     }
     public void setDeckCard(List<Card> deck){
         System.out.println("Not yet");
@@ -58,18 +59,21 @@ public class ArenaController  {
         return deckCard;
     }
 
-    /*public void renderCard(){
-        detailCardController.renderName("Ryan");
-        detailCardController.renderAttack("10");
-        detailCardController.renderDef("15");
-        detailCardController.renderPower("3");
-        detailCardController.renderDetail("sad");
-    }*/
-
     public void renderCard(Card card){
         detailCardController.renderName(card.getName());
         detailCardController.renderDetail(card.getDescription());
         detailCardController.renderImage(card.getImagepath());
+
+        if(card.getElement()== Element.WATER){
+            detailCardController.renderElement("com/avatarduel/card/image/element/Water.jpeg");
+        }else if(card.getElement()==Element.AIR){
+            detailCardController.renderElement("com/avatarduel/card/image/element/Air.jpeg");
+        }else if(card.getElement()==Element.FIRE){
+            detailCardController.renderElement("com/avatarduel/card/image/element/Fire.jpeg");
+        }else {
+            detailCardController.renderElement("com/avatarduel/card/image/element/Earth.jpeg");
+        }
+
         if (card.getType()!='L'){
             detailCardController.renderAttack(Integer.toString(card.getAttack()));
             detailCardController.renderDef(Integer.toString(card.getDefense()));
@@ -85,6 +89,7 @@ public class ArenaController  {
         detailCardController.renderPower("");
         detailCardController.renderDetail("");
         detailCardController.renderImage("");
+        detailCardController.renderElement("");
     }
 
 }

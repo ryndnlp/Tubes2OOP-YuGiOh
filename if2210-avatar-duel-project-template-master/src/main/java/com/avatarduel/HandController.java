@@ -51,11 +51,4 @@ public class HandController {
 
         }
     }
-//    public void renderHand1(String att,String def,String power,String desc,String name){
-//        hc1Controller.renderAttack(att);
-//        hc1Controller.renderDef(def);
-//        hc1Controller.renderPower(power);
-//        hc1Controller.renderDesc(desc);
-//        hc1Controller.renderName((name));
-//    }
 }

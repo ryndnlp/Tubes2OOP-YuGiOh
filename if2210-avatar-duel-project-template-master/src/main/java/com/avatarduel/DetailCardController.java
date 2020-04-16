@@ -5,8 +5,6 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.image.Image;
 
-import java.net.URL;
-
 public class DetailCardController {
 
     @FXML private Label name;
@@ -43,11 +41,19 @@ public class DetailCardController {
     }
     public void renderImage(String path){
         if (path == ""){
-            gambar.setImage(null);
+            this.gambar.setImage(null);
+
         } else {
-            gambar.setImage(new Image(path, 60, 49, false, false));
+            this.gambar.setImage(new Image(path, 60, 49, false, false));
         }
     }
-   // public void renderImage(){}
+    public void renderElement(String path){
+        if (path == ""){
+            this.element.setImage(null);
+
+        } else {
+            this.element.setImage(new Image(path, 50, 50, false, false));
+        }
+    }
 
 }

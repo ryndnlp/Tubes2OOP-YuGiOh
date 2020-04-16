@@ -24,10 +24,7 @@ public class CardController {
     public void init(ArenaController ac,Card card) {
         this.ac = ac;
         this.card = card;
-//        Image image = new Image("com/avatarduel/card/image/character/Aang.png", 60, 49, false, false);
-//        gambar.setImage(image);
-//        image = new Image("com/avatarduel/card/image/element/air.png");
-//        element.setImage(image);
+
         setCard();
     }
 
@@ -54,21 +51,5 @@ public class CardController {
             this.power.setText("Power: " + String.valueOf(card.getPower()));
         }
     }
-//    public void renderName(String name){
-//        this.name.setText(name);
-//    }
-//    public void renderDesc(String desc) { this.desc.setText("Desc:\n" + desc);}
-//    public void renderAttack(String attack){
-//        this.attack.setText("Att: " + attack);
-//    }
-//    public void renderDef(String def){
-//        this.def.setText("Def: " + def);
-//    }
-//    public void renderPower(String power){
-//        this.power.setText("Pow: " + power);
-//    }
-//    public void renderGambar(String path){
-//
-//    }
 }
 
