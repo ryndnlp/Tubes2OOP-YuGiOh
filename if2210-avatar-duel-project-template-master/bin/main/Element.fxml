@@ -1,14 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="175.0" style="-fx-background-color: green;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="119.0" prefWidth="165.0" style="-fx-background-color: #1c162e;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label text="Api" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-      <Label layoutX="43.0" layoutY="14.0" text="Air" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0" />
-      <Label text="Tanah" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0" />
-      <Label text="Udara" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="75.0" />
+      <Label layoutX="49.0" layoutY="17.0" prefHeight="16.0" prefWidth="78.0" text="Api" textFill="#fffbfb" AnchorPane.leftAnchor="49.0" AnchorPane.rightAnchor="48.0" AnchorPane.topAnchor="17.0" />
+      <Label layoutX="49.0" layoutY="42.0" prefHeight="16.0" prefWidth="78.0" text="Air" textFill="#fffbfb" AnchorPane.leftAnchor="49.0" AnchorPane.rightAnchor="48.0" AnchorPane.topAnchor="42.0" />
+      <Label layoutX="49.0" layoutY="67.0" prefHeight="16.0" prefWidth="78.0" text="Tanah" textFill="#fffbfb" AnchorPane.leftAnchor="49.0" AnchorPane.rightAnchor="48.0" AnchorPane.topAnchor="67.0" />
+      <Label layoutX="49.0" layoutY="94.0" prefHeight="16.0" prefWidth="78.0" text="Udara" textFill="#fffbfb" AnchorPane.leftAnchor="49.0" AnchorPane.rightAnchor="48.0" AnchorPane.topAnchor="94.0" />
+      <ImageView fitHeight="22.0" fitWidth="31.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@com/avatarduel/card/image/element/Fire.jpeg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="22.0" fitWidth="31.0" layoutX="14.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@com/avatarduel/card/image/element/Water.jpeg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="22.0" fitWidth="31.0" layoutX="13.0" layoutY="64.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@com/avatarduel/card/image/element/Earth.jpeg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="22.0" fitWidth="31.0" layoutX="14.0" layoutY="91.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@com/avatarduel/card/image/element/Air.jpeg" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

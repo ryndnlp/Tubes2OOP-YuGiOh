@@ -1,7 +1,9 @@
 .arena{
-    -fx-background-image: url("bg.jpg");
+    -fx-background-color: #024d47;
+    /*-fx-background-image: url("bg1.jpg");
+    -fx-background-size: cover;
     -fx-background-repeat: stretch;   
-    -fx-background-position: center center;
+    -fx-background-position: center center;*/
 }
 
 .activecard, .unactivecard{

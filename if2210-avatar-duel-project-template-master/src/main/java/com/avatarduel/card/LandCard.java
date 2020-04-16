@@ -15,4 +15,16 @@ public class LandCard extends Card{
         super.cekKartu();
     }
 
+    public int getPower() {
+        return 0;
+    }
+
+    public int getAttack() {
+        return 0;
+    }
+
+    public int getDefense() {
+        return 0;
+    }
+
 }

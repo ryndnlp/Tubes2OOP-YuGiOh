@@ -52,11 +52,11 @@ public abstract class Card{
     }
 
     public void setElement(String element){
-        if(element == "WATER"){
+        if(element.equals("WATER")){
             this.element = Element.WATER;
-        }else if(element == "AIR"){
+        }else if(element.equals("AIR")){
             this.element = Element.AIR;
-        }else if(element == "FIRE"){
+        }else if(element.equals("FIRE")){
             this.element = Element.FIRE;
         }else{
             this.element = Element.EARTH;
@@ -71,6 +71,10 @@ public abstract class Card{
         this.imagepath = imagepath;
     }
 
+    public void setType(Character ty){
+        this.type = ty;
+    }
+
     public Character getType() {
         return this.type;
     }
@@ -78,4 +82,10 @@ public abstract class Card{
     public void cekKartu(){
         System.out.println(id + "\n" + name + "\n" + element + "\n" + description + "\n" + imagepath);
     }
+
+    public abstract int getPower();
+
+    public abstract int getAttack();
+
+    public abstract int getDefense();
 }
