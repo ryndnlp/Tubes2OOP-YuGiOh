@@ -3,7 +3,6 @@ package com.avatarduel;
 import com.avatarduel.card.Card;
 import javafx.fxml.FXML;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.Node;
 
 import java.util.List;
@@ -23,7 +22,7 @@ public class HandController {
 
     public void mouseEntered(MouseEvent event) {
         Node node = (Node) event.getSource();
-        System.out.println(node);
+        //System.out.println(node);
         String data = (String) node.getUserData();
         ac.renderCard(handCard.get(Integer.parseInt(data)));
     }

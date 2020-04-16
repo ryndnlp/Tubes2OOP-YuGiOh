@@ -146,7 +146,6 @@ public class AvatarDuel extends Application {
     text.setY(50);
 
     try {
-//      this.loadCards();
       this.loadDeckCard();
       this.loadHandCard();
       System.out.println("Yeay berhasil");
@@ -177,7 +176,7 @@ public class AvatarDuel extends Application {
   //      loader.setController(arenaController);
 
         System.out.println("Yuhu...kenapa kamu ga masuk sini");
-        Scene scene = new Scene(root, 1058, 640);
+        Scene scene = new Scene(root, 1280, 660);
 
         stage.setTitle("Avatar Duel");
         stage.setScene(scene);

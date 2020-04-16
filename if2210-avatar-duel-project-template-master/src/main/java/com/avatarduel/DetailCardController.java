@@ -27,33 +27,48 @@ public class DetailCardController {
     public void renderName(String name){
         this.name.setText(name);
     }
-    public void renderAttack(String attack){
-        this.attack.setText("Att: " + attack);
+    public void renderAttackC(String attack){
+        this.attack.setText("ATK/ " + attack + " ");
     }
-    public void renderDef(String def){
-        this.defense.setText("Def: " + def);
+    public void renderDefenseC(String def){
+        this.defense.setText("DEF/ " + def + " ");
     }
     public void renderPower(String power){
-        this.power.setText("Pow: " + power);
+        this.power.setText("POW/ " + power);
     }
-    public void renderDetail(String detail){
-        this.detail.setText(detail);
+    public void renderAttackS(String attack){
+        if(Integer.valueOf(attack)>0){
+            this.attack.setText("+" + attack + " ATK ");
+        }else{
+            this.attack.setText(attack + " ATK ");
+        }
+    }
+    public void renderDefenseS(String defense){
+        if(Integer.valueOf(defense)>0){
+            this.defense.setText("+" + defense + " DEF ");
+        }else{
+            this.defense.setText(defense + " DEF ");
+        }
+    }
+
+    public void renderDesc(String desc){
+        this.desc.setText(desc);
     }
     public void renderImage(String path){
-        if (path == ""){
-            this.gambar.setImage(null);
-
-        } else {
-            this.gambar.setImage(new Image(path, 60, 49, false, false));
-        }
+        this.gambar.setImage(new Image(path, 165, 121, false, false));
     }
     public void renderElement(String path){
-        if (path == ""){
-            this.element.setImage(null);
-
-        } else {
-            this.element.setImage(new Image(path, 50, 50, false, false));
-        }
+        this.element.setImage(new Image(path, 50, 50, false, false));
+    }
+    public void resetCard(){
+        this.name.setText("");
+        this.attack.setText("");
+        this.defense.setText("");
+        this.power.setText("");
+        this.detail.setText("");
+        this.desc.setText("");
+        this.gambar.setImage(null);
+        this.element.setImage(null);
     }
 
 }

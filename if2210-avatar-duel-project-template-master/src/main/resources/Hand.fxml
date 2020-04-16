@@ -1,16 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.HBox?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="130.0" prefWidth="685.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.avatarduel.HandController">
+<HBox prefHeight="130.0" prefWidth="489.0" spacing="50.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.avatarduel.HandController">
    <children>
-       <fx:include fx:id="hc1" layoutX="5" layoutY="5" onMouseClicked="#mouseClicked" onMouseEntered="#mouseEntered" onMouseExited="#mouseExited" source="UnactiveCard.fxml" userData="0"/>
-       <fx:include fx:id="hc2" layoutX="90" layoutY="5" onMouseClicked="#mouseClicked" onMouseEntered="#mouseEntered" onMouseExited="#mouseExited" source="UnactiveCard.fxml" userData="1"/>
-       <fx:include fx:id="hc3" layoutX="175" layoutY="5" onMouseClicked="#mouseClicked" onMouseEntered="#mouseEntered" onMouseExited="#mouseExited" source="UnactiveCard.fxml" userData="2"/>
-       <fx:include fx:id="hc4" layoutX="260" layoutY="5" onMouseClicked="#mouseClicked" onMouseEntered="#mouseEntered" onMouseExited="#mouseExited" source="UnactiveCard.fxml" userData="3"/>
-       <fx:include fx:id="hc5" layoutX="345" layoutY="5" onMouseClicked="#mouseClicked" onMouseEntered="#mouseEntered" onMouseExited="#mouseExited" source="UnactiveCard.fxml" userData="4"/>
-       <fx:include fx:id="hc6" layoutX="430" layoutY="5" onMouseClicked="#mouseClicked" onMouseEntered="#mouseEntered" onMouseExited="#mouseExited" source="UnactiveCard.fxml" userData="5"/>
-       <fx:include fx:id="hc7" layoutX="515" layoutY="5" onMouseClicked="#mouseClicked" onMouseEntered="#mouseEntered" onMouseExited="#mouseExited" source="UnactiveCard.fxml" userData="6"/>
-       <fx:include fx:id="hc8" layoutX="600" layoutY="5" onMouseClicked="#mouseClicked" onMouseEntered="#mouseEntered" onMouseExited="#mouseExited" source="UnactiveCard.fxml" userData="7"/>
+       <fx:include fx:id="hc1" onMouseClicked="#mouseClicked" onMouseEntered="#mouseEntered" onMouseExited="#mouseExited" source="UnactiveCard.fxml" userData="0" />
+       <fx:include fx:id="hc2" onMouseClicked="#mouseClicked" onMouseEntered="#mouseEntered" onMouseExited="#mouseExited" source="UnactiveCard.fxml" userData="1" />
+       <fx:include fx:id="hc3" onMouseClicked="#mouseClicked" onMouseEntered="#mouseEntered" onMouseExited="#mouseExited" source="UnactiveCard.fxml" userData="2" />
+       <fx:include fx:id="hc4" onMouseClicked="#mouseClicked" onMouseEntered="#mouseEntered" onMouseExited="#mouseExited" source="UnactiveCard.fxml" userData="3" />
+       <fx:include fx:id="hc5" onMouseClicked="#mouseClicked" onMouseEntered="#mouseEntered" onMouseExited="#mouseExited" source="UnactiveCard.fxml" userData="4" />
+       <fx:include fx:id="hc6" onMouseClicked="#mouseClicked" onMouseEntered="#mouseEntered" onMouseExited="#mouseExited" source="UnactiveCard.fxml" userData="5" />
+       <fx:include fx:id="hc7" onMouseClicked="#mouseClicked" onMouseEntered="#mouseEntered" onMouseExited="#mouseExited" source="UnactiveCard.fxml" userData="6" />
+       <fx:include fx:id="hc8" onMouseClicked="#mouseClicked" onMouseEntered="#mouseEntered" onMouseExited="#mouseExited" source="UnactiveCard.fxml" userData="7" />
    </children>
-</AnchorPane>
+   <opaqueInsets>
+      <Insets />
+   </opaqueInsets>
+</HBox>

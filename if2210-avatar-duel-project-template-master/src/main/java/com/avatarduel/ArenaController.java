@@ -19,9 +19,7 @@ public class ArenaController  {
     public List<Card> deckCard;
     public List<Card> handCard;
     public ArenaController(){
-//        List<Card> deck, List<Card> hand
-//        deckCard = deck;
-//        handCard = hand;
+
         deckCard = new ArrayList<Card>();
         handCard = new ArrayList<Card>();
     }
@@ -61,7 +59,7 @@ public class ArenaController  {
 
     public void renderCard(Card card){
         detailCardController.renderName(card.getName());
-        detailCardController.renderDetail(card.getDescription());
+        detailCardController.renderDesc(card.getDescription());
         detailCardController.renderImage(card.getImagepath());
 
         if(card.getElement()== Element.WATER){
@@ -74,22 +72,20 @@ public class ArenaController  {
             detailCardController.renderElement("com/avatarduel/card/image/element/Earth.jpeg");
         }
 
-        if (card.getType()!='L'){
-            detailCardController.renderAttack(Integer.toString(card.getAttack()));
-            detailCardController.renderDef(Integer.toString(card.getDefense()));
+        if (card.getType()=='C'){
+            detailCardController.renderAttackC(Integer.toString(card.getAttack()));
+            detailCardController.renderDefenseC(Integer.toString(card.getDefense()));
+            detailCardController.renderPower(Integer.toString(card.getPower()));
+        }else if(card.getType()=='S'){
+            detailCardController.renderAttackS(Integer.toString(card.getAttack()));
+            detailCardController.renderDefenseS(Integer.toString(card.getDefense()));
             detailCardController.renderPower(Integer.toString(card.getPower()));
         }
 
     }
 
     public void resetCard(){
-        detailCardController.renderName("");
-        detailCardController.renderAttack("");
-        detailCardController.renderDef("");
-        detailCardController.renderPower("");
-        detailCardController.renderDetail("");
-        detailCardController.renderImage("");
-        detailCardController.renderElement("");
+        detailCardController.resetCard();
     }
 
 }
