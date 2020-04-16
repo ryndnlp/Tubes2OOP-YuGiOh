@@ -39,13 +39,14 @@ public class AvatarDuel extends Application {
 //  }
 
   private void loadCardsLand() throws URISyntaxException, IOException {
-    listLandCard = new ArrayList<Card>();
-    String LAND_CSV_FILE_PATH = "card/data/land.csv";
-    File landCSVFile = new File(getClass().getResource(LAND_CSV_FILE_PATH).toURI());
-    CSVReader landReader = new CSVReader(landCSVFile, "\t");
-    landReader.setSkipHeader(true);
-    List<String[]> landRows = landReader.read();
-    for (String[] row : landRows) {
+  	//System.out.println("Load land");
+  	listLandCard = new ArrayList<Card>();
+  	String LAND_CSV_FILE_PATH = "card/data/land.csv";
+  	File landCSVFile = new File(getClass().getResource(LAND_CSV_FILE_PATH).toURI());
+  	CSVReader landReader = new CSVReader(landCSVFile, "\t");
+  	landReader.setSkipHeader(true);
+  	List<String[]> landRows = landReader.read();
+  	for (String[] row : landRows) {
       CardFactory cardFactory = new CardFactory();
       Card landc = cardFactory.getCard("LandCard");
       landc.setDescription(row[3]);
@@ -55,11 +56,11 @@ public class AvatarDuel extends Application {
       landc.setImagepath(row[4]);
       landc.setType('L');
       listLandCard.add(landc);
-      landc.cekKartu();
       //Land l = new Land(row[1], row[3], Element.valueOf(row[2]));
     }
   }
   private void loadCardsCharacter() throws URISyntaxException, IOException {
+  	//System.out.println("Load char");
     listCharCard = new ArrayList<Card>();
     String CHARACTER_CSV_FILE_PATH = "card/data/character.csv";
     File charCSVFile = new File(getClass().getResource(CHARACTER_CSV_FILE_PATH).toURI());
@@ -83,6 +84,7 @@ public class AvatarDuel extends Application {
     }
   }
   private void loadCardsSkill() throws URISyntaxException, IOException {
+  	//System.out.println("Load skill");
     listSkillCard = new ArrayList<Card>();
     String SKILL_CSV_FILE_PATH = "card/data/skill_aura.csv";
     File skillCSVFile = new File(getClass().getResource(SKILL_CSV_FILE_PATH).toURI());
@@ -106,6 +108,7 @@ public class AvatarDuel extends Application {
     }
   }
   public void loadDeckCard() throws IOException, URISyntaxException {
+  	//System.out.println("Load deck");
     deckCard = new ArrayList<Card>();
     loadCardsLand();
     loadCardsCharacter();
@@ -124,6 +127,7 @@ public class AvatarDuel extends Application {
     }
   }
   public void loadHandCard(){
+  	//System.out.println("Load hand");
     handCard = new ArrayList<Card>();
     for (int i=0; i<8; i++) {
       Random rand = new Random();
@@ -135,12 +139,14 @@ public class AvatarDuel extends Application {
 
   @Override
   public void start(Stage stage) throws IOException {
+  	//System.out.println("Start");
     Text text = new Text();
     text.setText("Loading...");
     text.setX(50);
     text.setY(50);
 
     try {
+//      this.loadCards();
       this.loadDeckCard();
       this.loadHandCard();
       System.out.println("Yeay berhasil");
@@ -155,23 +161,35 @@ public class AvatarDuel extends Application {
       System.out.println("Fail load csv");
     }
 
-      FXMLLoader loader = new FXMLLoader(Objects.requireNonNull(getClass().getClassLoader().getResource("Arena.fxml")));
-      try{
-          Parent root = loader.load();
-          ArenaController arenaController = loader.<ArenaController>getController();
-          arenaController.setDeckCard(deckCard);
-          arenaController.setHandCard(handCard);
+//      ArenaController arenaController = new ArenaController(deckCard,handCard);
+//      System.out.println(arenaController.deckCard.get(2).getDescription());
+//      System.out.println(arenaController.handCard.get(2).getDescription());
 
-          Scene scene = new Scene(root, 1058, 640);
-          stage.setTitle("Avatar Duel");
-          stage.setScene(scene);
-          stage.show();
-          stage.setResizable(false);
+      FXMLLoader loader = new FXMLLoader(Objects.requireNonNull(getClass().getClassLoader().getResource("Arena.fxml")));
+//      Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("Arena.fxml")));
+      try{
+        Parent root = loader.load();
+        ArenaController arenaController = loader.getController();
+        System.out.println(arenaController);
+//        ArenaController arenaController = new ArenaController();
+        arenaController.setDeckCard(deckCard);
+        arenaController.setHandCard(handCard);
+  //      loader.setController(arenaController);
+
+        System.out.println("Yuhu...kenapa kamu ga masuk sini");
+        Scene scene = new Scene(root, 1058, 640);
+
+        stage.setTitle("Avatar Duel");
+        stage.setScene(scene);
+        stage.show();
+        stage.setResizable(false);
       }catch (Exception e){
-          System.out.println("Kenapa Gagal :(");
-          System.out.println(e);
+        System.out.println("Kenapa Gagal :(");
+        System.out.println(e);
       }
+
   }
+
   public static void main(String[] args) {
     launch();
   }

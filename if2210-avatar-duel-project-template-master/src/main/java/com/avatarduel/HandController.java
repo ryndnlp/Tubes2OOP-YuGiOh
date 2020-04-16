@@ -4,6 +4,7 @@ import com.avatarduel.card.Card;
 import javafx.fxml.FXML;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.Node;
 
 import java.util.List;
 
@@ -21,7 +22,10 @@ public class HandController {
     private List<Card> handCard;
 
     public void mouseEntered(MouseEvent event) {
-        ac.renderCard();
+        Node node = (Node) event.getSource();
+        System.out.println(node);
+        String data = (String) node.getUserData();
+        ac.renderCard(handCard.get(Integer.parseInt(data)));
     }
     public void mouseExited(MouseEvent event){
         ac.resetCard();
@@ -32,6 +36,7 @@ public class HandController {
     public void init(ArenaController ac, List<Card> handCard) {
         this.ac = ac;
         this.handCard = handCard;
+        System.out.println(handCard);
         try {
             hc1Controller.init(ac, this.handCard.get(0));
             hc2Controller.init(ac, this.handCard.get(1));
@@ -43,6 +48,7 @@ public class HandController {
             hc8Controller.init(ac, this.handCard.get(7));
         }catch(Exception e){
             System.out.println("Gagal ke CardController");
+
         }
     }
 //    public void renderHand1(String att,String def,String power,String desc,String name){

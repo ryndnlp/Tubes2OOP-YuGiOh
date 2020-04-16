@@ -6,8 +6,9 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 
-public class CardController{
+public class CardController {
 
     @FXML private Label name;
     @FXML private ImageView gambar;
@@ -29,6 +30,7 @@ public class CardController{
 //        element.setImage(image);
         setCard();
     }
+
     public void setCard(){
         this.name.setText(this.card.getName());
         this.desc.setText(this.card.getDescription());
@@ -46,10 +48,6 @@ public class CardController{
             this.attack.setText("Att:0");
             this.def.setText("Def:0");
             this.power.setText("Power:0");
-        }else if(card.getType()=='C'){//Character
-            this.attack.setText("Att: " + String.valueOf(card.getAttack()));
-            this.def.setText("Def: " + String.valueOf(card.getDefense()));
-            this.power.setText("Power: " + String.valueOf(card.getPower()));
         }else {//Skill
             this.attack.setText("Att: " + String.valueOf(card.getAttack()));
             this.def.setText("Def: " + String.valueOf(card.getDefense()));
