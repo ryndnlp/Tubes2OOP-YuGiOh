@@ -33,8 +33,17 @@ public class DetailCardController {
     public void renderDefenseC(String def){
         this.defense.setText("DEF/ " + def + " ");
     }
+    public void renderAttackL(){
+        this.attack.setText("");
+    }
+    public void renderDefenseL(){
+        this.defense.setText("");
+    }
     public void renderPower(String power){
         this.power.setText("POW/ " + power);
+    }
+    public void renderPowerL(){
+        this.power.setText("");
     }
     public void renderAttackS(String attack){
         if(Integer.valueOf(attack)>0){

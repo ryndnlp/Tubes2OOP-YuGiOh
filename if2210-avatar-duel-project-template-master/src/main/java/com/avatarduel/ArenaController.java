@@ -85,6 +85,10 @@ public class ArenaController  {
             detailCardController.renderAttackS(Integer.toString(card.getAttack()));
             detailCardController.renderDefenseS(Integer.toString(card.getDefense()));
             detailCardController.renderPower(Integer.toString(card.getPower()));
+        }else{
+            detailCardController.renderAttackL();
+            detailCardController.renderDefenseL();
+            detailCardController.renderPowerL();
         }
     }
 }
