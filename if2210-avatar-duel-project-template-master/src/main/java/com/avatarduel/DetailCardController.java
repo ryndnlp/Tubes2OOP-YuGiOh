@@ -60,15 +60,6 @@ public class DetailCardController {
     public void renderElement(String path){
         this.element.setImage(new Image(path, 50, 50, false, false));
     }
-    public void resetCard(){
-        this.name.setText("");
-        this.attack.setText("");
-        this.defense.setText("");
-        this.power.setText("");
-        this.detail.setText("");
-        this.desc.setText("");
-        this.gambar.setImage(null);
-        this.element.setImage(null);
-    }
+
 
 }

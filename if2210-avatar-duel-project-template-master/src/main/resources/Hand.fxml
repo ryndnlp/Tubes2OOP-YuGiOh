@@ -3,16 +3,16 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.layout.HBox?>
 
-<HBox prefHeight="130.0" prefWidth="489.0" spacing="50.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.avatarduel.HandController">
+<HBox prefHeight="90.0" prefWidth="862.0" spacing="50.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.avatarduel.HandController">
    <children>
-       <fx:include fx:id="hc1" onMouseClicked="#mouseClicked" onMouseEntered="#mouseEntered" onMouseExited="#mouseExited" source="UnactiveCard.fxml" userData="0" />
-       <fx:include fx:id="hc2" onMouseClicked="#mouseClicked" onMouseEntered="#mouseEntered" onMouseExited="#mouseExited" source="UnactiveCard.fxml" userData="1" />
-       <fx:include fx:id="hc3" onMouseClicked="#mouseClicked" onMouseEntered="#mouseEntered" onMouseExited="#mouseExited" source="UnactiveCard.fxml" userData="2" />
-       <fx:include fx:id="hc4" onMouseClicked="#mouseClicked" onMouseEntered="#mouseEntered" onMouseExited="#mouseExited" source="UnactiveCard.fxml" userData="3" />
-       <fx:include fx:id="hc5" onMouseClicked="#mouseClicked" onMouseEntered="#mouseEntered" onMouseExited="#mouseExited" source="UnactiveCard.fxml" userData="4" />
-       <fx:include fx:id="hc6" onMouseClicked="#mouseClicked" onMouseEntered="#mouseEntered" onMouseExited="#mouseExited" source="UnactiveCard.fxml" userData="5" />
-       <fx:include fx:id="hc7" onMouseClicked="#mouseClicked" onMouseEntered="#mouseEntered" onMouseExited="#mouseExited" source="UnactiveCard.fxml" userData="6" />
-       <fx:include fx:id="hc8" onMouseClicked="#mouseClicked" onMouseEntered="#mouseEntered" onMouseExited="#mouseExited" source="UnactiveCard.fxml" userData="7" />
+       <fx:include fx:id="hc1"  onMouseEntered="#mouseEntered"  source="UnactiveCard.fxml" userData="0" />
+       <fx:include fx:id="hc2"  onMouseEntered="#mouseEntered"  source="UnactiveCard.fxml" userData="1" />
+       <fx:include fx:id="hc3"  onMouseEntered="#mouseEntered"  source="UnactiveCard.fxml" userData="2" />
+       <fx:include fx:id="hc4"  onMouseEntered="#mouseEntered"  source="UnactiveCard.fxml" userData="3" />
+       <fx:include fx:id="hc5"  onMouseEntered="#mouseEntered"  source="UnactiveCard.fxml" userData="4" />
+       <fx:include fx:id="hc6"  onMouseEntered="#mouseEntered"  source="UnactiveCard.fxml" userData="5" />
+       <fx:include fx:id="hc7"  onMouseEntered="#mouseEntered"  source="UnactiveCard.fxml" userData="6" />
+       <fx:include fx:id="hc8"  onMouseEntered="#mouseEntered"  source="UnactiveCard.fxml" userData="7" />
    </children>
    <opaqueInsets>
       <Insets />

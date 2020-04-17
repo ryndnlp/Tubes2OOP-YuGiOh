@@ -22,16 +22,10 @@ public class HandController {
 
     public void mouseEntered(MouseEvent event) {
         Node node = (Node) event.getSource();
-        //System.out.println(node);
         String data = (String) node.getUserData();
         ac.renderCard(handCard.get(Integer.parseInt(data)));
     }
-    public void mouseExited(MouseEvent event){
-        ac.resetCard();
-    }
-    public void mouseClicked(MouseEvent event){
-        //Add Summon Button
-    }
+
     public void init(ArenaController ac, List<Card> handCard) {
         this.ac = ac;
         this.handCard = handCard;

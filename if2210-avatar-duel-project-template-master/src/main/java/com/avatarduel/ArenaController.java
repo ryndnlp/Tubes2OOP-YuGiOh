@@ -3,6 +3,7 @@ package com.avatarduel;
 import com.avatarduel.card.*;
 import com.avatarduel.hand.*;
 import com.avatarduel.model.Element;
+import com.avatarduel.phase.Phase;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
@@ -16,6 +17,7 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 public class ArenaController  {
+    //public Phase phase;
     public List<Card> deckCard;
     public List<Card> handCard;
     public ArenaController(){
@@ -28,12 +30,11 @@ public class ArenaController  {
 
     @FXML private HandController handController;
 
-    @FXML
-    private ImageView gambar;
+    @FXML private ImageView gambar;
 
     //private  detailcard;
 
-    public void initialize() {
+    public void init() {
         try {
             handCard.get(0).cekKartu();
             deckCard.get(0).cekKartu();
@@ -52,12 +53,16 @@ public class ArenaController  {
         handCard = hand;
         handController.init(this,handCard);
     }
+//    public void setPhase(Phase phase){
+//        this.phase = phase;
+//    }
 
     public List<Card> getDeckCard(){
         return deckCard;
     }
 
     public void renderCard(Card card){
+
         detailCardController.renderName(card.getName());
         detailCardController.renderDesc(card.getDescription());
         detailCardController.renderImage(card.getImagepath());
@@ -81,11 +86,5 @@ public class ArenaController  {
             detailCardController.renderDefenseS(Integer.toString(card.getDefense()));
             detailCardController.renderPower(Integer.toString(card.getPower()));
         }
-
     }
-
-    public void resetCard(){
-        detailCardController.resetCard();
-    }
-
 }

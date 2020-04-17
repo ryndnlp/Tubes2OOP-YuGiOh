@@ -3,30 +3,26 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox prefHeight="200.0" prefWidth="379.0" spacing="20.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<VBox prefHeight="129.0" prefWidth="440.0" spacing="20.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.avatarduel.FieldController">
    <children>
-      <HBox prefHeight="100.0" prefWidth="200.0" spacing="40.0">
+      <HBox prefHeight="100.0" prefWidth="200.0" spacing="50.0">
          <children>
-            <fx:include source="ActiveCard.fxml" />
-            <fx:include source="ActiveCard.fxml" />
-            <fx:include source="ActiveCard.fxml" />
-            <fx:include source="ActiveCard.fxml" />
-            <fx:include source="ActiveCard.fxml" />
-            <fx:include source="ActiveCard.fxml" />
-            <fx:include source="ActiveCard.fxml" />
-            <fx:include source="ActiveCard.fxml" />
+            <fx:include source="ActiveCard.fxml" fx:id="charCard1"/>
+            <fx:include source="ActiveCard.fxml" fx:id="charCard2"/>
+            <fx:include source="ActiveCard.fxml" fx:id="charCard3"/>
+            <fx:include source="ActiveCard.fxml" fx:id="charCard4" />
+            <fx:include source="ActiveCard.fxml" fx:id="charCard5"/>
+            <fx:include source="ActiveCard.fxml" fx:id="charCard6"/>
          </children>
       </HBox>
-      <HBox prefHeight="100.0" prefWidth="200.0" spacing="40.0">
+      <HBox prefHeight="35.0" prefWidth="440.0" spacing="50.0">
          <children>
-            <fx:include source="ActiveCard.fxml" />
-            <fx:include source="ActiveCard.fxml" />
-            <fx:include source="ActiveCard.fxml" />
-            <fx:include source="ActiveCard.fxml" />
-            <fx:include source="ActiveCard.fxml" />
-            <fx:include source="ActiveCard.fxml" />
-            <fx:include source="ActiveCard.fxml" />
-            <fx:include source="ActiveCard.fxml" />
+            <fx:include source="ActiveCard.fxml" fx:id="skillCard1"/>
+            <fx:include source="ActiveCard.fxml" fx:id="skillCard2"/>
+            <fx:include source="ActiveCard.fxml" fx:id="skillCard3"/>
+            <fx:include source="ActiveCard.fxml" fx:id="skillCard4"/>
+            <fx:include source="ActiveCard.fxml" fx:id="skillCard5"/>
+            <fx:include source="ActiveCard.fxml" fx:id="skillCard6"/>
          </children>
       </HBox>
    </children>

@@ -3,6 +3,7 @@ package com.avatarduel;
 import com.avatarduel.card.*;
 import com.avatarduel.model.Element;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -17,6 +18,7 @@ public class CardController {
     @FXML private Label attack;
     @FXML private Label defense;
     @FXML private Label power;
+    @FXML private Button summonButton;
 
     private ArenaController ac;
     private Card card;
@@ -29,6 +31,7 @@ public class CardController {
     }
 
     public void setCard(){
+        this.summonButton.setVisible(false);
         this.name.setText(this.card.getName());
         this.desc.setText(this.card.getDescription());
         this.gambar.setImage(new Image(this.card.getImagepath(),58, 45, false, false));
@@ -62,6 +65,15 @@ public class CardController {
             this.defense.setText("DEF/ " + card.getDefense() + " ");
             this.power.setText("POW/" + card.getPower());
         }
+
+    }
+    @FXML
+    void cardClicked(MouseEvent event) {
+        this.summonButton.setVisible(true);
+    }
+    @FXML
+    void cardUnhover(MouseEvent event) {
+        this.summonButton.setVisible(false);
     }
 }
 

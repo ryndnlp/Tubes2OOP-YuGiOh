@@ -7,6 +7,8 @@ import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.avatarduel.phase.DrawPhase;
+import com.avatarduel.phase.Phase;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -27,6 +29,7 @@ public class AvatarDuel extends Application {
   private List<Card> listCharCard;
   private List<Card> listLandCard;
   private List<Card> listSkillCard;
+  private Phase phase;
 
 //  public void loadCards() throws IOException, URISyntaxException {
 //    File landCSVFile = new File(getClass().getResource(LAND_CSV_FILE_PATH).toURI());
@@ -173,6 +176,8 @@ public class AvatarDuel extends Application {
 //        ArenaController arenaController = new ArenaController();
         arenaController.setDeckCard(deckCard);
         arenaController.setHandCard(handCard);
+        //Phase phase = new DrawPhase();
+        //arenaController.setPhase(phase);
   //      loader.setController(arenaController);
 
         System.out.println("Yuhu...kenapa kamu ga masuk sini");
