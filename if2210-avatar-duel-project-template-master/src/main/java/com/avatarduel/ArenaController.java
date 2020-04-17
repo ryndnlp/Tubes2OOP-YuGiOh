@@ -49,8 +49,8 @@ public class ArenaController  {
         System.out.println("Not yet");
         deckCard = deck;
     }
-    public void setHandCard(List<Card> hand){
-        handCard = hand;
+    public void setHandCard(List<Card> handCard){
+        handCard = handCard;
         handController.init(this,handCard);
     }
 //    public void setPhase(Phase phase){
