@@ -19,9 +19,8 @@ import java.net.URL;
 import java.util.*;
 
 public class ArenaController  {
-    public Phase phase;
-    public Player player1;
-    public Player player2;
+    private Phase phase;
+    private AvatarDuel main;
 
     static public Card toBeSummoned;
 
@@ -43,59 +42,29 @@ public class ArenaController  {
         detailCardController.init(this);
 
     }
-    public void setPhase(Phase phase){
+    public void setPhase(Phase phase, AvatarDuel main){
         this.phase = phase;
-        this.setPlayer(phase.getP1(),phase.getP2());
-//        if(phase.getTurn()){
-            //Hand handP1 = new Hand(phase.getP1().getHand());
-            handController.init(this, this.phase.getP1().getHand());
-            fieldPlayerController.init(this, this.phase.getP1().getField());
-//        }
+        this.main = main;
+        if(!phase.getTurn()){
+            Hand handP1 = new Hand(phase.getP1().getHand());
+            handController.init(this,handP1);
+        }else{
+            Hand handP2 = new Hand(phase.getP2().getHand());
+            handController.init(this,handP2);
+        }
         System.out.println("Berhasil set phase");
-    }
-    public void setPlayer(Player player1, Player player2){
-        this.player1 = player1;
-        this.player2 = player2;
+        runPhase();
     }
 
-    public void summon(){
-        if(toBeSummoned.getType().equals('C')) {
-            for (ActiveCardController cc:  fieldPlayerController.getListOfCharController()) {
-                if(cc.getCard()==null){
-                    Tuple<Integer, Integer> pos = cc.getPosition();
-                    MainPhase phase = (MainPhase) this.phase;
-                    CharacterCard willSummoned = (CharacterCard) toBeSummoned;
-                    phase.placeCard(willSummoned, pos.getFirst(), pos.getSecond());
-                    fieldPlayerController.getListOfCharController().get(0).setCard(willSummoned);
-                    fieldPlayerController.getListOfCharController().get(0).renderCard();
-                    //System.out.println(toBeSummoned.getName());
-                    //fieldPlayerController.renderField();
-                    setPhase(phase);
-                    break;
-                }
-            }
-        }
-        if(toBeSummoned.getType().equals('S')) {
-            for (ActiveCardController sc : fieldPlayerController.getListOfSkillController()) {
-                if(sc.getCard().equals(null)) {
-                    Tuple<Integer, Integer> pos = sc.getPosition();
-                    MainPhase phase = (MainPhase) this.phase;
-                    SkillCard willSummoned = (SkillCard) toBeSummoned;
-                    phase.placeCard(willSummoned, pos.getFirst(), pos.getSecond());
-                    //System.out.println(toBeSummoned.getName());
-                    //fieldPlayerController.renderField();
-                    setPhase(phase);
-                    break;
-                }
-            }
-        }
-        if(toBeSummoned.getType().equals('L')) {
-            MainPhase phase = (MainPhase) this.phase;
-            LandCard willSummoned = (LandCard) toBeSummoned;
-            phase.placeCard(willSummoned);
-            //System.out.println(toBeSummoned.getName());
-            //fieldPlayerController.renderField();
-            setPhase(phase);
+    public void runPhase(){
+        if(phase.getType().equals("D")){
+            System.out.println("Masuk Draw Phase");
+        }else if(phase.getType().equals("M")){
+            System.out.println("Masuk Main Phase");
+        }else if(phase.getType().equals("B")){
+            System.out.println("Masuk Battle Phase");
+        }else {
+            System.out.println("Masuk End Phase");
         }
     }
 
@@ -131,14 +100,29 @@ public class ArenaController  {
         }
     }
     public void DrawPhaseClicked(MouseEvent mouseEvent) {
+        if(phase.getType().equals("D")){
+            System.out.println("Tetap di Draw Phase");
+        }
     }
 
     public void MainPhaseClicked(MouseEvent mouseEvent) {
+        if(phase.getType().equals("D")){
+            this.main.initRoot(this.phase.nextPhase());
+            System.out.println("Berhasil ganti phase ke MainPhase");
+        }
     }
 
     public void BattlePhaseClicked(MouseEvent mouseEvent) {
+       if(phase.getType().equals("M")){
+           this.main.initRoot(this.phase.nextPhase());
+           System.out.println("Berhasil ganti phase ke Battle Phase");
+       }
     }
 
     public void EndPhaseClicked(MouseEvent mouseEvent) {
+       if(phase.getType().equals("B")){
+           this.main.initRoot(this.phase.nextPhase());
+           System.out.println("Berhasil ganti phase ke End Phase");
+       }
     }
 }

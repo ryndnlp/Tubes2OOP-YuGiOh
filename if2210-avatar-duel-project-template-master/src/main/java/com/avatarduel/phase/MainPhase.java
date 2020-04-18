@@ -16,7 +16,6 @@ public class MainPhase extends Phase {
         this.isEndphase = false;
         this.alreadyAttack = new ArrayList<Tuple<Integer,Integer>>();
     }
-
     // get rid M2
     // public MainPhase(Player P1, Player P2, boolean turn,ArrayList<Tuple<Integer,Integer>> alreadyAttack, boolean isLandCardUsed ) {
     //     super(P1,P2,turn,"M2");

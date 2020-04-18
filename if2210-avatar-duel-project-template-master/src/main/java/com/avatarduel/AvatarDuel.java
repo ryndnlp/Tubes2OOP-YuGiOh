@@ -29,6 +29,7 @@ public class AvatarDuel extends Application {
   private Player player1;
   private Player player2;
   private Phase phase;
+  private Stage stage;
 
   private void loadCardsLand() throws URISyntaxException, IOException {
   	listLandCard = new ArrayList<Card>();
@@ -131,7 +132,7 @@ public class AvatarDuel extends Application {
     text.setText("Loading...");
     text.setX(50);
     text.setY(50);
-
+    this.stage = stage;
     try {
       Deck deckplayer1 = loadDeckCard();
       Hand handplayer1 = loadHandCard(deckplayer1);
@@ -139,34 +140,41 @@ public class AvatarDuel extends Application {
       Deck deckplayer2 = loadDeckCard();
       Hand handplayer2 = loadHandCard(deckplayer1);
       player2 = new Player("Player1", deckplayer2,handplayer2);
-      phase = new DrawPhase(player1,player2,true);
-      phase = phase.nextPhase();
+      phase = new DrawPhase(player1,player2,false);
+
+      // phase = new DrawPhase(player1,player2,true);
+      // phase = phase.nextPhase();
+
       text.setText("Avatar Duel!");
     } catch (Exception e) {
       text.setText("Failed to load cards: " + e);
       System.out.println("Fail load csv");
     }
 
+    initRoot(phase);
+
+  }
+
+  public void initRoot(Phase newphase){
+    try{
+      this.phase = newphase;
       FXMLLoader loader = new FXMLLoader(Objects.requireNonNull(getClass().getClassLoader().getResource("Arena.fxml")));
-//      Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("Arena.fxml")));
-      try{
-        Parent root = loader.load();
-        ArenaController arenaController = loader.getController();
-        System.out.println(arenaController);
-        arenaController.setPhase(phase);
+      Parent root = loader.load();
+      ArenaController arenaController = loader.getController();
+      System.out.println(arenaController);
+      arenaController.setPhase(phase, this);
 
-        System.out.println("Berhasil load Area Controller");
-        Scene scene = new Scene(root, 1280, 660);
+      System.out.println("Berhasil load Area Controller");
+      Scene scene = new Scene(root, 1280, 660);
 
-        stage.setTitle("Avatar Duel");
-        stage.setScene(scene);
-        stage.show();
-        stage.setResizable(false);
-      }catch (Exception e){
-        System.out.println("Gagal load Arena Controller :(");
-        System.out.println(e);
-      }
-
+      stage.setTitle("Avatar Duel");
+      stage.setScene(scene);
+      stage.show();
+      stage.setResizable(false);
+    }catch (Exception e){
+      System.out.println("Gagal load Arena Controller :(");
+      System.out.println(e);
+    }
   }
 
   public static void main(String[] args) {
