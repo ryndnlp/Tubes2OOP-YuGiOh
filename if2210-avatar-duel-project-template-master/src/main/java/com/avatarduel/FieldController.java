@@ -45,9 +45,17 @@ public class FieldController {
 
 
     public void mouseEntered(MouseEvent event) {
-//        Node node = (Node) event.getSource();
-//        String data = (String) node.getUserData();
-//        ac.renderCard(field.getCardOnField().get(Integer.parseInt(data)));
+        Node node = (Node) event.getSource();
+        Integer data = Integer.parseInt((String) node.getUserData());
+        Integer x = data / 10;
+        Integer y = data % 10;
+        Tuple<Integer, Integer> loc = new Tuple<Integer, Integer>(x,y);
+
+        for(Tuple<Integer, Integer> key: field.getCardOnField().keySet()) {
+            if(key.getFirst()==loc.getFirst() && key.getSecond()==loc.getSecond()){
+                ac.renderCard(field.getCardOnField().get(key));
+            }
+        }
     }
 
     public void renderField(){

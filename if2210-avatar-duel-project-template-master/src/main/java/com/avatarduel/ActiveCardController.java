@@ -53,14 +53,14 @@ public class ActiveCardController {
     
     public void resetCard() {
         this.card = null;
-        this.position = null;
+        //this.position = null;
     }
 
     public void flush() {
         this.nameLabel.setText("");
         this.gambar.setImage(null);
-        this.element.setImage(null);
-        this.desc.setText("");
+        //this.element.setImage(null);
+        //this.desc.setText("");
         this.attack.setText("");
         this.defense.setText("");
         this.power.setText("");

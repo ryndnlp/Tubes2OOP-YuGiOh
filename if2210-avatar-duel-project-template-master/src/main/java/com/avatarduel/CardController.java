@@ -9,6 +9,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 
 public class CardController {
 
@@ -20,6 +21,7 @@ public class CardController {
     @FXML private Label defense;
     @FXML private Label power;
     @FXML private Button summonButton;
+    @FXML private AnchorPane container;
 
     private ArenaController ac;
     private Card card;
@@ -32,6 +34,7 @@ public class CardController {
         this.attack.setText("");
         this.defense.setText("");
         this.power.setText("");
+        this.container.setVisible(false);
     }
 
     public Card getCard() {
@@ -48,6 +51,7 @@ public class CardController {
     }
 
     public void renderCard(){
+        this.container.setVisible(true);
         this.summonButton.setVisible(false);
         this.name.setText(this.card.getName());
         this.desc.setText(this.card.getDescription());
