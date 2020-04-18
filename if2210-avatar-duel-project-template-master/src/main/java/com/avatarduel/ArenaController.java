@@ -56,7 +56,7 @@ public class ArenaController  {
             Hand handP2 = phase.getP2().getHand();
             handController.init(this,handP2);
             Field fieldP2 = phase.getP1().getField();
-            fieldPlayerController.init(this, fieldP2;
+            fieldPlayerController.init(this, fieldP2);
         }
         System.out.println("Berhasil set phase");
         runPhase();
