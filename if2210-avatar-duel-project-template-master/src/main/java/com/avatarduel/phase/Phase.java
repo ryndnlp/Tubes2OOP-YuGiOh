@@ -24,6 +24,15 @@ public abstract class Phase {
             return this.P1;
         }
     }
+    public Player getP1(){
+        return this.P1;
+    }
+    public Player getP2(){
+        return this.P2;
+    }
+    public boolean getTurn(){
+        return turn;
+    }
     public abstract Phase run();
     public abstract Phase nextPhase();
 }

@@ -22,16 +22,16 @@ public class HandController {
     @FXML private CardController hc8Controller;
 
     private ArenaController ac;
-    private List<Card> handCard;
+    private Hand handCard;
     private List<CardController> listOfCardController;
 
     public void mouseEntered(MouseEvent event) {
         Node node = (Node) event.getSource();
         String data = (String) node.getUserData();
-        ac.renderCard(handCard.get(Integer.parseInt(data)));
+        ac.renderCard(handCard.getCardOnHand().get(Integer.parseInt(data)));
     }
 
-    public void init(ArenaController ac, List<Card> handCard) {
+    public void init(ArenaController ac, Hand handCard) {
         this.ac = ac;
         this.handCard = handCard;
         //System.out.println(handCard);
@@ -46,7 +46,7 @@ public class HandController {
         listOfCardController.add(hc8Controller);
 
         int i = 0;
-        for (Card key: handCard) {
+        for (Card key: handCard.getCardOnHand()) {
             listOfCardController.get(i).init(ac, key);
             i++;
         }
