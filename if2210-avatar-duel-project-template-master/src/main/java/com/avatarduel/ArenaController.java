@@ -30,8 +30,8 @@ public class ArenaController  {
     @FXML private FieldController fieldPlayerController;
     @FXML private HandController handController;
 
-    @FXML private ElementController elmtP1;
-    @FXML private ElementController elmtP2;
+    @FXML private ElementController elmtP1Controller;
+    @FXML private ElementController elmtP2Controller;
 
     @FXML private ImageView gambar;
 
@@ -70,8 +70,8 @@ public class ArenaController  {
             Field fieldP2 = phase.getP1().getField();
             fieldPlayerController.init(this, fieldP2);
         }
-        this.elmtP1.init(this,phase.getP1().getPower());
-        this.elmtP2.init(this, phase.getP2().getPower());
+        this.elmtP1Controller.init(this,phase.getP1().getPower());
+        this.elmtP2Controller.init(this, phase.getP2().getPower());
         System.out.println("Berhasil set phase");
         runPhase();
     }

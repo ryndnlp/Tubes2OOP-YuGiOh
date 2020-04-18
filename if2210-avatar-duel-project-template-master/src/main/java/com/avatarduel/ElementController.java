@@ -1,17 +1,17 @@
 package com.avatarduel;
 
+import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import com.avatarduel.model.Element;
 import com.avatarduel.util.Tuple;
-import javafx.fxml.FXML;
 
-import java.awt.*;
 import java.util.HashMap;
 
 public class ElementController {
-    @FXML private Label Fire;
-    @FXML private Label Water;
-    @FXML private Label Air;
-    @FXML private Label Earth;
+    @FXML private Label fire;
+    @FXML private Label water;
+    @FXML private Label earth;
+    @FXML private Label air;
 
     private ArenaController ac;
     private HashMap<Element,Tuple<Integer,Integer>> power;
@@ -22,9 +22,9 @@ public class ElementController {
         renderElemet();
     }
     public void renderElemet(){
-        this.Fire.setText(power.get(Element.FIRE).getFirst() + " / " + power.get(Element.FIRE).getSecond());
-        this.Water.setText(power.get(Element.WATER).getFirst() + " / " + power.get(Element.WATER).getSecond());
-        this.Air.setText(power.get(Element.AIR).getFirst() + " / " + power.get(Element.AIR).getSecond());
-        this.Earth.setText(power.get(Element.EARTH).getFirst() + " / " + power.get(Element.EARTH).getSecond());
+        this.fire.setText(power.get(Element.FIRE).getFirst() + " / " + power.get(Element.FIRE).getSecond());
+        this.water.setText(power.get(Element.WATER).getFirst() + " / " + power.get(Element.WATER).getSecond());
+        this.air.setText(power.get(Element.AIR).getFirst() + " / " + power.get(Element.AIR).getSecond());
+        this.earth.setText(power.get(Element.EARTH).getFirst() + " / " + power.get(Element.EARTH).getSecond());
     }
 }
