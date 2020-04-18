@@ -109,20 +109,12 @@ public class ActiveCardController {
         }else{
             this.attack.setText(card.getAttack() + " / ");
             this.defense.setText(card.getDefense() + " / ");
-            this.power.setText(card.getPower());
+            this.power.setText(card.getPower() + " ");
         }
     }
     public void setCard(Card card){
         this.card = card;
     }
 
-    @FXML
-    void cardClicked(MouseEvent event) {
-        this.actionButton.setVisible(true);
-    }
-    @FXML
-    void cardUnhover(MouseEvent event) {
-        this.actionButton.setVisible(false);
-    }
 }
 
