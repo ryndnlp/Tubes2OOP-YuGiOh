@@ -31,12 +31,12 @@ public class BattlePhase extends Phase {
         }
         
         //err
-        if(!p.getField().get(attackerLocation).getType().equals('C') || !opponent.getField().get(targetLocation).getType().equals('C')) {
+        if(!p.getField().getCardOnField().get(attackerLocation).getType().equals('C') || !opponent.getField().getCardOnField().get(targetLocation).getType().equals('C')) {
             //throw error cuz not valid type
         }
         
-        CharacterCard attackerCard = (CharacterCard)p.getField().get(attackerLocation);
-        CharacterCard targetCard = (CharacterCard)opponent.getField().get(targetLocation);
+        CharacterCard attackerCard = (CharacterCard)p.getField().getCardOnField().get(attackerLocation);
+        CharacterCard targetCard = (CharacterCard)opponent.getField().getCardOnField().get(targetLocation);
         int atkcrPoint,targetPoint,residue;
         
         //err
@@ -54,9 +54,9 @@ public class BattlePhase extends Phase {
         this.alreadyAttack.add(attackerLocation);
         residue = atkcrPoint - targetPoint;
         if(residue == 0) { //both card destroyed
-            p.getField().remove(attackerLocation);
+            p.getField().getCardOnField().remove(attackerLocation);
         }
-        opponent.getField().remove(targetLocation);
+        opponent.getField().getCardOnField().remove(targetLocation);
         
         if(targetCard.getPosition()) { //target in atk pos  
             opponent.setHealth(opponent.getHealth()-residue);
@@ -72,7 +72,7 @@ public class BattlePhase extends Phase {
             opponent = P1;
         }
         Tuple<Integer,Integer> attackerLocation = new Tuple<Integer,Integer>(i,j);
-        CharacterCard attackerCard = (CharacterCard)p.getField().get(attackerLocation);
+        CharacterCard attackerCard = (CharacterCard)p.getField().getCardOnField().get(attackerLocation);
         this.alreadyAttack.add(attackerLocation);
         opponent.setHealth(opponent.getHealth()-attackerCard.getPoint());
     }

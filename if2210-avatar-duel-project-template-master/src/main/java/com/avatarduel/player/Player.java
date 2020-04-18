@@ -42,16 +42,16 @@ public class Player {
         return power;
     }
 
-    public Queue<Card> getDeck(){
-        return this.deck.getCardOnDeck();
+    public Deck getDeck(){
+        return this.deck;
     }
 
-    public ArrayList<Card> getHand(){
-        return this.hand.getCardOnHand();
+    public Hand getHand(){
+        return this.hand;
     }
 
-    public HashMap<Tuple<Integer,Integer>, Card> getField(){
-        return field.getCardOnField();
+    public Field getField(){
+        return this.field;
     }
 
     public void setHealth(int health) {

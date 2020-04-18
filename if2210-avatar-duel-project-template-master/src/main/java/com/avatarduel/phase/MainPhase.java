@@ -30,8 +30,8 @@ public class MainPhase extends Phase {
     public void placeCard(CharacterCard card, int i, int j) {
         Player p = this.seekTurn();
         if(p.getPower().get(card.getElement()).getFirst() >= card.getPower()) {
-            HashMap<Tuple<Integer,Integer>, Card> field = p.getField();
-            ArrayList<Card> hand = p.getHand();
+            HashMap<Tuple<Integer,Integer>, Card> field = p.getField().getCardOnField();
+            ArrayList<Card> hand = p.getHand().getCardOnHand();
             Tuple<Integer,Integer> key = new Tuple<Integer,Integer>(i,j);
             if(field.containsKey(key)) {
                 //TODO:
@@ -60,8 +60,8 @@ public class MainPhase extends Phase {
     public void placeCard(SkillCard card, int i, int j) {
         Player p = this.seekTurn();
         if(p.getPower().get(card.getElement()).getFirst() >= card.getPower()) {
-            HashMap<Tuple<Integer,Integer>, Card> field = p.getField();
-            ArrayList<Card> hand = p.getHand();
+            HashMap<Tuple<Integer,Integer>, Card> field = p.getField().getCardOnField();
+            ArrayList<Card> hand = p.getHand().getCardOnHand();
             Tuple<Integer,Integer> key = new Tuple<Integer,Integer>(i,j);
             if(field.containsKey(key)) {
                 //TODO:
@@ -105,21 +105,21 @@ public class MainPhase extends Phase {
     }
     public void drop(Card card) {
         Player p = this.seekTurn();
-        ArrayList<Card> hand = p.getHand();
+        ArrayList<Card> hand = p.getHand().getCardOnHand();
         hand.remove(card);
     }
     public void changePosition(int i, int j) {
         Player p = this.seekTurn();
         Tuple<Integer,Integer> location = new Tuple<Integer,Integer>(i,j);
-        if(p.getField().containsKey(location)) {
+        if(p.getField().getCardOnField().containsKey(location)) {
             if(i != 1) {
                 //TODO:
                 //throw error here cuz selected card may not character card
             } else {
-                if(p.getField().get(location).getType().equals('C')) {
-                    CharacterCard c = (CharacterCard)p.getField().get(location); //gabisa karena musti pake adapter kali wkwk wmager masihan
+                if(p.getField().getCardOnField().get(location).getType().equals('C')) {
+                    CharacterCard c = (CharacterCard)p.getField().getCardOnField().get(location); //gabisa karena musti pake adapter kali wkwk wmager masihan
                     c.changePosition();
-                    p.getField().put(location, c);
+                    p.getField().getCardOnField().put(location, c);
                 } else {
                     //throw error cuz not character card
                 }
