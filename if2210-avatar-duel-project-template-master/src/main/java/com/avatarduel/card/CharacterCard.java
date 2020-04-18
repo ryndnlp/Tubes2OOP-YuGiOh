@@ -4,10 +4,11 @@ public class CharacterCard extends Card{
     private int power;
     private int attack;
     private int defense;
-    private boolean position; //true atk, false defensse
+    private boolean position; //true atk, false defense
 
     public CharacterCard(){
         super();
+        this.position = true;
     }
 
     // public CharacterCard(int id, String name, String element, String description, String imagePath, int power, int attack, int defense, boolean position){

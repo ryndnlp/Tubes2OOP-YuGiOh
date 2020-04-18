@@ -26,6 +26,7 @@ public class ArenaController  {
 
     static public Card toBeSummoned;
 
+
     @FXML private DetailCardController detailCardController;
     @FXML private FieldController fieldPlayerController;
     @FXML private HandController handController;

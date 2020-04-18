@@ -1,6 +1,7 @@
 package com.avatarduel;
 
 import com.avatarduel.card.Card;
+import com.avatarduel.card.CharacterCard;
 import com.avatarduel.model.Element;
 import com.avatarduel.util.Tuple;
 import javafx.fxml.FXML;
@@ -12,6 +13,8 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 
 public class ActiveCardController {
+    @FXML
+    private AnchorPane container;
 
     @FXML
     private Label nameLabel;
@@ -38,12 +41,10 @@ public class ActiveCardController {
 
     @FXML
     void onMouseClicked(MouseEvent event) {
-        if(ac.getPhase().equals("M")){
-            if(card.getType()=='C'){
-                this.actionButton.setText("Change pos");
-            }else if(card.getType()=='S'){
-                this.actionButton.setText("Use");
-            }
+        if(card.getType()=='C'){
+            this.actionButton.setText("Change pos");
+        }else if(card.getType()=='S'){
+            this.actionButton.setText("Use");
         }
         this.actionButton.setVisible(true);
     }
@@ -89,7 +90,7 @@ public class ActiveCardController {
     public void renderCard(){
         this.nameLabel.setText(this.card.getName());
         this.gambar.setImage(new Image(this.card.getImagepath(),58, 45, false, false));
-
+        this.container.setRotate(0);
         if(card.getType()=='L'){//Land
             this.attack.setText("");
             this.defense.setText("");
@@ -111,10 +112,24 @@ public class ActiveCardController {
             this.defense.setText(card.getDefense() + " / ");
             this.power.setText(card.getPower() + " ");
         }
+        if(card.getType()=='C'){
+            CharacterCard card = (CharacterCard) this.card;
+            if(!card.getPosition()) {
+                container.setRotate(90);
+            }
+        }
     }
     public void setCard(Card card){
         this.card = card;
     }
-
+    public void onButtonClicked(MouseEvent event){
+        Tuple<Integer, Integer> pos = this.position;
+        //Player p = ac.getPhase().seekTurn();
+        CharacterCard card = (CharacterCard) ac.getPhase().seekTurn().getField().getCardOnField().get(pos);
+        System.out.println(card.getPosition());
+        card.changePosition();
+        System.out.println(card.getPosition());
+        ac.setPhase(ac.getPhase(), ac.getMain());
+    }
 }
 
