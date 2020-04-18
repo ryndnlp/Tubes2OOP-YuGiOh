@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="660.0" prefWidth="1280.0" styleClass="arena" stylesheets="@style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.avatarduel.ArenaController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="660.0" prefWidth="1280.0" styleClass="arena" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.avatarduel.ArenaController">
 
    <children>
       <AnchorPane layoutX="-2.0" layoutY="55.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="175.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -18,8 +18,8 @@
          </children></AnchorPane>
       <AnchorPane layoutX="465.0" layoutY="80.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="187.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <fx:include layoutY="180" source="Element.fxml" />
-            <fx:include layoutY="360" source="Element.fxml" />
+            <fx:include fx:id="elmtP2" layoutY="180" source="Element.fxml" />
+            <fx:include fx:id="elmtP1" layoutY="360" source="Element.fxml" />
             <Button fx:id="deckPlayer" layoutX="24.0" layoutY="539.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="123.0" text="Anggep aja ini deck" />
             <Button fx:id="deckEnemy" layoutX="27.0" layoutY="110.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="123.0" text="Anggep aja ini deck" />
          </children>
@@ -46,13 +46,13 @@
       </VBox>
       <HBox layoutX="399.0" layoutY="318.0" prefHeight="23.0" prefWidth="481.0" spacing="20.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
          <children>
-            <Label fx:id="drawPhase" onMouseClicked="#DrawPhaseClicked" alignment="CENTER" prefHeight="37.0" prefWidth="105.0" style="-fx-border-radius: 25; -fx-border-color: black;" text="DP" textFill="WHITE" />
+            <Label fx:id="drawPhase" alignment="CENTER" onMouseClicked="#DrawPhaseClicked" prefHeight="37.0" prefWidth="105.0" style="-fx-border-radius: 25; -fx-border-color: black;" text="DP" textFill="WHITE" />
 
-            <Label fx:id="mainPhase" onMouseClicked="#MainPhaseClicked" alignment="CENTER" prefHeight="37.0" prefWidth="105.0" style="-fx-border-radius: 25; -fx-border-color: black;" text="MP" textFill="WHITE" />
+            <Label fx:id="mainPhase" alignment="CENTER" onMouseClicked="#MainPhaseClicked" prefHeight="37.0" prefWidth="105.0" style="-fx-border-radius: 25; -fx-border-color: black;" text="MP" textFill="WHITE" />
 
-            <Label fx:id="battlePhase" onMouseClicked="#BattlePhaseClicked" alignment="CENTER" prefHeight="37.0" prefWidth="105.0" style="-fx-border-radius: 25; -fx-border-color: black;" text="BP" textFill="WHITE" />
+            <Label fx:id="battlePhase" alignment="CENTER" onMouseClicked="#BattlePhaseClicked" prefHeight="37.0" prefWidth="105.0" style="-fx-border-radius: 25; -fx-border-color: black;" text="BP" textFill="WHITE" />
 
-            <Label fx:id="endPhase" onMouseClicked="#EndPhaseClicked" alignment="CENTER" prefHeight="37.0" prefWidth="105.0" style="-fx-border-radius: 25; -fx-border-color: black;" text="EP" textFill="WHITE" />
+            <Label fx:id="endPhase" alignment="CENTER" onMouseClicked="#EndPhaseClicked" prefHeight="37.0" prefWidth="105.0" style="-fx-border-radius: 25; -fx-border-color: black;" text="EP" textFill="WHITE" />
 
          </children>
       </HBox>

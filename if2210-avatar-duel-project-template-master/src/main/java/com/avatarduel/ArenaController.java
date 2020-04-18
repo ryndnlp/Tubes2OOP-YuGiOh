@@ -30,6 +30,9 @@ public class ArenaController  {
     @FXML private FieldController fieldPlayerController;
     @FXML private HandController handController;
 
+    @FXML private ElementController elmtP1;
+    @FXML private ElementController elmtP2;
+
     @FXML private ImageView gambar;
 
     @FXML private Label drawPhase;
@@ -60,12 +63,15 @@ public class ArenaController  {
             handController.init(this,handP1);
             Field fieldP1 = phase.getP1().getField();
             fieldPlayerController.init(this, fieldP1);
+
         }else{
             Hand handP2 = phase.getP2().getHand();
             handController.init(this,handP2);
             Field fieldP2 = phase.getP1().getField();
             fieldPlayerController.init(this, fieldP2);
         }
+        this.elmtP1.init(this,phase.getP1().getPower());
+        this.elmtP2.init(this, phase.getP2().getPower());
         System.out.println("Berhasil set phase");
         runPhase();
     }

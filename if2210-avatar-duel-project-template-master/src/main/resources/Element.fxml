@@ -5,12 +5,12 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="119.0" prefWidth="165.0" style="-fx-background-color: #1c162e;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="119.0" prefWidth="165.0" style="-fx-background-color: #1c162e;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.avatarduel.ElementController">
    <children>
-      <Label layoutX="49.0" layoutY="17.0" prefHeight="16.0" prefWidth="78.0" text="Api" textFill="#fffbfb" AnchorPane.leftAnchor="49.0" AnchorPane.rightAnchor="48.0" AnchorPane.topAnchor="17.0" />
-      <Label layoutX="49.0" layoutY="42.0" prefHeight="16.0" prefWidth="78.0" text="Air" textFill="#fffbfb" AnchorPane.leftAnchor="49.0" AnchorPane.rightAnchor="48.0" AnchorPane.topAnchor="42.0" />
-      <Label layoutX="49.0" layoutY="67.0" prefHeight="16.0" prefWidth="78.0" text="Tanah" textFill="#fffbfb" AnchorPane.leftAnchor="49.0" AnchorPane.rightAnchor="48.0" AnchorPane.topAnchor="67.0" />
-      <Label layoutX="49.0" layoutY="94.0" prefHeight="16.0" prefWidth="78.0" text="Udara" textFill="#fffbfb" AnchorPane.leftAnchor="49.0" AnchorPane.rightAnchor="48.0" AnchorPane.topAnchor="94.0" />
+      <Label fx:id="Fire" layoutX="49.0" layoutY="17.0" prefHeight="16.0" prefWidth="78.0" text="Api" textFill="#fffbfb" AnchorPane.leftAnchor="49.0" AnchorPane.rightAnchor="48.0" AnchorPane.topAnchor="17.0" />
+      <Label fx:id="Water" layoutX="49.0" layoutY="42.0" prefHeight="16.0" prefWidth="78.0" text="Air" textFill="#fffbfb" AnchorPane.leftAnchor="49.0" AnchorPane.rightAnchor="48.0" AnchorPane.topAnchor="42.0" />
+      <Label fx:id="Earth" layoutX="49.0" layoutY="67.0" prefHeight="16.0" prefWidth="78.0" text="Tanah" textFill="#fffbfb" AnchorPane.leftAnchor="49.0" AnchorPane.rightAnchor="48.0" AnchorPane.topAnchor="67.0" />
+      <Label fx:id="Air" layoutX="49.0" layoutY="94.0" prefHeight="16.0" prefWidth="78.0" text="Udara" textFill="#fffbfb" AnchorPane.leftAnchor="49.0" AnchorPane.rightAnchor="48.0" AnchorPane.topAnchor="94.0" />
       <ImageView fitHeight="22.0" fitWidth="31.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@com/avatarduel/card/image/element/Fire.jpeg" />
