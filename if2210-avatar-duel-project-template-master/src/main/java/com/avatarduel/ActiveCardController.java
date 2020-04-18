@@ -2,6 +2,7 @@ package com.avatarduel;
 
 import com.avatarduel.card.Card;
 import com.avatarduel.model.Element;
+import com.avatarduel.util.Tuple;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -30,6 +31,8 @@ public class ActiveCardController {
     @FXML
     private Button actionButton;
 
+    private Tuple<Integer, Integer> position;
+
     @FXML
     void onMouseClicked(MouseEvent event) {
 
@@ -39,6 +42,16 @@ public class ActiveCardController {
     @FXML
     void onMouseExited(MouseEvent event) {
 
+    }
+    public Card getCard(){
+        return this.card;
+    }
+    public Tuple<Integer, Integer> getPosition(){
+        return this.position;
+    }
+    public void setPosition(Integer x, Integer y){
+        Tuple<Integer, Integer> position = new Tuple<Integer, Integer>(x,y);
+        this.position = position;
     }
 
     public void init(ArenaController ac, Card card) {
@@ -74,6 +87,8 @@ public class ActiveCardController {
             this.power.setText("POW/" + card.getPower());
         }
     }
-
+    public void setCard1(Card card){
+        this.card = card;
+    }
 }
 

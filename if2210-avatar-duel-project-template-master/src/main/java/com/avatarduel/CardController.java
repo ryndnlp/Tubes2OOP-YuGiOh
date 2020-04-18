@@ -3,6 +3,7 @@ package com.avatarduel;
 import com.avatarduel.card.*;
 import com.avatarduel.model.Element;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -74,6 +75,15 @@ public class CardController {
     @FXML
     void cardUnhover(MouseEvent event) {
         this.summonButton.setVisible(false);
+    }
+    @FXML
+    void onButtonClicked(MouseEvent event){
+        Card summoned = card;
+        if(card.getType()=='C'){
+            ac.toBeSummoned = (CharacterCard) card;
+            ac.summon();
+            System.out.println(ac.toBeSummoned.getName());
+        }
     }
 }
 

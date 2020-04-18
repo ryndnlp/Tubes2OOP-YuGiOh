@@ -3,10 +3,13 @@ package com.avatarduel;
 import com.avatarduel.card.*;
 import com.avatarduel.hand.*;
 import com.avatarduel.model.Element;
+import com.avatarduel.phase.MainPhase;
 import com.avatarduel.phase.Phase;
 import com.avatarduel.player.Player;
+import com.avatarduel.util.Tuple;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -20,8 +23,10 @@ public class ArenaController  {
     public Player player1;
     public Player player2;
 
-    @FXML private DetailCardController detailCardController;
+    static public CharacterCard toBeSummoned;
 
+    @FXML private DetailCardController detailCardController;
+    @FXML private FieldController fieldPlayerController;
     @FXML private HandController handController;
 
     @FXML private ImageView gambar;
@@ -36,13 +41,15 @@ public class ArenaController  {
 
     public void init() {
         detailCardController.init(this);
+
     }
     public void setPhase(Phase phase){
         this.phase = phase;
         this.setPlayer(phase.getP1(),phase.getP2());
 //        if(phase.getTurn()){
-            Hand handP1 = new Hand(phase.getP1().getHand());
-            handController.init(this,handP1);
+            //Hand handP1 = new Hand(phase.getP1().getHand());
+            handController.init(this, this.phase.getP1().getHand());
+            fieldPlayerController.init(this, this.phase.getP1().getField());
 //        }
         System.out.println("Berhasil set phase");
     }
@@ -51,9 +58,23 @@ public class ArenaController  {
         this.player2 = player2;
     }
 
-    public void runPhase(){
+    public void summon(){
 
+        for (ActiveCardController cc:  fieldPlayerController.getListOfCharController()) {
+            if(cc.getCard()==null){
+                Tuple<Integer, Integer> pos = cc.getPosition();
+                MainPhase phase = (MainPhase) this.phase;
+                phase.placeCard(toBeSummoned, pos.getFirst(), pos.getSecond());
+                //System.out.println(toBeSummoned.getName());
+                handController.renderHand();
+                //fieldPlayerController.renderField();
+                fieldPlayerController.getListOfCharController().get(0).setCard1(toBeSummoned);
+                fieldPlayerController.getListOfCharController().get(0).setCard();
+                break;
+            }
+        }
     }
+
 
     public void renderCard(Card card){
 

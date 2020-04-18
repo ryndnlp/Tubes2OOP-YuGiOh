@@ -24,10 +24,10 @@ public class Player {
         field = new Field();
         power = new HashMap<Element,Tuple<Integer,Integer>>();
         //inisiasi
-        power.put(Element.EARTH, new Tuple<Integer,Integer>(0,0));
-        power.put(Element.FIRE, new Tuple<Integer,Integer>(0,0));
-        power.put(Element.WATER, new Tuple<Integer,Integer>(0,0));
-        power.put(Element.AIR, new Tuple<Integer,Integer>(0,0));
+        power.put(Element.EARTH, new Tuple<Integer,Integer>(10,10));
+        power.put(Element.FIRE, new Tuple<Integer,Integer>(10,10));
+        power.put(Element.WATER, new Tuple<Integer,Integer>(10,10));
+        power.put(Element.AIR, new Tuple<Integer,Integer>(10,10));
     }
 
     public String getName(){

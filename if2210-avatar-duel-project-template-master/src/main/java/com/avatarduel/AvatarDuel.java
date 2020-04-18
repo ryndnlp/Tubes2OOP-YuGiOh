@@ -140,6 +140,7 @@ public class AvatarDuel extends Application {
       Hand handplayer2 = loadHandCard(deckplayer1);
       player2 = new Player("Player1", deckplayer2,handplayer2);
       phase = new DrawPhase(player1,player2,true);
+      phase = phase.nextPhase();
       text.setText("Avatar Duel!");
     } catch (Exception e) {
       text.setText("Failed to load cards: " + e);
