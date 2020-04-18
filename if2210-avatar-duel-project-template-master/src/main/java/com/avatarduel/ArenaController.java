@@ -28,8 +28,10 @@ public class ArenaController  {
 
 
     @FXML private DetailCardController detailCardController;
-    @FXML private FieldController fieldPlayerController;
-    @FXML private HandController handController;
+    @FXML private FieldController fieldP1Controller;
+    @FXML private FieldController fieldP2Controller;
+    @FXML private HandController handP1Controller;
+    @FXML private HandController handP2Controller;
 
     @FXML private ElementController elmtP1Controller;
     @FXML private ElementController elmtP2Controller;
@@ -61,15 +63,15 @@ public class ArenaController  {
         this.main = main;
         if(!phase.getTurn()){
             Hand handP1 = phase.getP1().getHand();
-            handController.init(this,handP1);
+            handP1Controller.init(this,handP1);
             Field fieldP1 = phase.getP1().getField();
-            fieldPlayerController.init(this, fieldP1);
+            fieldP1Controller.init(this, fieldP1);
 
         }else{
             Hand handP2 = phase.getP2().getHand();
-            handController.init(this,handP2);
-            Field fieldP2 = phase.getP1().getField();
-            fieldPlayerController.init(this, fieldP2);
+            handP2Controller.init(this,handP2);
+            Field fieldP2 = phase.getP2().getField();
+            fieldP2Controller.init(this, fieldP2);
         }
         this.elmtP1Controller.init(this,phase.getP1().getPower());
         this.elmtP2Controller.init(this, phase.getP2().getPower());
@@ -148,7 +150,7 @@ public class ArenaController  {
     }
     public void summon(){
         if(toBeSummoned.getType().equals('C')) {
-            for (ActiveCardController cc:  fieldPlayerController.getListOfCharController()) {
+            for (ActiveCardController cc:  fieldP2Controller.getListOfCharController()) {
                 if(cc.getCard()==null){
                     Tuple<Integer, Integer> pos = cc.getPosition();
                     MainPhase phase = (MainPhase) this.phase;
@@ -160,7 +162,7 @@ public class ArenaController  {
             }
         }
         else if(toBeSummoned.getType().equals('S')) {
-            for (ActiveCardController sc : fieldPlayerController.getListOfSkillController()) {
+            for (ActiveCardController sc : fieldP2Controller.getListOfSkillController()) {
                 if(sc.getCard() == null) {
                     Tuple<Integer, Integer> pos = sc.getPosition();
                     MainPhase phase = (MainPhase) this.phase;

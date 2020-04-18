@@ -89,14 +89,16 @@ public class CardController {
     }
     @FXML
     void cardClicked(MouseEvent event) {
-        if(card.getType() == 'C'){
-            actionButton.setText("Summon");
-        }else if(card.getType() == 'L'){
-            actionButton.setText("Put");
-        }else{//Skill
-            actionButton.setText("Use");
+        if (card.getPower() <= ac.getPhase().seekTurn().getPower().get(card.getElement()).getFirst()) {
+            if (card.getType() == 'C') {
+                actionButton.setText("Summon");
+            } else if (card.getType() == 'L') {
+                actionButton.setText("Put");
+            } else {//Skill
+                actionButton.setText("Use");
+            }
+            this.actionButton.setVisible(true);
         }
-        this.actionButton.setVisible(true);
     }
     @FXML
     void cardUnhovered(MouseEvent event) {
@@ -106,7 +108,7 @@ public class CardController {
     void onButtonClicked(MouseEvent event){
         ac.toBeSummoned = card;
         ac.summon();
-        //System.out.println(ac.toBeSummoned.getName());
+        this.actionButton.setVisible(false);
     }
 }
 

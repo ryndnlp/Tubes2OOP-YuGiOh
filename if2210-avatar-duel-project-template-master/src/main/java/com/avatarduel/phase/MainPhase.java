@@ -89,6 +89,7 @@ public class MainPhase extends Phase {
     public void placeCard(LandCard card) {
         Player p = this.seekTurn();
         HashMap<Element,Tuple<Integer,Integer>> power = p.getPower();
+        ArrayList<Card> hand = p.getHand().getCardOnHand();
         if(card.getElement().equals(Element.WATER)) {
             power.put(Element.WATER, new Tuple<Integer,Integer>(power.get(Element.WATER).getFirst()+1,power.get(Element.WATER).getSecond()+1));
         }
@@ -101,6 +102,7 @@ public class MainPhase extends Phase {
         else if(card.getElement().equals(Element.EARTH)) {
             power.put(Element.EARTH, new Tuple<Integer,Integer>(power.get(Element.EARTH).getFirst()+1,power.get(Element.EARTH).getSecond()+1));
         }
+        hand.remove(card);
     }
     public void drop(Card card) {
         Player p = this.seekTurn();

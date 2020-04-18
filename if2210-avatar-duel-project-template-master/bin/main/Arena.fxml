@@ -20,28 +20,28 @@
          <children>
             <fx:include fx:id="elmtP2" layoutY="180" source="Element.fxml" />
             <fx:include fx:id="elmtP1" layoutY="360" source="Element.fxml" />
-            <Button fx:id="deckPlayer" layoutX="24.0" layoutY="539.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="123.0" text="Anggep aja ini deck" />
-            <Button fx:id="deckEnemy" layoutX="27.0" layoutY="110.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="123.0" text="Anggep aja ini deck" />
+            <Button fx:id="deckP1" layoutX="24.0" layoutY="539.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="123.0" text="Anggep aja ini deck" />
+            <Button fx:id="deckP2" layoutX="27.0" layoutY="110.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="123.0" text="Anggep aja ini deck" />
          </children>
       </AnchorPane>
       <VBox alignment="CENTER" layoutX="398.0" layoutY="133.0" prefHeight="160.0" prefWidth="334.0" rotate="180.0" spacing="20.0" AnchorPane.topAnchor="133.0">
          <children>
-            <fx:include fx:id="fieldEnemy" source="Field.fxml" />
+            <fx:include fx:id="fieldP2" source="Field.fxml" />
          </children>
       </VBox>
       <VBox alignment="CENTER" layoutX="398.0" layoutY="356.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="160.0" prefWidth="395.0" AnchorPane.bottomAnchor="144.0">
          <children>
-            <fx:include fx:id="fieldPlayer" source="Field.fxml" />
+            <fx:include fx:id="fieldP1" source="Field.fxml" />
          </children>
       </VBox>
       <VBox alignment="CENTER" layoutX="211.0" layoutY="536.0" prefHeight="101.0" prefWidth="862.0" spacing="20.0" AnchorPane.bottomAnchor="5.0">
          <children>
-            <fx:include fx:id="hand" source="Hand.fxml" />
+            <fx:include fx:id="handP1" source="Hand.fxml" />
          </children>
       </VBox>
       <VBox layoutX="211.0" layoutY="14.0" prefHeight="120.0" prefWidth="829.0" AnchorPane.topAnchor="5.0">
          <children>
-            <fx:include fx:id="hand1" source="Hand.fxml" />
+            <fx:include fx:id="handP2" source="Hand.fxml" />
          </children>
       </VBox>
       <HBox layoutX="399.0" layoutY="318.0" prefHeight="23.0" prefWidth="481.0" spacing="20.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">

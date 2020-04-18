@@ -122,9 +122,8 @@ public class ActiveCardController {
     public void setCard(Card card){
         this.card = card;
     }
-    public void onButtonClicked(MouseEvent event){
+    public void onButtonClicked(MouseEvent event) {
         Tuple<Integer, Integer> pos = this.position;
-        //Player p = ac.getPhase().seekTurn();
         CharacterCard card = (CharacterCard) ac.getPhase().seekTurn().getField().getCardOnField().get(pos);
         System.out.println(card.getPosition());
         card.changePosition();
