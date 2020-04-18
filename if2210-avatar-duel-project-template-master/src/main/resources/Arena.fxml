@@ -46,13 +46,13 @@
       </VBox>
       <HBox layoutX="399.0" layoutY="318.0" prefHeight="23.0" prefWidth="481.0" spacing="20.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
          <children>
-            <Label alignment="CENTER" prefHeight="37.0" prefWidth="105.0" style="-fx-border-radius: 25; -fx-border-color: black;" text="DP" textFill="WHITE" />
+            <Label fx:id="drawPhase" onMouseClicked="#DrawPhaseClicked" alignment="CENTER" prefHeight="37.0" prefWidth="105.0" style="-fx-border-radius: 25; -fx-border-color: black;" text="DP" textFill="WHITE" />
 
-            <Label alignment="CENTER" prefHeight="37.0" prefWidth="105.0" style="-fx-border-radius: 25; -fx-border-color: black;" text="MP" textFill="WHITE" />
+            <Label fx:id="mainPhase" onMouseClicked="#MainPhaseClicked" alignment="CENTER" prefHeight="37.0" prefWidth="105.0" style="-fx-border-radius: 25; -fx-border-color: black;" text="MP" textFill="WHITE" />
 
-            <Label alignment="CENTER" prefHeight="37.0" prefWidth="105.0" style="-fx-border-radius: 25; -fx-border-color: black;" text="BP" textFill="WHITE" />
+            <Label fx:id="battlePhase" onMouseClicked="#BattlePhaseClicked" alignment="CENTER" prefHeight="37.0" prefWidth="105.0" style="-fx-border-radius: 25; -fx-border-color: black;" text="BP" textFill="WHITE" />
 
-            <Label alignment="CENTER" prefHeight="37.0" prefWidth="105.0" style="-fx-border-radius: 25; -fx-border-color: black;" text="EP" textFill="WHITE" />
+            <Label fx:id="endPhase" onMouseClicked="#EndPhaseClicked" alignment="CENTER" prefHeight="37.0" prefWidth="105.0" style="-fx-border-radius: 25; -fx-border-color: black;" text="EP" textFill="WHITE" />
 
          </children>
       </HBox>

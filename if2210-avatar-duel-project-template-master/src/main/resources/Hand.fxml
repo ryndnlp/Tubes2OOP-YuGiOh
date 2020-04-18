@@ -14,7 +14,5 @@
        <fx:include fx:id="hc7"  onMouseEntered="#mouseEntered"  source="UnactiveCard.fxml" userData="6" />
        <fx:include fx:id="hc8"  onMouseEntered="#mouseEntered"  source="UnactiveCard.fxml" userData="7" />
    </children>
-   <opaqueInsets>
-      <Insets />
-   </opaqueInsets>
+
 </HBox>

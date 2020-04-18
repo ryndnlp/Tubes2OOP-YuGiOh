@@ -1,10 +1,14 @@
 package com.avatarduel;
 
 import com.avatarduel.card.Card;
+import com.avatarduel.hand.Hand;
+import com.avatarduel.util.Tuple;
 import javafx.fxml.FXML;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.Node;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class HandController {
@@ -18,30 +22,33 @@ public class HandController {
     @FXML private CardController hc8Controller;
 
     private ArenaController ac;
-    private List<Card> handCard;
+    private Hand handCard;
+    private List<CardController> listOfCardController;
 
     public void mouseEntered(MouseEvent event) {
         Node node = (Node) event.getSource();
         String data = (String) node.getUserData();
-        ac.renderCard(handCard.get(Integer.parseInt(data)));
+        ac.renderCard(handCard.getCardOnHand().get(Integer.parseInt(data)));
     }
 
-    public void init(ArenaController ac, List<Card> handCard) {
+    public void init(ArenaController ac, Hand handCard) {
         this.ac = ac;
         this.handCard = handCard;
-        System.out.println(handCard);
-        try {
-            hc1Controller.init(ac, this.handCard.get(0));
-            hc2Controller.init(ac, this.handCard.get(1));
-            hc3Controller.init(ac, this.handCard.get(2));
-            hc4Controller.init(ac, this.handCard.get(3));
-            hc5Controller.init(ac, this.handCard.get(4));
-            hc6Controller.init(ac, this.handCard.get(5));
-            hc7Controller.init(ac, this.handCard.get(6));
-            hc8Controller.init(ac, this.handCard.get(7));
-        }catch(Exception e){
-            System.out.println("Gagal ke CardController");
+        //System.out.println(handCard);
+        listOfCardController = new ArrayList<CardController>();
+        listOfCardController.add(hc1Controller);
+        listOfCardController.add(hc2Controller);
+        listOfCardController.add(hc3Controller);
+        listOfCardController.add(hc4Controller);
+        listOfCardController.add(hc5Controller);
+        listOfCardController.add(hc6Controller);
+        listOfCardController.add(hc7Controller);
+        listOfCardController.add(hc8Controller);
 
+        int i = 0;
+        for (Card key: handCard.getCardOnHand()) {
+            listOfCardController.get(i).init(ac, key);
+            i++;
         }
     }
 }

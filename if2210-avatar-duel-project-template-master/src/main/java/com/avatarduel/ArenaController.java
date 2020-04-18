@@ -4,6 +4,7 @@ import com.avatarduel.card.*;
 import com.avatarduel.hand.*;
 import com.avatarduel.model.Element;
 import com.avatarduel.phase.Phase;
+import com.avatarduel.player.Player;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
@@ -12,19 +13,12 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.ResourceBundle;
+import java.util.*;
 
 public class ArenaController  {
-    //public Phase phase;
-    public List<Card> deckCard;
-    public List<Card> handCard;
-    public ArenaController(){
-
-        deckCard = new ArrayList<Card>();
-        handCard = new ArrayList<Card>();
-    }
+    public Phase phase;
+    public Player player1;
+    public Player player2;
 
     @FXML private DetailCardController detailCardController;
 
@@ -32,33 +26,33 @@ public class ArenaController  {
 
     @FXML private ImageView gambar;
 
-    //private  detailcard;
+    @FXML private Label drawPhase;
+
+    @FXML private Label mainPhase;
+
+    @FXML private Label battlePhase;
+
+    @FXML private Label endPhase;
 
     public void init() {
-        try {
-            handCard.get(0).cekKartu();
-            deckCard.get(0).cekKartu();
-        } catch (Exception e){
-            System.out.println("Tidak masuk lho");
-            System.out.println(e);
-        }
         detailCardController.init(this);
+    }
+    public void setPhase(Phase phase){
+        this.phase = phase;
+        this.setPlayer(phase.getP1(),phase.getP2());
+//        if(phase.getTurn()){
+            Hand handP1 = new Hand(phase.getP1().getHand());
+            handController.init(this,handP1);
+//        }
+        System.out.println("Berhasil set phase");
+    }
+    public void setPlayer(Player player1, Player player2){
+        this.player1 = player1;
+        this.player2 = player2;
+    }
 
-    }
-    public void setDeckCard(List<Card> deck){
-        System.out.println("Not yet");
-        deckCard = deck;
-    }
-    public void setHandCard(List<Card> hand){
-        handCard = hand;
-        handController.init(this,handCard);
-    }
-//    public void setPhase(Phase phase){
-//        this.phase = phase;
-//    }
+    public void runPhase(){
 
-    public List<Card> getDeckCard(){
-        return deckCard;
     }
 
     public void renderCard(Card card){
@@ -85,6 +79,21 @@ public class ArenaController  {
             detailCardController.renderAttackS(Integer.toString(card.getAttack()));
             detailCardController.renderDefenseS(Integer.toString(card.getDefense()));
             detailCardController.renderPower(Integer.toString(card.getPower()));
+        }else{
+            detailCardController.renderAttackL();
+            detailCardController.renderDefenseL();
+            detailCardController.renderPowerL();
         }
+    }
+    public void DrawPhaseClicked(MouseEvent mouseEvent) {
+    }
+
+    public void MainPhaseClicked(MouseEvent mouseEvent) {
+    }
+
+    public void BattlePhaseClicked(MouseEvent mouseEvent) {
+    }
+
+    public void EndPhaseClicked(MouseEvent mouseEvent) {
     }
 }
