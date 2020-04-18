@@ -18,7 +18,7 @@ public class DrawPhase extends Phase{
         Player p = this.seekTurn();
         ArrayList<Card> hand = p.getHand().getCardOnHand();
         Queue<Card> deck = p.getDeck().getCardOnDeck();
-        if(deck.size()>0) {
+        if(deck.size()>0 && hand.size()<8) {
             Card temp = deck.poll();
             hand.add(temp);
         }

@@ -3,8 +3,7 @@ package com.avatarduel;
 import com.avatarduel.card.*;
 import com.avatarduel.hand.*;
 import com.avatarduel.model.Element;
-import com.avatarduel.phase.MainPhase;
-import com.avatarduel.phase.Phase;
+import com.avatarduel.phase.*;
 import com.avatarduel.player.Player;
 import com.avatarduel.util.Tuple;
 import com.avatarduel.field.*;
@@ -96,7 +95,12 @@ public class ArenaController  {
     public void setPhase(Phase phase, AvatarDuel main){
         this.phase = phase;
         this.main = main;
-        
+        if(handP1Controller.getAC() == null && handP2Controller.getAC() == null) {
+            handP1Controller.init(this, phase.getP1().getHand());
+            handP2Controller.init(this, phase.getP2().getHand());
+            flush(!this.getPhase().getTurn());
+        }
+
         if(!phase.getTurn()){
             Hand handP1 = phase.getP1().getHand();
             handP1Controller.init(this,handP1);
@@ -120,6 +124,13 @@ public class ArenaController  {
     public void runPhase(){
         if(phase.getType().equals("D")){
             System.out.println("Masuk Draw Phase");
+            DrawPhase p = (DrawPhase) this.phase;
+            p.draw();
+            if(p.getTurn()) {
+                handP2Controller.init(this, p.getP2().getHand());
+            } else {
+                handP1Controller.init(this, p.getP1().getHand());
+            }
         }else if(phase.getType().equals("M")){
             System.out.println("Masuk Main Phase");
         }else if(phase.getType().equals("B")){

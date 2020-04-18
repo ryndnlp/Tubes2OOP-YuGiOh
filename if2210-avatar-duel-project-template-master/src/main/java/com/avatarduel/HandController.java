@@ -26,6 +26,10 @@ public class HandController {
     private Hand handCard;
     private List<CardController> listOfCardController;
 
+    public ArenaController getAC() {
+        return this.ac;
+    }
+
     public void mouseEntered(MouseEvent event) {
         Node node = (Node) event.getSource();
         String data = (String) node.getUserData();
