@@ -54,10 +54,10 @@ public class ActiveCardController {
         this.position = position;
     }
 
-    public void init(ArenaController ac, Card card) {
+    public void init(ArenaController ac, Card card, Tuple<Integer,Integer> pos) {
         this.ac = ac;
         this.card = card;
-
+        this.position = pos;
         this.renderCard();
     }
     public void renderCard(){

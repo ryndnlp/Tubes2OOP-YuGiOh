@@ -44,6 +44,14 @@ public class ArenaController  {
         detailCardController.init(this);
 
     }
+    public Phase getPhase() {
+        return this.phase;
+    }
+
+    public AvatarDuel getMain() {
+        return this.main;
+    }
+
     public void setPhase(Phase phase, AvatarDuel main){
         this.phase = phase;
         this.main = main;
@@ -138,12 +146,14 @@ public class ArenaController  {
                     Tuple<Integer, Integer> pos = cc.getPosition();
                     MainPhase phase = (MainPhase) this.phase;
                     CharacterCard willSummoned = (CharacterCard) toBeSummoned;
+                    System.out.println("Kartu field : "+ phase.getP1().getField().getCardOnField().size());
+                    System.out.println("Hand Card : " + phase.getP1().getHand().getCardOnHand().size());
                     phase.placeCard(willSummoned, pos.getFirst(), pos.getSecond());
-                    fieldPlayerController.getListOfCharController().get(0).setCard(willSummoned);
-                    fieldPlayerController.getListOfCharController().get(0).renderCard();
-                    //System.out.println(toBeSummoned.getName());
+                    System.out.println("Kartu Field :" + phase.getP1().getField().getCardOnField().size());
+                    System.out.println("Hand Card : " + phase.getP1().getHand().getCardOnHand().size());
+                    System.out.println(toBeSummoned.getName());
+                    this.setPhase(phase, main);
                     //fieldPlayerController.renderField();
-                    setPhase(phase,this.main);
                     break;
                 }
             }

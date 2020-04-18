@@ -82,15 +82,11 @@ public class FieldController {
 
         HashMap<Tuple<Integer,Integer>, Card> temp = field.getCardOnField();
 
-        int i = 0;
-        int j = 0;
         for (Tuple<Integer,Integer> loc: temp.keySet()) {
             if(loc.getFirst()==0){
-                listOfChar.get(i).init(ac, temp.get(loc));
-                i++;
+                listOfChar.get(loc.getSecond()).init(ac, temp.get(loc), loc);
             }else if(loc.getSecond()==1){
-                listOfSkill.get(j).init(ac, temp.get(loc));
-                j++;
+                listOfSkill.get(loc.getSecond()).init(ac, temp.get(loc), loc);
             }
         }
     }

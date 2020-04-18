@@ -37,7 +37,7 @@ public class MainPhase extends Phase {
                 //error here there is a card on that box
             }
             else {
-                if(j != 1) {
+                if(i != 0) {
                     //TODO:
                     //error wrong placement, suppose to be placed on row 1, not 0
                 }

@@ -43,10 +43,18 @@ public class HandController {
         listOfCardController.add(hc7Controller);
         listOfCardController.add(hc8Controller);
 
+        for(CardController cont : listOfCardController) {
+            cont.resetCard();
+        }
         int i = 0;
         for (Card key: handCard.getCardOnHand()) {
             listOfCardController.get(i).init(ac, key);
             i++;
+        }
+        for(CardController cont : listOfCardController) {
+            if(cont.getCard() == null) {
+                cont.flush();
+            }
         }
     }
 

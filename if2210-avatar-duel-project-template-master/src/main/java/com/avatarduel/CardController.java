@@ -24,10 +24,26 @@ public class CardController {
     private ArenaController ac;
     private Card card;
 
+    public void flush() {
+        this.name.setText("");
+        this.gambar.setImage(null);
+        this.element.setImage(null);
+        this.desc.setText("");
+        this.attack.setText("");
+        this.defense.setText("");
+        this.power.setText("");
+    }
+
+    public Card getCard() {
+        return this.card;
+    }
+    public void resetCard() {
+        this.card = null;
+    }
+
     public void init(ArenaController ac,Card card) {
         this.ac = ac;
         this.card = card;
-
         renderCard();
     }
 
@@ -78,12 +94,9 @@ public class CardController {
     }
     @FXML
     void onButtonClicked(MouseEvent event){
-        Card summoned = card;
-        if(card.getType()=='C'){
-            ac.toBeSummoned =card;
-            ac.summon();
-            //System.out.println(ac.toBeSummoned.getName());
-        }
+        ac.toBeSummoned = card;
+        ac.summon();
+        //System.out.println(ac.toBeSummoned.getName());
     }
 }
 
