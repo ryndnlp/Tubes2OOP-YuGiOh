@@ -13,17 +13,17 @@ public class MainPhase extends Phase {
     public ArrayList<Tuple<Integer,Integer>> alreadyAttack;
     public boolean isLandCardUsed;
     public MainPhase(Player P1, Player P2, boolean turn) {
-        super(P1,P2,turn,"M1");
+        super(P1,P2,turn,"M");
         this.isEndphase = false;
         this.isLandCardUsed = false;
         this.alreadyAttack = new ArrayList<Tuple<Integer,Integer>>();
     }
-    public MainPhase(Player P1, Player P2, boolean turn,ArrayList<Tuple<Integer,Integer>> alreadyAttack, boolean isLandCardUsed ) {
-        super(P1,P2,turn,"M2");
-        this.isEndphase = false;
-        this.isLandCardUsed = isLandCardUsed;
-        this.alreadyAttack = alreadyAttack;
-    }
+//    public MainPhase(Player P1, Player P2, boolean turn,ArrayList<Tuple<Integer,Integer>> alreadyAttack, boolean isLandCardUsed ) {
+//        super(P1,P2,turn,"M2");
+//        this.isEndphase = false;
+//        this.isLandCardUsed = isLandCardUsed;
+//        this.alreadyAttack = alreadyAttack;
+//    }
     //methods
 
 

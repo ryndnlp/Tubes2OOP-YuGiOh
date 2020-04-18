@@ -14,7 +14,7 @@ public abstract class Phase {
         this.P2 = P2;
         this.isEndphase = false; //phase always not end when created
         this.turn = turn;//P1 true for P2
-        this.type = "";//type of phase {D,M1,B,M2,E}
+        this.type = type;//type of phase {D,M1,B,M2,E}
     }
     public Player seekTurn() {
         if(this.turn) { //P2 : true
@@ -32,6 +32,9 @@ public abstract class Phase {
     }
     public boolean getTurn(){
         return turn;
+    }
+    public String getType(){
+        return type;
     }
     public abstract Phase run();
     public abstract Phase nextPhase();
