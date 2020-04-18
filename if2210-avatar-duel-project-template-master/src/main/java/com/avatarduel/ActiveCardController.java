@@ -17,6 +17,9 @@ public class ActiveCardController {
     private Label nameLabel;
 
     @FXML
+    private ImageView element;
+
+    @FXML
     private ImageView gambar;
 
     @FXML
@@ -60,7 +63,6 @@ public class ActiveCardController {
         this.nameLabel.setText("");
         this.gambar.setImage(null);
         //this.element.setImage(null);
-        //this.desc.setText("");
         this.attack.setText("");
         this.defense.setText("");
         this.power.setText("");
@@ -87,24 +89,33 @@ public class ActiveCardController {
             this.power.setText("");
         }else if(card.getType()=='S'){//Skill
             if(card.getAttack()>0){
-                this.attack.setText("+" + String.valueOf(card.getAttack()) + " ATK ");
+                this.attack.setText("+" + String.valueOf(card.getAttack()) + " / ");
             }else{
-                this.attack.setText(String.valueOf(card.getAttack()) + " ATK ");
+                this.attack.setText(String.valueOf(card.getAttack()) + " / ");
             }
             if(card.getDefense()>0){
-                this.defense.setText("+" + String.valueOf(card.getDefense()) + " DEF ");
+                this.defense.setText("+" + String.valueOf(card.getDefense()) + " / ");
             }else{
-                this.defense.setText(String.valueOf(card.getDefense()) + " DEF ");
+                this.defense.setText(String.valueOf(card.getDefense()) + " / ");
             }
-            this.power.setText("Pow/ " + String.valueOf(card.getPower()));
+            this.power.setText(String.valueOf(card.getPower()));
         }else{
-            this.attack.setText("ATK/ " + card.getAttack() + " ");
-            this.defense.setText("DEF/ " + card.getDefense() + " ");
-            this.power.setText("POW/" + card.getPower());
+            this.attack.setText(card.getAttack() + " / ");
+            this.defense.setText(card.getDefense() + " / ");
+            this.power.setText(card.getPower());
         }
     }
     public void setCard(Card card){
         this.card = card;
+    }
+
+    @FXML
+    void cardClicked(MouseEvent event) {
+        this.actionButton.setVisible(true);
+    }
+    @FXML
+    void cardUnhover(MouseEvent event) {
+        this.actionButton.setVisible(false);
     }
 }
 

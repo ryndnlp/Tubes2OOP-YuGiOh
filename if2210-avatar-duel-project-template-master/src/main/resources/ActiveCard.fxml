@@ -12,14 +12,15 @@
    <children>
       <AnchorPane layoutX="6.0" layoutY="6.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="12.0" prefWidth="32.0" style="-fx-border-color: black;" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="2.0">
          <children>
-            <Label fx:id="nameLabel" layoutX="2.0" layoutY="4.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="12.0" prefWidth="27.0" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="2.0">
+            <Label fx:id="nameLabel" layoutX="2.0" layoutY="2.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="11.0" prefWidth="17.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="12.0" AnchorPane.topAnchor="1.0">
                <font>
-                  <Font name="Segoe UI Semilight" size="8.0" />
+                  <Font name="Segoe UI Semilight" size="3.0" />
                </font>
             </Label>
+            <ImageView fx:id="element" fitHeight="13.0" fitWidth="17.0" layoutX="18.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true" />
          </children>
       </AnchorPane>
-      <ImageView fx:id="gambar" fitHeight="30.0" fitWidth="32.0" layoutX="4.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="gambar" fitHeight="24.0" fitWidth="32.0" layoutX="4.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true" />
       <HBox layoutY="59.0" prefHeight="9.0" prefWidth="40.0" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="2.0">
          <children>
             <Label fx:id="attack" prefHeight="14.0" prefWidth="13.0">
