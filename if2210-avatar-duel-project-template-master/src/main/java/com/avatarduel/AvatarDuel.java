@@ -152,8 +152,6 @@ public class AvatarDuel extends Application {
         Parent root = loader.load();
         ArenaController arenaController = loader.getController();
         System.out.println(arenaController);
-        arenaController.setDeckCard(player1.getDeck());
-        arenaController.setHandCard(player1.getHand());
         arenaController.setPhase(phase);
 
         System.out.println("Berhasil load Area Controller");

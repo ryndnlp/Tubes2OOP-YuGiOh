@@ -19,13 +19,6 @@ public class ArenaController  {
     public Phase phase;
     public Player player1;
     public Player player2;
-    public Queue<Card> deckCard;
-    public Hand handCard;
-    public ArenaController(){
-
-        deckCard = new LinkedList<>();
-//        handCard = new ArrayList<Card>();
-    }
 
     @FXML private DetailCardController detailCardController;
 
@@ -33,32 +26,33 @@ public class ArenaController  {
 
     @FXML private ImageView gambar;
 
+    @FXML private Label drawPhase;
+
+    @FXML private Label mainPhase;
+
+    @FXML private Label battlePhase;
+
+    @FXML private Label endPhase;
+
     public void init() {
         detailCardController.init(this);
     }
-    public void setDeckCard(Queue<Card> deck){
-        deckCard = deck;
-    }
-    public void setHandCard(ArrayList<Card> handCard){
-        this.handCard = new Hand(handCard);
-        handController.init(this,this.handCard);
-    }
     public void setPhase(Phase phase){
         this.phase = phase;
+        this.setPlayer(phase.getP1(),phase.getP2());
 //        if(phase.getTurn()){
-//            Hand handP1 = new Hand(phase.getP1().getHand());
-//            handController.init(this,handP1);
+            Hand handP1 = new Hand(phase.getP1().getHand());
+            handController.init(this,handP1);
 //        }
         System.out.println("Berhasil set phase");
     }
     public void setPlayer(Player player1, Player player2){
         this.player1 = player1;
-
         this.player2 = player2;
     }
 
-    public Queue<Card> getDeckCard(){
-        return deckCard;
+    public void runPhase(){
+
     }
 
     public void renderCard(Card card){
@@ -90,5 +84,16 @@ public class ArenaController  {
             detailCardController.renderDefenseL();
             detailCardController.renderPowerL();
         }
+    }
+    public void DrawPhaseClicked(MouseEvent mouseEvent) {
+    }
+
+    public void MainPhaseClicked(MouseEvent mouseEvent) {
+    }
+
+    public void BattlePhaseClicked(MouseEvent mouseEvent) {
+    }
+
+    public void EndPhaseClicked(MouseEvent mouseEvent) {
     }
 }
