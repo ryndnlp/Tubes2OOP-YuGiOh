@@ -81,12 +81,27 @@ public class FieldController {
         listOfSkill.add(skillCard6Controller);
 
         HashMap<Tuple<Integer,Integer>, Card> temp = field.getCardOnField();
-
+        for(ActiveCardController cont  : listOfSkill) {
+            cont.resetCard();
+        }
+        for(ActiveCardController cont  : listOfChar) {
+            cont.resetCard();
+        }
         for (Tuple<Integer,Integer> loc: temp.keySet()) {
             if(loc.getFirst()==0){
                 listOfChar.get(loc.getSecond()).init(ac, temp.get(loc), loc);
             }else if(loc.getSecond()==1){
                 listOfSkill.get(loc.getSecond()).init(ac, temp.get(loc), loc);
+            }
+        }
+        for(ActiveCardController cont  : listOfSkill) {
+            if(cont.getCard() == null) {
+                cont.flush();
+            }
+        }
+        for(ActiveCardController cont  : listOfChar) {
+            if(cont.getCard() == null) {
+                cont.flush();
             }
         }
     }
