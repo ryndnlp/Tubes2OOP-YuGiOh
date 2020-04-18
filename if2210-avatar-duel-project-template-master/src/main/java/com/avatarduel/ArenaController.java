@@ -6,8 +6,10 @@ import com.avatarduel.model.Element;
 import com.avatarduel.phase.MainPhase;
 import com.avatarduel.phase.Phase;
 import com.avatarduel.player.Player;
+import com.avatarduel.util.Tuple;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -20,8 +22,10 @@ public class ArenaController  {
     private Phase phase;
     private AvatarDuel main;
 
-    @FXML private DetailCardController detailCardController;
+    static public Card toBeSummoned;
 
+    @FXML private DetailCardController detailCardController;
+    @FXML private FieldController fieldPlayerController;
     @FXML private HandController handController;
 
     @FXML private ImageView gambar;
@@ -36,6 +40,7 @@ public class ArenaController  {
 
     public void init() {
         detailCardController.init(this);
+
     }
     public void setPhase(Phase phase, AvatarDuel main){
         this.phase = phase;
@@ -62,6 +67,7 @@ public class ArenaController  {
             System.out.println("Masuk End Phase");
         }
     }
+
 
     public void renderCard(Card card){
 
@@ -94,8 +100,9 @@ public class ArenaController  {
         }
     }
     public void DrawPhaseClicked(MouseEvent mouseEvent) {
-
-        System.out.println("Tetap di Draw Phase");
+        if(phase.getType().equals("D")){
+            System.out.println("Tetap di Draw Phase");
+        }
     }
 
     public void MainPhaseClicked(MouseEvent mouseEvent) {
@@ -106,16 +113,16 @@ public class ArenaController  {
     }
 
     public void BattlePhaseClicked(MouseEvent mouseEvent) {
-//        if(phase.getType().equals("M")){
-//            this.main.initRoot(this.phase.nextPhase());
-//            System.out.println("Berhasil ganti phase ke Battle Phase");
-//        }
+       if(phase.getType().equals("M")){
+           this.main.initRoot(this.phase.nextPhase());
+           System.out.println("Berhasil ganti phase ke Battle Phase");
+       }
     }
 
     public void EndPhaseClicked(MouseEvent mouseEvent) {
-//        if(phase.getType().equals("B")){
-//            this.main.initRoot(this.phase.nextPhase());
-//            System.out.println("Berhasil ganti phase ke End Phase");
-//        }
+       if(phase.getType().equals("B")){
+           this.main.initRoot(this.phase.nextPhase());
+           System.out.println("Berhasil ganti phase ke End Phase");
+       }
     }
 }

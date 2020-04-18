@@ -7,11 +7,9 @@ import java.util.*;
 
 public class BattlePhase extends Phase {
     public ArrayList<Tuple<Integer,Integer>> alreadyAttack;
-    public boolean isLandCardUsed;
-    public BattlePhase (Player P1, Player P2, boolean turn, ArrayList<Tuple<Integer,Integer>> alreadyAttack, boolean isLandCardUsed) {
+    public BattlePhase (Player P1, Player P2, boolean turn, ArrayList<Tuple<Integer,Integer>> alreadyAttack) {
         super(P1,P2,turn,"B");
         this.isEndphase = false;
-        this.isLandCardUsed = isLandCardUsed;
         this.alreadyAttack = alreadyAttack;
     }
     //methods
@@ -33,12 +31,12 @@ public class BattlePhase extends Phase {
         }
         
         //err
-        if(!p.getField().get(attackerLocation).getType().equals('C') || !opponent.getField().get(targetLocation).getType().equals('C')) {
+        if(!p.getField().getCardOnField().get(attackerLocation).getType().equals('C') || !opponent.getField().getCardOnField().get(targetLocation).getType().equals('C')) {
             //throw error cuz not valid type
         }
         
-        CharacterCard attackerCard = (CharacterCard)p.getField().get(attackerLocation);
-        CharacterCard targetCard = (CharacterCard)opponent.getField().get(targetLocation);
+        CharacterCard attackerCard = (CharacterCard)p.getField().getCardOnField().get(attackerLocation);
+        CharacterCard targetCard = (CharacterCard)opponent.getField().getCardOnField().get(targetLocation);
         int atkcrPoint,targetPoint,residue;
         
         //err
@@ -56,9 +54,9 @@ public class BattlePhase extends Phase {
         this.alreadyAttack.add(attackerLocation);
         residue = atkcrPoint - targetPoint;
         if(residue == 0) { //both card destroyed
-            p.getField().remove(attackerLocation);
+            p.getField().getCardOnField().remove(attackerLocation);
         }
-        opponent.getField().remove(targetLocation);
+        opponent.getField().getCardOnField().remove(targetLocation);
         
         if(targetCard.getPosition()) { //target in atk pos  
             opponent.setHealth(opponent.getHealth()-residue);
@@ -74,14 +72,14 @@ public class BattlePhase extends Phase {
             opponent = P1;
         }
         Tuple<Integer,Integer> attackerLocation = new Tuple<Integer,Integer>(i,j);
-        CharacterCard attackerCard = (CharacterCard)p.getField().get(attackerLocation);
+        CharacterCard attackerCard = (CharacterCard)p.getField().getCardOnField().get(attackerLocation);
         this.alreadyAttack.add(attackerLocation);
         opponent.setHealth(opponent.getHealth()-attackerCard.getPoint());
     }
 
      //implement abstract method
      public Phase nextPhase() {
-        Phase nextPhase = new MainPhase(this.P1,this.P2,this.turn); //create new phase   ,this.alreadyAttack,this.isLandCardUsed
+        Phase nextPhase = new EndPhase(P1, P2, this.turn); //create new phase
         return nextPhase;
     }
     public Phase run() {

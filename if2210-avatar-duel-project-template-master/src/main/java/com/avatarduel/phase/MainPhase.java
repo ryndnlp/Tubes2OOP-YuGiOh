@@ -11,27 +11,26 @@ import java.util.*;
 public class MainPhase extends Phase {
     //constructor
     public ArrayList<Tuple<Integer,Integer>> alreadyAttack;
-    public boolean isLandCardUsed;
     public MainPhase(Player P1, Player P2, boolean turn) {
         super(P1,P2,turn,"M");
         this.isEndphase = false;
-        this.isLandCardUsed = false;
         this.alreadyAttack = new ArrayList<Tuple<Integer,Integer>>();
     }
-//    public MainPhase(Player P1, Player P2, boolean turn,ArrayList<Tuple<Integer,Integer>> alreadyAttack, boolean isLandCardUsed ) {
-//        super(P1,P2,turn,"M2");
-//        this.isEndphase = false;
-//        this.isLandCardUsed = isLandCardUsed;
-//        this.alreadyAttack = alreadyAttack;
-//    }
+    // get rid M2
+    // public MainPhase(Player P1, Player P2, boolean turn,ArrayList<Tuple<Integer,Integer>> alreadyAttack, boolean isLandCardUsed ) {
+    //     super(P1,P2,turn,"M2");
+    //     this.isEndphase = false;
+    //     this.isLandCardUsed = isLandCardUsed;
+    //     this.alreadyAttack = alreadyAttack;
+    // }
     //methods
 
 
     public void placeCard(CharacterCard card, int i, int j) {
         Player p = this.seekTurn();
         if(p.getPower().get(card.getElement()).getFirst() >= card.getPower()) {
-            HashMap<Tuple<Integer,Integer>, Card> field = p.getField();
-            ArrayList<Card> hand = p.getHand();
+            HashMap<Tuple<Integer,Integer>, Card> field = p.getField().getCardOnField();
+            ArrayList<Card> hand = p.getHand().getCardOnHand();
             Tuple<Integer,Integer> key = new Tuple<Integer,Integer>(i,j);
             if(field.containsKey(key)) {
                 //TODO:
@@ -60,8 +59,8 @@ public class MainPhase extends Phase {
     public void placeCard(SkillCard card, int i, int j) {
         Player p = this.seekTurn();
         if(p.getPower().get(card.getElement()).getFirst() >= card.getPower()) {
-            HashMap<Tuple<Integer,Integer>, Card> field = p.getField();
-            ArrayList<Card> hand = p.getHand();
+            HashMap<Tuple<Integer,Integer>, Card> field = p.getField().getCardOnField();
+            ArrayList<Card> hand = p.getHand().getCardOnHand();
             Tuple<Integer,Integer> key = new Tuple<Integer,Integer>(i,j);
             if(field.containsKey(key)) {
                 //TODO:
@@ -90,11 +89,6 @@ public class MainPhase extends Phase {
     public void placeCard(LandCard card) {
         Player p = this.seekTurn();
         HashMap<Element,Tuple<Integer,Integer>> power = p.getPower();
-
-        //errr
-        if(this.isLandCardUsed) {
-            //throw error cuz land card already used
-        }
         if(card.getElement().equals(Element.WATER)) {
             power.put(Element.WATER, new Tuple<Integer,Integer>(power.get(Element.WATER).getFirst()+1,power.get(Element.WATER).getSecond()+1));
         }
@@ -107,30 +101,27 @@ public class MainPhase extends Phase {
         else if(card.getElement().equals(Element.EARTH)) {
             power.put(Element.EARTH, new Tuple<Integer,Integer>(power.get(Element.EARTH).getFirst()+1,power.get(Element.EARTH).getSecond()+1));
         }
-        this.isLandCardUsed = true;
     }
     public void drop(Card card) {
         Player p = this.seekTurn();
-        ArrayList<Card> hand = p.getHand();
+        ArrayList<Card> hand = p.getHand().getCardOnHand();
         hand.remove(card);
     }
     public void changePosition(int i, int j) {
         Player p = this.seekTurn();
         Tuple<Integer,Integer> location = new Tuple<Integer,Integer>(i,j);
-        if(p.getField().containsKey(location)) {
+        if(p.getField().getCardOnField().containsKey(location)) {
             if(i != 1) {
                 //TODO:
                 //throw error here cuz selected card may not character card
             } else {
-                if(!this.alreadyAttack.contains(location)) {
-                    if(p.getField().get(location).getType().equals('C')) {
-                        CharacterCard c = (CharacterCard)p.getField().get(location); //gabisa karena musti pake adapter kali wkwk wmager masihan
-                        c.changePosition();
-                        p.getField().put(location, c);
-                    } else {
-                        //throw error cuz not character card
-                    }
-                } //else can't change cuz already attack
+                if(p.getField().getCardOnField().get(location).getType().equals('C')) {
+                    CharacterCard c = (CharacterCard)p.getField().getCardOnField().get(location); //gabisa karena musti pake adapter kali wkwk wmager masihan
+                    c.changePosition();
+                    p.getField().getCardOnField().put(location, c);
+                } else {
+                    //throw error cuz not character card
+                }
             }
         } else {
             //TODO:
@@ -140,13 +131,8 @@ public class MainPhase extends Phase {
     
     //implement abstract method
     public Phase nextPhase() {
-        if(this.type.equals("M1")) {
-            Phase nextPhase = new BattlePhase(this.P1,this.P2,this.turn,this.alreadyAttack,this.isLandCardUsed); //create new phase
-            return nextPhase;
-        } else {
-            Phase nextPhase = new EndPhase(this.P1, this.P2, this.turn); 
-            return nextPhase;
-        }
+        Phase nextPhase = new BattlePhase(this.P1,this.P2,this.turn,this.alreadyAttack); //create new phase
+        return nextPhase;
     }
     public Phase run() {
         Player p = this.seekTurn();

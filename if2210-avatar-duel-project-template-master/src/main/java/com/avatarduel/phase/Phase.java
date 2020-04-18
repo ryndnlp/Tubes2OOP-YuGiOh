@@ -13,7 +13,7 @@ public abstract class Phase {
         this.P1 = P1;
         this.P2 = P2;
         this.isEndphase = false; //phase always not end when created
-        this.turn = turn;//P1 true for P2
+        this.turn = turn;//P1 False, True for P2
         this.type = type;//type of phase {D,M1,B,M2,E}
     }
     public Player seekTurn() {

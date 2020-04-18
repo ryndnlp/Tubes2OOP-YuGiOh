@@ -20,6 +20,7 @@ public class DetailCardController {
 
     public void init(ArenaController ac) {
         this.ac = ac;
+
         name.setWrapText(true);
         desc.setWrapText(true);
         detail.setWrapText(true);

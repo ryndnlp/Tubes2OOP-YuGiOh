@@ -1,6 +1,7 @@
 package com.avatarduel;
 
 import com.avatarduel.card.Card;
+import com.avatarduel.card.CharacterCard;
 import com.avatarduel.hand.Hand;
 import com.avatarduel.util.Tuple;
 import javafx.fxml.FXML;
@@ -31,10 +32,7 @@ public class HandController {
         ac.renderCard(handCard.getCardOnHand().get(Integer.parseInt(data)));
     }
 
-    public void init(ArenaController ac, Hand handCard) {
-        this.ac = ac;
-        this.handCard = handCard;
-        //System.out.println(handCard);
+    public void renderHand(){
         listOfCardController = new ArrayList<CardController>();
         listOfCardController.add(hc1Controller);
         listOfCardController.add(hc2Controller);
@@ -51,4 +49,13 @@ public class HandController {
             i++;
         }
     }
+
+    public void init(ArenaController ac, Hand handCard) {
+        this.ac = ac;
+        this.handCard = handCard;
+        //System.out.println(handCard);
+        renderHand();
+    }
+
+
 }

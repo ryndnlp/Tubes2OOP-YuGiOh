@@ -24,10 +24,10 @@ public class Player {
         field = new Field();
         power = new HashMap<Element,Tuple<Integer,Integer>>();
         //inisiasi
-        power.put(Element.EARTH, new Tuple<Integer,Integer>(0,0));
-        power.put(Element.FIRE, new Tuple<Integer,Integer>(0,0));
-        power.put(Element.WATER, new Tuple<Integer,Integer>(0,0));
-        power.put(Element.AIR, new Tuple<Integer,Integer>(0,0));
+        power.put(Element.EARTH, new Tuple<Integer,Integer>(10,10));
+        power.put(Element.FIRE, new Tuple<Integer,Integer>(10,10));
+        power.put(Element.WATER, new Tuple<Integer,Integer>(10,10));
+        power.put(Element.AIR, new Tuple<Integer,Integer>(10,10));
     }
 
     public String getName(){
@@ -42,16 +42,16 @@ public class Player {
         return power;
     }
 
-    public Queue<Card> getDeck(){
-        return this.deck.getCardOnDeck();
+    public Deck getDeck(){
+        return this.deck;
     }
 
-    public ArrayList<Card> getHand(){
-        return this.hand.getCardOnHand();
+    public Hand getHand(){
+        return this.hand;
     }
 
-    public HashMap<Tuple<Integer,Integer>, Card> getField(){
-        return field.getCardOnField();
+    public Field getField(){
+        return this.field;
     }
 
     public void setHealth(int health) {
