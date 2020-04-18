@@ -15,6 +15,7 @@ public class EndPhase extends Phase{
 
     //implement abstract method
     public Phase nextPhase() {
+        changeTurn();
         Phase nextPhase = new DrawPhase(this.P1,this.P2,this.turn); //create new phase
         return nextPhase;
     }

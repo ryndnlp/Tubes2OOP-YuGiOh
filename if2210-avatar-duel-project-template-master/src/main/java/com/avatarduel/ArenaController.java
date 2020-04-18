@@ -60,6 +60,12 @@ public class ArenaController  {
     }
 
     @FXML public void nextPhase(MouseEvent event){
+        try{
+            flush(phase.getTurn());
+            flush(!phase.getTurn());
+        }catch (Exception err){
+            System.out.print(err.getMessage());
+        }
         setPhase(this.getPhase().nextPhase(), this.getMain());
     }
 
@@ -90,28 +96,20 @@ public class ArenaController  {
     public void setPhase(Phase phase, AvatarDuel main){
         this.phase = phase;
         this.main = main;
-
+        
         if(!phase.getTurn()){
             Hand handP1 = phase.getP1().getHand();
             handP1Controller.init(this,handP1);
             Field fieldP1 = phase.getP1().getField();
             fieldP1Controller.init(this, fieldP1);
-            try{
-                flush(phase.getTurn());
-            }catch (Exception err){
-                System.out.print(err.getMessage());
-            }
+
 
         }else{
             Hand handP2 = phase.getP2().getHand();
             handP2Controller.init(this,handP2);
             Field fieldP2 = phase.getP2().getField();
             fieldP2Controller.init(this, fieldP2);
-            try{
-                flush(!phase.getTurn());
-            }catch (Exception err){
-                System.out.print(err.getMessage());
-            }
+
         }
         this.elmtP1Controller.init(this,phase.getP1().getPower());
         this.elmtP2Controller.init(this, phase.getP2().getPower());
