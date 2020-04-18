@@ -35,13 +35,13 @@ public class ActiveCardController {
 
     @FXML
     void onMouseClicked(MouseEvent event) {
-
+        this.actionButton.setVisible(true);
     }
     private ArenaController ac;
     private Card card;
     @FXML
     void onMouseExited(MouseEvent event) {
-
+        this.actionButton.setVisible(false);
     }
     public Card getCard(){
         return this.card;
@@ -78,7 +78,6 @@ public class ActiveCardController {
         this.renderCard();
     }
     public void renderCard(){
-        this.actionButton.setVisible(false);
         this.nameLabel.setText(this.card.getName());
         this.gambar.setImage(new Image(this.card.getImagepath(),58, 45, false, false));
 

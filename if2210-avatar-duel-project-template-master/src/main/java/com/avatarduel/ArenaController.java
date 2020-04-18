@@ -146,28 +146,20 @@ public class ArenaController  {
                     Tuple<Integer, Integer> pos = cc.getPosition();
                     MainPhase phase = (MainPhase) this.phase;
                     CharacterCard willSummoned = (CharacterCard) toBeSummoned;
-                    System.out.println("Kartu field : "+ phase.getP1().getField().getCardOnField().size());
-                    System.out.println("Hand Card : " + phase.getP1().getHand().getCardOnHand().size());
                     phase.placeCard(willSummoned, pos.getFirst(), pos.getSecond());
-                    System.out.println("Kartu Field :" + phase.getP1().getField().getCardOnField().size());
-                    System.out.println("Hand Card : " + phase.getP1().getHand().getCardOnHand().size());
-                    System.out.println(toBeSummoned.getName());
                     this.setPhase(phase, main);
-                    //fieldPlayerController.renderField();
                     break;
                 }
             }
         }
         if(toBeSummoned.getType().equals('S')) {
             for (ActiveCardController sc : fieldPlayerController.getListOfSkillController()) {
-                if(sc.getCard().equals(null)) {
+                if(sc.getCard() == null) {
                     Tuple<Integer, Integer> pos = sc.getPosition();
                     MainPhase phase = (MainPhase) this.phase;
                     SkillCard willSummoned = (SkillCard) toBeSummoned;
                     phase.placeCard(willSummoned, pos.getFirst(), pos.getSecond());
-                    //System.out.println(toBeSummoned.getName());
-                    //fieldPlayerController.renderField();
-                    setPhase(phase,this.main);
+                    this.setPhase(phase,this.main);
                     break;
                 }
             }

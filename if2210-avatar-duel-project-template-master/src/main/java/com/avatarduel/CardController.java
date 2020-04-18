@@ -100,7 +100,7 @@ public class CardController {
         this.actionButton.setVisible(true);
     }
     @FXML
-    void cardUnhover(MouseEvent event) {
+    void cardUnhovered(MouseEvent event) {
         this.actionButton.setVisible(false);
     }
     @FXML
