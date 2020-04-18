@@ -80,7 +80,7 @@ public class CardController {
     void onButtonClicked(MouseEvent event){
         Card summoned = card;
         if(card.getType()=='C'){
-            ac.toBeSummoned = (CharacterCard) card;
+            ac.toBeSummoned =card;
             ac.summon();
             System.out.println(ac.toBeSummoned.getName());
         }
