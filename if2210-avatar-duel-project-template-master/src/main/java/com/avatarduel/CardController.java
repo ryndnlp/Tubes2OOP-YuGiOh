@@ -88,16 +88,18 @@ public class CardController {
 
     }
     @FXML
-    void cardClicked(MouseEvent event) {
-        if (card.getPower() <= ac.getPhase().seekTurn().getPower().get(card.getElement()).getFirst()) {
-            if (card.getType() == 'C') {
-                actionButton.setText("Summon");
-            } else if (card.getType() == 'L') {
-                actionButton.setText("Put");
-            } else {//Skill
-                actionButton.setText("Use");
+    public void cardClicked(MouseEvent event) {
+        if(ac.getPhase().getType()=="M"){
+            if (card.getPower() <= ac.getPhase().seekTurn().getPower().get(card.getElement()).getFirst()) {
+                if (card.getType() == 'C') {
+                    actionButton.setText("Summon");
+                } else if (card.getType() == 'L') {
+                    actionButton.setText("Put");
+                } else {//Skill
+                    actionButton.setText("Use");
+                }
+                this.actionButton.setVisible(true);
             }
-            this.actionButton.setVisible(true);
         }
     }
     @FXML

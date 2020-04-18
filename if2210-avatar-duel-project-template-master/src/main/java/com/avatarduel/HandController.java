@@ -33,6 +33,10 @@ public class HandController {
 
     }
 
+    public List<CardController> getListOfCardController(){
+        return listOfCardController;
+    }
+
     public void renderHand(){
         listOfCardController = new ArrayList<CardController>();
         listOfCardController.add(hc1Controller);

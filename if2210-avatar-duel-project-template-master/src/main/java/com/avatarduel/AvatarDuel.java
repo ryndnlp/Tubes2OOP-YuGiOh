@@ -141,7 +141,7 @@ public class AvatarDuel extends Application {
       Hand handplayer2 = loadHandCard(deckplayer2);
       player2 = new Player("Player2", deckplayer2,handplayer2);
       phase = new DrawPhase(player1,player2,true);
-      phase = phase.nextPhase();
+      //phase = phase.nextPhase();
 
       // phase = new DrawPhase(player1,player2,true);
       // phase = phase.nextPhase();

@@ -46,9 +46,10 @@ public class ArenaController  {
 
     @FXML private Label endPhase;
 
+    @FXML private Button nextPhase;
+
     public void init() {
         detailCardController.init(this);
-
     }
     public Phase getPhase() {
         return this.phase;
@@ -58,20 +59,59 @@ public class ArenaController  {
         return this.main;
     }
 
+    @FXML public void nextPhase(MouseEvent event){
+        setPhase(this.getPhase().nextPhase(), this.getMain());
+    }
+
+    public void flush(boolean isPlayer){
+        if(isPlayer){
+            for(CardController cont : handP2Controller.getListOfCardController()) {
+                cont.resetCard();
+            }
+            for(CardController cont : handP2Controller.getListOfCardController()) {
+                if(cont.getCard() == null) {
+                    cont.flush();
+                }
+            }
+        }
+        else{
+            for(CardController cont : handP1Controller.getListOfCardController()) {
+                cont.resetCard();
+            }
+            for(CardController cont : handP1Controller.getListOfCardController()) {
+                if(cont.getCard() == null) {
+                    cont.flush();
+                }
+            }
+        }
+
+    }
+
     public void setPhase(Phase phase, AvatarDuel main){
         this.phase = phase;
         this.main = main;
+
         if(!phase.getTurn()){
             Hand handP1 = phase.getP1().getHand();
             handP1Controller.init(this,handP1);
             Field fieldP1 = phase.getP1().getField();
             fieldP1Controller.init(this, fieldP1);
+            try{
+                flush(phase.getTurn());
+            }catch (Exception err){
+                System.out.print(err.getMessage());
+            }
 
         }else{
             Hand handP2 = phase.getP2().getHand();
             handP2Controller.init(this,handP2);
             Field fieldP2 = phase.getP2().getField();
             fieldP2Controller.init(this, fieldP2);
+            try{
+                flush(!phase.getTurn());
+            }catch (Exception err){
+                System.out.print(err.getMessage());
+            }
         }
         this.elmtP1Controller.init(this,phase.getP1().getPower());
         this.elmtP2Controller.init(this, phase.getP2().getPower());
