@@ -20,7 +20,7 @@ public class CardController {
     @FXML private Label attack;
     @FXML private Label defense;
     @FXML private Label power;
-    @FXML private Button summonButton;
+    @FXML private Button actionButton;
     @FXML private AnchorPane container;
 
     private ArenaController ac;
@@ -52,7 +52,7 @@ public class CardController {
 
     public void renderCard(){
         this.container.setVisible(true);
-        this.summonButton.setVisible(false);
+        this.actionButton.setVisible(false);
         this.name.setText(this.card.getName());
         this.desc.setText(this.card.getDescription());
         this.gambar.setImage(new Image(this.card.getImagepath(),58, 45, false, false));
@@ -90,11 +90,18 @@ public class CardController {
     }
     @FXML
     void cardClicked(MouseEvent event) {
-        this.summonButton.setVisible(true);
+        if(card.getType() == 'C'){
+            actionButton.setText("Summon");
+        }else if(card.getType() == 'L'){
+            actionButton.setText("Put");
+        }else{//Skill
+            actionButton.setText("Use");
+        }
+        this.actionButton.setVisible(true);
     }
     @FXML
     void cardUnhover(MouseEvent event) {
-        this.summonButton.setVisible(false);
+        this.actionButton.setVisible(false);
     }
     @FXML
     void onButtonClicked(MouseEvent event){
