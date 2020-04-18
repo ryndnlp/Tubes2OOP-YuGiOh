@@ -52,7 +52,6 @@ public class CardController {
 
     public void renderCard(){
         this.container.setVisible(true);
-        this.actionButton.setVisible(false);
         this.name.setText(this.card.getName());
         this.desc.setText(this.card.getDescription());
         this.gambar.setImage(new Image(this.card.getImagepath(),58, 45, false, false));
