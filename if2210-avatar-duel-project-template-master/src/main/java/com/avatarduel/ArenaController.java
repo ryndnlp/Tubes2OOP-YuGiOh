@@ -66,6 +66,8 @@ public class ArenaController  {
                     MainPhase phase = (MainPhase) this.phase;
                     CharacterCard willSummoned = (CharacterCard) toBeSummoned;
                     phase.placeCard(willSummoned, pos.getFirst(), pos.getSecond());
+                    fieldPlayerController.getListOfCharController().get(0).setCard(willSummoned);
+                    fieldPlayerController.getListOfCharController().get(0).renderCard();
                     //System.out.println(toBeSummoned.getName());
                     //fieldPlayerController.renderField();
                     setPhase(phase);
@@ -94,7 +96,6 @@ public class ArenaController  {
             //System.out.println(toBeSummoned.getName());
             //fieldPlayerController.renderField();
             setPhase(phase);
-            }
         }
     }
 

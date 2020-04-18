@@ -28,10 +28,10 @@ public class CardController {
         this.ac = ac;
         this.card = card;
 
-        setCard();
+        renderCard();
     }
 
-    public void setCard(){
+    public void renderCard(){
         this.summonButton.setVisible(false);
         this.name.setText(this.card.getName());
         this.desc.setText(this.card.getDescription());
@@ -82,7 +82,7 @@ public class CardController {
         if(card.getType()=='C'){
             ac.toBeSummoned =card;
             ac.summon();
-            System.out.println(ac.toBeSummoned.getName());
+            //System.out.println(ac.toBeSummoned.getName());
         }
     }
 }

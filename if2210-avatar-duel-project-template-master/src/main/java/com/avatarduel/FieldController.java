@@ -26,7 +26,7 @@ public class FieldController {
     @FXML private ActiveCardController skillCard6Controller;
 
     public ArenaController ac;
-    private Field field;
+    public Field field;
     private List<ActiveCardController> listOfSkill;
     private List<ActiveCardController> listOfChar;
 
@@ -45,9 +45,9 @@ public class FieldController {
 
 
     public void mouseEntered(MouseEvent event) {
-        Node node = (Node) event.getSource();
-        String data = (String) node.getUserData();
-        ac.renderCard(field.getCardOnField().get(Integer.parseInt(data)));
+//        Node node = (Node) event.getSource();
+//        String data = (String) node.getUserData();
+//        ac.renderCard(field.getCardOnField().get(Integer.parseInt(data)));
     }
 
     public void renderField(){

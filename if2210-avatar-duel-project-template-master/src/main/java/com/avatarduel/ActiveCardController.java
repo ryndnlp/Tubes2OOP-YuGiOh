@@ -58,9 +58,9 @@ public class ActiveCardController {
         this.ac = ac;
         this.card = card;
 
-        this.setCard();
+        this.renderCard();
     }
-    public void setCard(){
+    public void renderCard(){
         this.actionButton.setVisible(false);
         this.nameLabel.setText(this.card.getName());
         this.gambar.setImage(new Image(this.card.getImagepath(),58, 45, false, false));
@@ -87,7 +87,7 @@ public class ActiveCardController {
             this.power.setText("POW/" + card.getPower());
         }
     }
-    public void setCard1(Card card){
+    public void setCard(Card card){
         this.card = card;
     }
 }
