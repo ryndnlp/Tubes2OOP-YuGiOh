@@ -152,7 +152,7 @@ public class ArenaController  {
                 }
             }
         }
-        if(toBeSummoned.getType().equals('S')) {
+        else if(toBeSummoned.getType().equals('S')) {
             for (ActiveCardController sc : fieldPlayerController.getListOfSkillController()) {
                 if(sc.getCard() == null) {
                     Tuple<Integer, Integer> pos = sc.getPosition();
@@ -164,12 +164,10 @@ public class ArenaController  {
                 }
             }
         }
-        if(toBeSummoned.getType().equals('L')) {
+        else { //Land
             MainPhase phase = (MainPhase) this.phase;
             LandCard willSummoned = (LandCard) toBeSummoned;
             phase.placeCard(willSummoned);
-            //System.out.println(toBeSummoned.getName());
-            //fieldPlayerController.renderField();
             setPhase(phase,this.main);
         }
     }

@@ -98,7 +98,7 @@ public class FieldController {
         for (Tuple<Integer,Integer> loc: temp.keySet()) {
             if(loc.getFirst()==0){
                 listOfChar.get(loc.getSecond()).init(ac, temp.get(loc), loc);
-            }else if(loc.getSecond()==1){
+            }else if(loc.getFirst()==1){
                 listOfSkill.get(loc.getSecond()).init(ac, temp.get(loc), loc);
             }
         }

@@ -38,6 +38,13 @@ public class ActiveCardController {
 
     @FXML
     void onMouseClicked(MouseEvent event) {
+        if(ac.getPhase().equals("M")){
+            if(card.getType()=='C'){
+                this.actionButton.setText("Change pos");
+            }else if(card.getType()=='S'){
+                this.actionButton.setText("Use");
+            }
+        }
         this.actionButton.setVisible(true);
     }
     private ArenaController ac;
