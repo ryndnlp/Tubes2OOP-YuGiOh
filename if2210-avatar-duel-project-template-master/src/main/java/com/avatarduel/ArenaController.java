@@ -7,6 +7,8 @@ import com.avatarduel.phase.MainPhase;
 import com.avatarduel.phase.Phase;
 import com.avatarduel.player.Player;
 import com.avatarduel.util.Tuple;
+import com.avatarduel.field.*;
+
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -46,11 +48,15 @@ public class ArenaController  {
         this.phase = phase;
         this.main = main;
         if(!phase.getTurn()){
-            Hand handP1 = new Hand(phase.getP1().getHand());
+            Hand handP1 = phase.getP1().getHand();
             handController.init(this,handP1);
+            Field fieldP1 = phase.getP1().getField();
+            fieldPlayerController.init(this, fieldP1);
         }else{
-            Hand handP2 = new Hand(phase.getP2().getHand());
+            Hand handP2 = phase.getP2().getHand();
             handController.init(this,handP2);
+            Field fieldP2 = phase.getP1().getField();
+            fieldPlayerController.init(this, fieldP2;
         }
         System.out.println("Berhasil set phase");
         runPhase();
@@ -125,4 +131,45 @@ public class ArenaController  {
            System.out.println("Berhasil ganti phase ke End Phase");
        }
     }
+    public void summon(){
+        if(toBeSummoned.getType().equals('C')) {
+            for (ActiveCardController cc:  fieldPlayerController.getListOfCharController()) {
+                if(cc.getCard()==null){
+                    Tuple<Integer, Integer> pos = cc.getPosition();
+                    MainPhase phase = (MainPhase) this.phase;
+                    CharacterCard willSummoned = (CharacterCard) toBeSummoned;
+                    phase.placeCard(willSummoned, pos.getFirst(), pos.getSecond());
+                    fieldPlayerController.getListOfCharController().get(0).setCard(willSummoned);
+                    fieldPlayerController.getListOfCharController().get(0).renderCard();
+                    //System.out.println(toBeSummoned.getName());
+                    //fieldPlayerController.renderField();
+                    setPhase(phase,this.main);
+                    break;
+                }
+            }
+        }
+        if(toBeSummoned.getType().equals('S')) {
+            for (ActiveCardController sc : fieldPlayerController.getListOfSkillController()) {
+                if(sc.getCard().equals(null)) {
+                    Tuple<Integer, Integer> pos = sc.getPosition();
+                    MainPhase phase = (MainPhase) this.phase;
+                    SkillCard willSummoned = (SkillCard) toBeSummoned;
+                    phase.placeCard(willSummoned, pos.getFirst(), pos.getSecond());
+                    //System.out.println(toBeSummoned.getName());
+                    //fieldPlayerController.renderField();
+                    setPhase(phase,this.main);
+                    break;
+                }
+            }
+        }
+        if(toBeSummoned.getType().equals('L')) {
+            MainPhase phase = (MainPhase) this.phase;
+            LandCard willSummoned = (LandCard) toBeSummoned;
+            phase.placeCard(willSummoned);
+            //System.out.println(toBeSummoned.getName());
+            //fieldPlayerController.renderField();
+            setPhase(phase,this.main);
+        }
+    }
+
 }
