@@ -29,9 +29,7 @@ public class HandController {
     public void mouseEntered(MouseEvent event) {
         Node node = (Node) event.getSource();
         String data = (String) node.getUserData();
-        System.out.println(data);
-        System.out.println(handCard.getCardOnHand().size());
-        //ac.renderCard(handCard.getCardOnHand().get(Integer.parseInt(data)));
+        ac.renderCard(handCard.getCardOnHand().get(Integer.parseInt(data)));
 
     }
 

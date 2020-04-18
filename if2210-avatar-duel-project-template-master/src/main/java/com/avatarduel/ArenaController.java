@@ -149,8 +149,15 @@ public class ArenaController  {
        }
     }
     public void summon(){
+        FieldController cont;
+        if(this.getPhase().getTurn()) {
+            cont = fieldP2Controller;
+        }
+        else {
+            cont = fieldP1Controller;
+        }
         if(toBeSummoned.getType().equals('C')) {
-            for (ActiveCardController cc:  fieldP2Controller.getListOfCharController()) {
+            for (ActiveCardController cc:  cont.getListOfCharController()) {
                 if(cc.getCard()==null){
                     Tuple<Integer, Integer> pos = cc.getPosition();
                     MainPhase phase = (MainPhase) this.phase;
@@ -162,7 +169,7 @@ public class ArenaController  {
             }
         }
         else if(toBeSummoned.getType().equals('S')) {
-            for (ActiveCardController sc : fieldP2Controller.getListOfSkillController()) {
+            for (ActiveCardController sc : cont.getListOfSkillController()) {
                 if(sc.getCard() == null) {
                     Tuple<Integer, Integer> pos = sc.getPosition();
                     MainPhase phase = (MainPhase) this.phase;
