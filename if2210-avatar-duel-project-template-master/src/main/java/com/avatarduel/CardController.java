@@ -2,6 +2,8 @@ package com.avatarduel;
 
 import com.avatarduel.card.*;
 import com.avatarduel.model.Element;
+import com.avatarduel.phase.MainPhase;
+
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
@@ -95,14 +97,16 @@ public class CardController {
                     actionButton.setText("Summon");
                     this.actionButton.setVisible(true);
                 } else if (card.getType() == 'L') {
-                    actionButton.setText("Put");
-                    this.actionButton.setVisible(true);
+                    MainPhase mp = (MainPhase) this.ac.getPhase();
+                    actionButton.setText("Use");
+                    if(!mp.isLandAlreadyPlaced()) {
+                        this.actionButton.setVisible(true);
+                    }
                 } else {//Skill
                     SkillCard sc = (SkillCard) this.card;
                     ac.toBeUsed = sc;
                     ac.renderCard4();
                 }
-
             }
         }
     }

@@ -28,6 +28,9 @@ public class ArenaController  {
     static public Card defender;
     static public Tuple<Integer, Integer> locAttacker;
     static public Tuple<Integer, Integer> locDefender;
+    static public Card toBeUsed;
+    static public Card toBeBind;
+    static public Tuple<Integer, Integer> locToBeBind;
 
     @FXML private DetailCardController detailCardController;
 
@@ -106,6 +109,7 @@ public class ArenaController  {
             battleController.flush();
         }
         battleController.init(this);
+        skillController.init(this);
         if(handP1Controller.getAC() == null && handP2Controller.getAC() == null) {
             handP1Controller.init(this, phase.getP1().getHand());
             handP2Controller.init(this, phase.getP2().getHand());
@@ -138,14 +142,17 @@ public class ArenaController  {
 
     public void runPhase(){
         if(phase.getType().equals("D")){
+            this.nextPhase.setText("Next phase");
             System.out.println("Masuk Draw Phase");
             DrawPhase p = (DrawPhase) this.phase;
             p.draw();
             p.resetPower();
             if(p.getTurn()) {
                 handP2Controller.init(this, p.getP2().getHand());
+                elmtP2Controller.init(this, p.getP2().getPower());
             } else {
                 handP1Controller.init(this, p.getP1().getHand());
+                elmtP1Controller.init(this, p.getP1().getPower());
             }
         }else if(phase.getType().equals("M")){
             System.out.println("Masuk Main Phase");
@@ -153,7 +160,9 @@ public class ArenaController  {
             System.out.println("Masuk Battle Phase");
         }else {
             System.out.println("Masuk End Phase");
+            this.nextPhase.setText("Change turn");
         }
+
     }
 
 
@@ -265,38 +274,88 @@ public class ArenaController  {
             }
         }
     }
-    public void hideButton(){
+    public void renderCard4(){
+        skillController.renderNameS(toBeUsed.getName());
+        skillController.renderDescS(toBeUsed.getDescription());
+        skillController.renderImageS(toBeUsed.getImagepath());
+
+        if(toBeUsed.getElement()== Element.WATER){
+            skillController.renderElementS("com/avatarduel/card/image/element/Water.jpeg");
+        }else if(toBeUsed.getElement()==Element.AIR){
+            skillController.renderElementS("com/avatarduel/card/image/element/Air.jpeg");
+        }else if(toBeUsed.getElement()==Element.FIRE){
+            skillController.renderElementS("com/avatarduel/card/image/element/Fire.jpeg");
+        }else {
+            skillController.renderElementS("com/avatarduel/card/image/element/Earth.jpeg");
+        }
+
+        skillController.renderAttackS(Integer.toString(toBeUsed.getAttack()));
+        skillController.renderDefenseS(Integer.toString(toBeUsed.getDefense()));
+        skillController.renderPowerS(Integer.toString(toBeUsed.getPower()));
+
+        if(toBeBind!=null && toBeUsed!=null){
+            showButtonSkill();
+        }
+    }
+    public void renderCard5(){
+        skillController.renderNameA(toBeBind.getName());
+        skillController.renderDescA(toBeBind.getDescription());
+        skillController.renderImageA(toBeBind.getImagepath());
+
+        if(toBeBind.getElement()== Element.WATER){
+            skillController.renderElementA("com/avatarduel/card/image/element/Water.jpeg");
+        }else if(toBeBind.getElement()==Element.AIR){
+            skillController.renderElementA("com/avatarduel/card/image/element/Air.jpeg");
+        }else if(toBeBind.getElement()==Element.FIRE){
+            skillController.renderElementA("com/avatarduel/card/image/element/Fire.jpeg");
+        }else {
+            skillController.renderElementA("com/avatarduel/card/image/element/Earth.jpeg");
+        }
+
+        skillController.renderAttackA(Integer.toString(toBeBind.getAttack()));
+        skillController.renderDefenseA(Integer.toString(toBeBind.getDefense()));
+        skillController.renderPowerA(Integer.toString(toBeBind.getPower()));
+
+        if(toBeBind!=null && toBeUsed!=null){
+            showButtonSkill();
+        }
+    }
+    public void hideButtonBattle(){
         battleController.hideButton();
+    }
+    public void showButtonSkill(){
+        skillController.showButton();
     }
     public void renderHealth(int healthP1, int healthP2){
         p2Controller.setHealthLabel(healthP2);
         p1Controller.setHealthLabel(healthP1);
     }
-    public void DrawPhaseClicked(MouseEvent mouseEvent) {
+    public void DrawPhaseClicked() {
         if(phase.getType().equals("D")){
             System.out.println("Tetap di Draw Phase");
         }
     }
 
-    public void MainPhaseClicked(MouseEvent mouseEvent) {
+    public void MainPhaseClicked() {
         if(phase.getType().equals("D")){
             this.main.initRoot(this.phase.nextPhase());
             System.out.println("Berhasil ganti phase ke MainPhase");
         }
     }
 
-    public void BattlePhaseClicked(MouseEvent mouseEvent) {
+    public void BattlePhaseClicked() {
        if(phase.getType().equals("M")){
            this.main.initRoot(this.phase.nextPhase());
            System.out.println("Berhasil ganti phase ke Battle Phase");
        }
     }
 
-    public void EndPhaseClicked(MouseEvent mouseEvent) {
+    public void EndPhaseClicked() {
        if(phase.getType().equals("B")){
            this.main.initRoot(this.phase.nextPhase());
            System.out.println("Berhasil ganti phase ke End Phase");
        }
+
     }
     public void summon(){
         FieldController cont;
@@ -335,6 +394,20 @@ public class ArenaController  {
             LandCard willSummoned = (LandCard) toBeSummoned;
             phase.placeCard(willSummoned);
             setPhase(phase,this.main);
+        }
+    }
+    public HandController getHandController(){
+        if(this.phase.getTurn()){
+            return this.handP2Controller;
+        }else{
+            return this.handP1Controller;
+        }
+    }
+    public FieldController getFieldController(){
+        if(this.phase.getTurn()){
+            return this.fieldP2Controller;
+        }else{
+            return this.fieldP1Controller;
         }
     }
 

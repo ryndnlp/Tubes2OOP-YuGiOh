@@ -38,6 +38,9 @@ public class ActiveCardController {
     @FXML
     private Button actionButton;
 
+    @FXML
+    private Button setSkillButton;
+
     private Tuple<Integer, Integer> position;
     private boolean turn;
     private ArenaController ac;
@@ -46,19 +49,28 @@ public class ActiveCardController {
     @FXML
     void onMouseClicked(MouseEvent event) {
         boolean couldAttack = true;
-        BattlePhase bp = (BattlePhase) this.ac.getPhase();
-        for(Tuple<Integer,Integer> loc : bp.getAlreadyAttack()) {
-            if(this.position.getFirst() == loc.getFirst() && this.position.getSecond() == loc.getSecond()) {
-                couldAttack = false;
+        if(ac.getPhase().getType()=="B") {
+            BattlePhase bp = (BattlePhase) this.ac.getPhase();
+            for (Tuple<Integer, Integer> loc : bp.getAlreadyAttack()) {
+                if (this.position.getFirst() == loc.getFirst() && this.position.getSecond() == loc.getSecond()) {
+                    couldAttack = false;
+                }
             }
         }
 
         if(card.getType()=='C'){
-            if(ac.getPhase().getType()=="M" && ac.getPhase().getTurn()==this.turn){
-                this.actionButton.setText("Change pos");
-                this.actionButton.setVisible(true);
+            if(ac.getPhase().getType()=="M"){
+                if(ac.getPhase().getTurn()==this.turn){
+                    this.actionButton.setText("Change pos");
+                    this.actionButton.setVisible(true);
+                }
+                CharacterCard cc = (CharacterCard) this.card;
+                ac.toBeBind = cc;
+                ac.locToBeBind = this.position;
+                ac.renderCard5();
+
             }else if(ac.getPhase().getType()=="B"){
-                ac.hideButton();
+                ac.hideButtonBattle();
                 CharacterCard cc = (CharacterCard) this.card;
                 if(ac.getPhase().getTurn()==this.turn) {
                     if(cc.getPosition() && couldAttack){

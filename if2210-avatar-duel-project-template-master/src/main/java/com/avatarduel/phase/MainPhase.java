@@ -19,6 +19,11 @@ public class MainPhase extends Phase {
         this.alreadyAttack = new ArrayList<Tuple<Integer,Integer>>();
         this.alreadyPlaceLand = false;
     }
+
+    public boolean isLandAlreadyPlaced() {
+        return this.alreadyPlaceLand;
+    }
+
     // Summon Character Card on field with loc i,j
     public void placeCard(CharacterCard card, int i, int j) {
         // get player
@@ -84,6 +89,7 @@ public class MainPhase extends Phase {
             //added bonus attack and defense aura to charCard
             pCharCard.setAttack(pCharCard.getAttack()+card.getAttack());
             pCharCard.setDefense(pCharCard.getDefense()+card.getDefense());
+            System.out.println(pCharCard.getSkillLoc().size());
         } else if(card.getSkill() == "Power Up") { //Bind to player Card
             for(Tuple<Integer,Integer> loc : field.keySet()) {
                 if(loc.getFirst() == charCardLoc.getFirst() && loc.getSecond() == charCardLoc.getSecond()) {
@@ -92,6 +98,7 @@ public class MainPhase extends Phase {
             }
             //get CharCard
             CharacterCard pCharCard = (CharacterCard) p.getField().getCardOnField().get(charCardLoc);
+            System.out.println(pCharCard.getSkillLoc().size());
             //adding skillLoc to characterCard SkillSet
             pCharCard.getSkillLoc().add(key); //key is location of the skillCard
         } else if(card.getSkill() == "Destroy") { //Destroy opponent Char Card
