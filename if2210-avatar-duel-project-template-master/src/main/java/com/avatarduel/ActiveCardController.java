@@ -70,7 +70,7 @@ public class ActiveCardController {
                 ac.toBeBind = cc;
                 ac.locToBeBind = this.position;
                 ac.toBeBindTurn = this.turn;
-                ac.renderCard5();
+                ac.renderCardTarget();
 
             }else if(ac.getPhase().getType()=="B"){
                 ac.hideButtonBattle();
@@ -79,12 +79,12 @@ public class ActiveCardController {
                     if(cc.getPosition() && couldAttack){
                         ac.attacker = cc;
                         ac.locAttacker = this.position;
-                        ac.renderCard2();
+                        ac.renderCardAttacker();
                     }
                 }else{
                     ac.defender = cc;
                     ac.locDefender = this.position;
-                    ac.renderCard3();
+                    ac.renderCardDefender();
                 }
             }
         }
@@ -174,4 +174,3 @@ public class ActiveCardController {
         ac.setPhase(ac.getPhase(), ac.getMain());
     }
 }
-

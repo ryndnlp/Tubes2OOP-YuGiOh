@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
 <?import javafx.scene.layout.AnchorPane?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="175.0" style="-fx-background-color: #1c162e;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.avatarduel.PlayerController">
    <children>
       <Label fx:id="typePlayer" layoutX="6.0" layoutY="6.0" prefHeight="17.0" prefWidth="65.0" text="Player 1" textFill="#fffbfb" />
       <Label fx:id="namePlayer" layoutX="6.0" layoutY="23.0" prefHeight="17.0" prefWidth="65.0" text="NamaPlayer" textFill="#fffbfb" />
-      <Label fx:id="heathLabel" alignment="CENTER" layoutX="6.0" layoutY="41.0" prefHeight="44.0" prefWidth="65.0" text="80" textFill="#fffbfb" />
+      <Label fx:id="heathLabel" layoutX="-17.0" layoutY="41.0" prefHeight="44.0" prefWidth="65.0" text="HP:" textFill="#fffbfb" AnchorPane.leftAnchor="7.0" />
+      <ProgressBar fx:id="healthBar" layoutX="75.0" layoutY="54.0" prefHeight="18.0" prefWidth="81.0" progress="0.0" />
    </children>
 </AnchorPane>

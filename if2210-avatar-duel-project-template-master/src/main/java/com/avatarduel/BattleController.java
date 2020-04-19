@@ -48,9 +48,7 @@ public class BattleController {
             bp.attack(ac.locAttacker.getFirst(), ac.locAttacker.getSecond(), ac.locDefender.getFirst(), ac.locDefender.getSecond());
         }
 
-        System.out.println(ac.getPhase().getP1().getHealth());
-        System.out.println(ac.getPhase().getP2().getHealth());
-        ac.renderHealth(ac.getPhase().getP1().getHealth(), ac.getPhase().getP2().getHealth());
+
         flush();
         ac.setPhase(ac.getPhase(), ac.getMain());
 

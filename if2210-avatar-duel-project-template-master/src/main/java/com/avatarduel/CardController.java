@@ -108,13 +108,14 @@ public class CardController {
                     actionButton.setVisible(true);
                     SkillCard sc = (SkillCard) this.card;
                     ac.toBeUsed = sc;
-                    ac.renderCard4();
+                    ac.renderCardSkill();
                 }
             }
         }
     }
     @FXML
     void cardUnhovered(MouseEvent event) {
+        this.ac.flushDetail();
         this.actionButton.setVisible(false);
     }
     @FXML
@@ -137,4 +138,3 @@ public class CardController {
         }
     }
 }
-
