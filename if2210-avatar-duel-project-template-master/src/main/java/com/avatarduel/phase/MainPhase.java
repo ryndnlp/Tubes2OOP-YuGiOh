@@ -98,6 +98,7 @@ public class MainPhase extends Phase {
         CharacterCard c = (CharacterCard)p.getField().getCardOnField().get(key); //gabisa karena musti pake adapter kali wkwk wmager masihan
         c.changePosition();
         p.getField().getCardOnField().put(key, c);
+        System.out.println(c.getName());
     }
     
     //implement abstract method

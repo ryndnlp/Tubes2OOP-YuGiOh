@@ -26,7 +26,8 @@ public class ArenaController  {
     static public Card toBeSummoned;
     static public Card attacker;
     static public Card defender;
-    //static public Card
+    static public Tuple<Integer, Integer> locAttacker;
+    static public Tuple<Integer, Integer> locDefender;
 
     @FXML private DetailCardController detailCardController;
     @FXML private FieldController fieldP1Controller;
@@ -49,7 +50,7 @@ public class ArenaController  {
 
     public void init() {
         detailCardController.init(this);
-        battleController.init(this);
+
     }
     public Phase getPhase() {
         return this.phase;
@@ -96,6 +97,8 @@ public class ArenaController  {
     public void setPhase(Phase phase, AvatarDuel main){
         this.phase = phase;
         this.main = main;
+
+        battleController.init(this);
         if(handP1Controller.getAC() == null && handP2Controller.getAC() == null) {
             handP1Controller.init(this, phase.getP1().getHand());
             handP2Controller.init(this, phase.getP2().getHand());
@@ -106,14 +109,14 @@ public class ArenaController  {
             Hand handP1 = phase.getP1().getHand();
             handP1Controller.init(this,handP1);
             Field fieldP1 = phase.getP1().getField();
-            fieldP1Controller.init(this, fieldP1);
+            fieldP1Controller.init(this, fieldP1, false);
 
 
         }else{
             Hand handP2 = phase.getP2().getHand();
             handP2Controller.init(this,handP2);
             Field fieldP2 = phase.getP2().getField();
-            fieldP2Controller.init(this, fieldP2);
+            fieldP2Controller.init(this, fieldP2, true);
 
         }
         this.elmtP1Controller.init(this,phase.getP1().getPower());
@@ -172,34 +175,70 @@ public class ArenaController  {
             detailCardController.renderPowerL();
         }
     }
-    public void renderCard2(Card card){
+    public void renderCard2(){
 
-        //battleController.renderName(card.getName());
-        detailCardController.renderDesc(card.getDescription());
-        detailCardController.renderImage(card.getImagepath());
+        battleController.renderNameA(attacker.getName());
+        battleController.renderDescA(attacker.getDescription());
+        battleController.renderImageA(attacker.getImagepath());
 
-        if(card.getElement()== Element.WATER){
-            detailCardController.renderElement("com/avatarduel/card/image/element/Water.jpeg");
-        }else if(card.getElement()==Element.AIR){
-            detailCardController.renderElement("com/avatarduel/card/image/element/Air.jpeg");
-        }else if(card.getElement()==Element.FIRE){
-            detailCardController.renderElement("com/avatarduel/card/image/element/Fire.jpeg");
+        if(attacker.getElement()== Element.WATER){
+            battleController.renderElementA("com/avatarduel/card/image/element/Water.jpeg");
+        }else if(attacker.getElement()==Element.AIR){
+            battleController.renderElementA("com/avatarduel/card/image/element/Air.jpeg");
+        }else if(attacker.getElement()==Element.FIRE){
+            battleController.renderElementA("com/avatarduel/card/image/element/Fire.jpeg");
         }else {
-            detailCardController.renderElement("com/avatarduel/card/image/element/Earth.jpeg");
+            battleController.renderElementA("com/avatarduel/card/image/element/Earth.jpeg");
         }
 
-        if (card.getType()=='C'){
-            detailCardController.renderAttackC(Integer.toString(card.getAttack()));
-            detailCardController.renderDefenseC(Integer.toString(card.getDefense()));
-            detailCardController.renderPower(Integer.toString(card.getPower()));
-        }else if(card.getType()=='S'){
-            detailCardController.renderAttackS(Integer.toString(card.getAttack()));
-            detailCardController.renderDefenseS(Integer.toString(card.getDefense()));
-            detailCardController.renderPower(Integer.toString(card.getPower()));
+        battleController.renderAttackA(Integer.toString(attacker.getAttack()));
+        battleController.renderDefenseA(Integer.toString(attacker.getDefense()));
+        battleController.renderPowerA(Integer.toString(attacker.getPower()));
+
+        Player p = this.getPhase().seekTurn();
+        Player opponent;
+        if(p == this.getPhase().getP1()){
+            opponent = this.getPhase().getP2();
         }else{
-            detailCardController.renderAttackL();
-            detailCardController.renderDefenseL();
-            detailCardController.renderPowerL();
+            opponent = this.getPhase().getP1();
+        }
+        if(attacker!=null){
+            if(defender!=null || opponent.isNoCharacterCard()){
+                battleController.showButton();
+            }
+        }
+    }
+    public void renderCard3(){
+
+        battleController.renderNameD(defender.getName());
+        battleController.renderDescD(defender.getDescription());
+        battleController.renderImageD(defender.getImagepath());
+
+        if(defender.getElement()== Element.WATER){
+            battleController.renderElementD("com/avatarduel/card/image/element/Water.jpeg");
+        }else if(defender.getElement()==Element.AIR){
+            battleController.renderElementD("com/avatarduel/card/image/element/Air.jpeg");
+        }else if(defender.getElement()==Element.FIRE){
+            battleController.renderElementD("com/avatarduel/card/image/element/Fire.jpeg");
+        }else {
+            battleController.renderElementD("com/avatarduel/card/image/element/Earth.jpeg");
+        }
+
+        battleController.renderAttackD(Integer.toString(defender.getAttack()));
+        battleController.renderDefenseD(Integer.toString(defender.getDefense()));
+        battleController.renderPowerD(Integer.toString(defender.getPower()));
+
+        Player p = this.getPhase().seekTurn();
+        Player opponent;
+        if(p == this.getPhase().getP1()){
+            opponent = this.getPhase().getP2();
+        }else{
+            opponent = this.getPhase().getP1();
+        }
+        if(attacker!=null){
+            if(defender!=null){
+                battleController.showButton();
+            }
         }
     }
     public void DrawPhaseClicked(MouseEvent mouseEvent) {
@@ -254,7 +293,7 @@ public class ArenaController  {
                     Tuple<Integer, Integer> pos = sc.getPosition();
                     MainPhase phase = (MainPhase) this.phase;
                     SkillCard willSummoned = (SkillCard) toBeSummoned;
-                    phase.placeCard(willSummoned, pos.getFirst(), pos.getSecond());
+                    //phase.placeCard(willSummoned, pos.getFirst(), pos.getSecond());
                     this.setPhase(phase,this.main);
                     break;
                 }

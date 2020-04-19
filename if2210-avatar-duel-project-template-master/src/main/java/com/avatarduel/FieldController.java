@@ -25,10 +25,11 @@ public class FieldController {
     @FXML private ActiveCardController skillCard5Controller;
     @FXML private ActiveCardController skillCard6Controller;
 
-    public ArenaController ac;
-    public Field field;
+    private ArenaController ac;
+    private Field field;
     private List<ActiveCardController> listOfSkill;
     private List<ActiveCardController> listOfChar;
+    private boolean turn;
 
     public List<ActiveCardController> getListOfCharController(){
         return listOfChar;
@@ -106,38 +107,22 @@ public class FieldController {
             if(cont.getCard() == null) {
                 cont.flush();
             }
+            cont.setTurn(this.turn);
         }
         for(ActiveCardController cont  : listOfChar) {
             if(cont.getCard() == null) {
                 cont.flush();
             }
+            cont.setTurn(this.turn);
         }
     }
 
-    public void init(ArenaController ac, Field field){
+    public void init(ArenaController ac, Field field, boolean turn){
+        this.turn = turn;
         this.ac = ac;
         this.field = field;
 
         renderField();
-    }
-    @FXML
-    void mouseClicked(MouseEvent event){
-        if(ac.getPhase().getType()=="B") {
-            Node node = (Node) event.getSource();
-            Integer data = Integer.parseInt((String) node.getUserData());
-
-            Integer x = data / 10;
-            Integer y = data % 10;
-            Tuple<Integer, Integer> loc = new Tuple<Integer, Integer>(x, y);
-
-            for (Tuple<Integer, Integer> key : field.getCardOnField().keySet()) {
-                if (key.getFirst() == loc.getFirst() && key.getSecond() == loc.getSecond()) {
-                    ac.attacker = field.getCardOnField().get(key);
-                    System.out.println(ac.attacker.getName());
-                    break;
-                }
-            }
-        }
     }
 
 }

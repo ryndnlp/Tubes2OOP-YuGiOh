@@ -57,4 +57,13 @@ public class Player {
     public void setHealth(int health) {
         this.health = health;
     }
+
+    public boolean isNoCharacterCard(){
+        for (Tuple<Integer,Integer> key : field.getCardOnField().keySet()) {
+            if(key.getFirst()==0){
+                return false;
+            }
+        }
+        return true;
+    }
 }

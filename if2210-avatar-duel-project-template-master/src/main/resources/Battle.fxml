@@ -52,7 +52,7 @@
          </AnchorPane>
       </children>
    </VBox>
-   <Button fx:id="attackButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="72.0" text="Attack" visible="false" />
+   <Button fx:id="attackButton" onMouseClicked="#attack" mnemonicParsing="false" prefHeight="25.0" prefWidth="72.0" text="Attack" visible="false" />
    <VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0">
       <children>
          <AnchorPane fx:id="container" minHeight="-Infinity" minWidth="-Infinity" prefHeight="120.0" prefWidth="64.0" style="-fx-border-color: black;" styleClass="unactivecard" stylesheets="@style.css">

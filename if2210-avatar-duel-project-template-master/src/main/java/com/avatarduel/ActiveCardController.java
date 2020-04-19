@@ -3,6 +3,7 @@ package com.avatarduel;
 import com.avatarduel.card.Card;
 import com.avatarduel.card.CharacterCard;
 import com.avatarduel.model.Element;
+import com.avatarduel.phase.MainPhase;
 import com.avatarduel.util.Tuple;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -38,16 +39,32 @@ public class ActiveCardController {
     private Button actionButton;
 
     private Tuple<Integer, Integer> position;
+    private boolean turn;
+    private ArenaController ac;
+    private Card card;
 
     @FXML
     void onMouseClicked(MouseEvent event) {
-        if(card.getType()=='C'  && ac.getPhase().getType()=="M"){
-            this.actionButton.setText("Change pos");
-            this.actionButton.setVisible(true);
+        if(card.getType()=='C'){
+            if(ac.getPhase().getType()=="M"){
+                this.actionButton.setText("Change pos");
+                this.actionButton.setVisible(true);
+            }else if(ac.getPhase().getType()=="B"){
+                if(ac.getPhase().getTurn()==this.turn) {
+                    ac.attacker = this.card;
+                    ac.locAttacker = this.position;
+                    ac.renderCard2();
+                }else{
+                    ac.defender = this.card;
+                    ac.locDefender = this.position;
+                    ac.renderCard3();
+                }
+            }
         }
     }
-    private ArenaController ac;
-    private Card card;
+    public void setTurn(boolean turn){
+        this.turn = turn;
+    }
     @FXML
     void onMouseExited(MouseEvent event) {
         this.actionButton.setVisible(false);
@@ -123,10 +140,9 @@ public class ActiveCardController {
     }
     public void onButtonClicked(MouseEvent event) {
         Tuple<Integer, Integer> pos = this.position;
-        CharacterCard card = (CharacterCard) ac.getPhase().seekTurn().getField().getCardOnField().get(pos);
-        System.out.println(card.getPosition());
-        card.changePosition();
-        System.out.println(card.getPosition());
+        MainPhase mp = (MainPhase) ac.getPhase();
+        mp.changePosition(this.position.getFirst(), this.position.getSecond());
+
         ac.setPhase(ac.getPhase(), ac.getMain());
     }
 }
