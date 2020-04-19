@@ -10,81 +10,58 @@ import java.util.*;
 
 public class MainPhase extends Phase {
     //constructor
-    public ArrayList<Tuple<Integer,Integer>> alreadyAttack;
+    private ArrayList<Tuple<Integer,Integer>> alreadyAttack;
+    private boolean alreadyPlaceLand;
     public MainPhase(Player P1, Player P2, boolean turn) {
         super(P1,P2,turn,"M");
         this.isEndphase = false;
         this.alreadyAttack = new ArrayList<Tuple<Integer,Integer>>();
+        this.alreadyPlaceLand = false;
     }
-    // get rid M2
-    // public MainPhase(Player P1, Player P2, boolean turn,ArrayList<Tuple<Integer,Integer>> alreadyAttack, boolean isLandCardUsed ) {
-    //     super(P1,P2,turn,"M2");
-    //     this.isEndphase = false;
-    //     this.isLandCardUsed = isLandCardUsed;
-    //     this.alreadyAttack = alreadyAttack;
-    // }
-    //methods
-
-
+    // Summon Character Card on field with loc i,j
     public void placeCard(CharacterCard card, int i, int j) {
+        // get player
         Player p = this.seekTurn();
-        if(p.getPower().get(card.getElement()).getFirst() >= card.getPower()) {
-            HashMap<Tuple<Integer,Integer>, Card> field = p.getField().getCardOnField();
-            ArrayList<Card> hand = p.getHand().getCardOnHand();
-            Tuple<Integer,Integer> key = new Tuple<Integer,Integer>(i,j);
-            if(field.containsKey(key)) {
-                //TODO:
-                //error here there is a card on that box
+        HashMap<Tuple<Integer,Integer>, Card> field = p.getField().getCardOnField();
+        ArrayList<Card> hand = p.getHand().getCardOnHand();
+        Tuple<Integer,Integer> key = new Tuple<Integer,Integer>(i,j);
+        for(Tuple<Integer,Integer> loc : field.keySet()) {
+            if(loc.getFirst()==key.getFirst() && loc.getSecond() == key.getSecond()) {
+                key = loc;
             }
-            else {
-                if(i != 0) {
-                    //TODO:
-                    //error wrong placement, suppose to be placed on row 1, not 0
-                }
-                else {
-                    //reduce power
-                    int newPow = p.getPower().get(card.getElement()).getFirst() - card.getPower();
-                    Tuple<Integer,Integer> newPowState = new Tuple<Integer,Integer>(newPow,p.getPower().get(card.getElement()).getSecond());
-                    p.getPower().put(card.getElement(), newPowState);
-                    //removing card from hand and place it
-                    field.put(key, card);
-                    hand.remove(card);
-                }
-            }
-        } else {
-            //TODO:
-            //throw error iinsufficent power
         }
+        //reduce Player power with specific elmt
+        int newPow = p.getPower().get(card.getElement()).getFirst() - card.getPower();
+        Tuple<Integer,Integer> newPowState = new Tuple<Integer,Integer>(newPow,p.getPower().get(card.getElement()).getSecond());
+        p.getPower().put(card.getElement(), newPowState);
+        //removing card from hand and place it
+        field.put(key, card);
+        hand.remove(card);
     }
-    public void placeCard(SkillCard card, int i, int j) {
+    // set Skill card on field with loc i,j and bind it to char card with loc k,l
+    public void placeCard(SkillCard card, int i, int j, int k, int l) {
+        //get Player
         Player p = this.seekTurn();
-        if(p.getPower().get(card.getElement()).getFirst() >= card.getPower()) {
-            HashMap<Tuple<Integer,Integer>, Card> field = p.getField().getCardOnField();
-            ArrayList<Card> hand = p.getHand().getCardOnHand();
-            Tuple<Integer,Integer> key = new Tuple<Integer,Integer>(i,j);
-            if(field.containsKey(key)) {
-                //TODO:
-                //error here there is a card on that box
-            }
-            else {
-                if(j != 0) {
-                    //TODO:
-                    //error wrong placement, suppose to be placed on row 0, not 1
+        HashMap<Tuple<Integer,Integer>, Card> field = p.getField().getCardOnField();
+        ArrayList<Card> hand = p.getHand().getCardOnHand();
+        Tuple<Integer,Integer> key = new Tuple<Integer,Integer>(i,j);
+                for(Tuple<Integer,Integer> loc : field.keySet()) {
+                    if(loc.getFirst()==key.getFirst() && loc.getSecond() == key.getSecond()) {
+                        key = loc;
+                    }
                 }
-                else {
-                    //reduce power
-                    int newPow = p.getPower().get(card.getElement()).getFirst() - card.getPower();
-                    Tuple<Integer,Integer> newPowState = new Tuple<Integer,Integer>(newPow,p.getPower().get(card.getElement()).getSecond());
-                    p.getPower().put(card.getElement(), newPowState);
-                    //remove card from hands and place it to the field
-                    field.put(key, card);
-                    hand.remove(card);
-                }
-            }
-        } else {
-            //TODO:
-            //throw error iinsufficent power
-        }
+        //reduce power
+        int newPow = p.getPower().get(card.getElement()).getFirst() - card.getPower();
+        Tuple<Integer,Integer> newPowState = new Tuple<Integer,Integer>(newPow,p.getPower().get(card.getElement()).getSecond());
+        p.getPower().put(card.getElement(), newPowState);
+        //remove card from hands and place it to the field
+        field.put(key, card);
+        hand.remove(card);
+        //Skill Logic Goes here
+        // TODO:
+        // if card.getSkill == "Aura" bind the aura to char card with loc k,l on player field
+        // if card.getSkill == "Power Up" bind the power to char card with loc k,l on player field        
+        // if card.getSkill == "Destroy" destroy this card and destroy char card on opponent field        
     }
     public void placeCard(LandCard card) {
         Player p = this.seekTurn();
@@ -103,6 +80,7 @@ public class MainPhase extends Phase {
             power.put(Element.EARTH, new Tuple<Integer,Integer>(power.get(Element.EARTH).getFirst()+1,power.get(Element.EARTH).getSecond()+1));
         }
         hand.remove(card);
+        this.alreadyPlaceLand = true;
     }
     public void drop(Card card) {
         Player p = this.seekTurn();
@@ -111,24 +89,15 @@ public class MainPhase extends Phase {
     }
     public void changePosition(int i, int j) {
         Player p = this.seekTurn();
-        Tuple<Integer,Integer> location = new Tuple<Integer,Integer>(i,j);
-        if(p.getField().getCardOnField().containsKey(location)) {
-            if(i != 1) {
-                //TODO:
-                //throw error here cuz selected card may not character card
-            } else {
-                if(p.getField().getCardOnField().get(location).getType().equals('C')) {
-                    CharacterCard c = (CharacterCard)p.getField().getCardOnField().get(location); //gabisa karena musti pake adapter kali wkwk wmager masihan
-                    c.changePosition();
-                    p.getField().getCardOnField().put(location, c);
-                } else {
-                    //throw error cuz not character card
-                }
+        Tuple<Integer,Integer> key = new Tuple<Integer,Integer>(i,j);
+        for(Tuple<Integer,Integer> loc : p.getField().getCardOnField().keySet()) {
+            if(loc.getFirst()==key.getFirst() && loc.getSecond() == key.getSecond()) {
+                key = loc;
             }
-        } else {
-            //TODO:
-            //throw error here cuz the card isnt exist
         }
+        CharacterCard c = (CharacterCard)p.getField().getCardOnField().get(key); //gabisa karena musti pake adapter kali wkwk wmager masihan
+        c.changePosition();
+        p.getField().getCardOnField().put(key, c);
     }
     
     //implement abstract method

@@ -73,9 +73,12 @@ public class AvatarDuel extends Application {
       this.listCharCard.add(charc);
     }
   }
-  private void loadCardsSkill() throws URISyntaxException, IOException {
-    listSkillCard = new ArrayList<Card>();
-    String SKILL_CSV_FILE_PATH = "card/data/skill_aura.csv";
+  private void loadCardsSkill(String filename, String skill) throws URISyntaxException, IOException {
+    if(listSkillCard == null){
+      listSkillCard = new ArrayList<Card>();
+    }
+//    String SKILL_CSV_FILE_PATH = "card/data/skill_aura.csv";
+    String SKILL_CSV_FILE_PATH = filename;
     File skillCSVFile = new File(getClass().getResource(SKILL_CSV_FILE_PATH).toURI());
     CSVReader skillReader = new CSVReader(skillCSVFile, "\t");
     skillReader.setSkipHeader(true);
@@ -92,6 +95,7 @@ public class AvatarDuel extends Application {
       skillc.setAttack(Integer.parseInt(row[6]));
       skillc.setDefense(Integer.parseInt(row[7]));
       skillc.setType('S');
+      skillc.setSkill(skill);
       this.listSkillCard.add(skillc);
     }
   }
@@ -99,7 +103,9 @@ public class AvatarDuel extends Application {
     Queue<Card> deckCard = new LinkedList<Card>();
     loadCardsLand();
     loadCardsCharacter();
-    loadCardsSkill();
+    loadCardsSkill("card/data/skill_aura.csv","Aura");
+    loadCardsSkill("card/data/skill_destroy.csv", "Destroy");
+    loadCardsSkill("card/data/skill_power_up.csv", "Power Up");
     for (int i=0; i<12; i++){
       Random rand1 = new Random();
       deckCard.add(listLandCard.get(rand1.nextInt(listLandCard.size())));
