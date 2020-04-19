@@ -115,7 +115,36 @@ public class ArenaController  {
     public void setPhase(Phase phase, AvatarDuel main){
         this.phase = phase;
         this.main = main;
-
+        if(this.phase.getType()=="B") {
+            Player p = this.phase.seekTurn();
+            Player opponent;
+            if(p == this.phase.getP1()) {
+                opponent = this.phase.getP2();
+            } else {
+                opponent = this.phase.getP1();
+            }
+            if(p.getHealth()<=0 || opponent.getHealth()<=0) {
+                //endGame goes here
+                Player Px = new Player(null, null, null);
+                Player Py = new Player(null, null, null);
+                this.phase = new EndPhase(Px,Py,false)
+            }
+        }
+        if(this.phase.getType()=="D") {
+            Player p = this.phase.seekTurn();
+            Player opponent;
+            if(p == this.phase.getP1()) {
+                opponent = this.phase.getP2();
+            } else {
+                opponent = this.phase.getP1();
+            }
+            if(p.getDeck().getCardOnDeck().size() == 0 || opponent.getDeck().getCardOnDeck().size() == 0) {
+                //endGame goes here
+                Player Px = new Player(null, null, null);
+                Player Py = new Player(null, null, null);
+                this.phase = new EndPhase(Px,Py,false);
+            }
+        }
         nextPhase.setDisable(false);
 
         renderHealth(getPhase().getP1().getHealth(), getPhase().getP2().getHealth());
@@ -227,9 +256,16 @@ public class ArenaController  {
             detailCardController.renderDefenseC(Integer.toString(card.getDefense()));
             detailCardController.renderPower(Integer.toString(card.getPower()));
         }else if(card.getType()=='S'){
-            detailCardController.renderAttackS(Integer.toString(card.getAttack()));
-            detailCardController.renderDefenseS(Integer.toString(card.getDefense()));
-            detailCardController.renderPower(Integer.toString(card.getPower()));
+            SkillCard sc = (SkillCard) card;
+            if(sc.getSkill()=="Aura") {
+                detailCardController.renderAttackS(Integer.toString(card.getAttack()));
+                detailCardController.renderDefenseS(Integer.toString(card.getDefense()));
+                detailCardController.renderPower(Integer.toString(card.getPower()));
+            } else {
+                detailCardController.renderAttackS("");
+                detailCardController.renderDefenseS("");
+                detailCardController.renderPower("");                
+            }
         }else{
             detailCardController.renderAttackL();
             detailCardController.renderDefenseL();
@@ -329,10 +365,16 @@ public class ArenaController  {
         }else {
             skillController.renderElementS("com/avatarduel/card/image/element/Earth.png");
         }
-
-        skillController.renderAttackS(Integer.toString(toBeUsed.getAttack()));
-        skillController.renderDefenseS(Integer.toString(toBeUsed.getDefense()));
-        skillController.renderPowerS(Integer.toString(toBeUsed.getPower()));
+        SkillCard sc = (SkillCard) toBeUsed;
+        if(sc.getSkill() == "Aura") {
+            skillController.renderAttackS(Integer.toString(toBeUsed.getAttack()));
+            skillController.renderDefenseS(Integer.toString(toBeUsed.getDefense()));
+            skillController.renderPowerS(Integer.toString(toBeUsed.getPower()));
+        } else {
+            skillController.renderAttackS("");
+            skillController.renderDefenseS("");
+            skillController.renderPowerS("");
+        }
 
         if(toBeBind!=null && toBeUsed!=null){
             showButtonSkill();
