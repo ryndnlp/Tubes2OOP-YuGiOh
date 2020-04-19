@@ -30,6 +30,7 @@ public class ArenaController  {
     static public Tuple<Integer, Integer> locDefender;
     static public Card toBeUsed;
     static public Card toBeBind;
+    static public boolean toBeBindTurn;
     static public Tuple<Integer, Integer> locToBeBind;
 
     @FXML private DetailCardController detailCardController;

@@ -68,6 +68,7 @@ public class ActiveCardController {
                 CharacterCard cc = (CharacterCard) this.card;
                 ac.toBeBind = cc;
                 ac.locToBeBind = this.position;
+                ac.toBeBindTurn = this.turn;
                 ac.renderCard5();
 
             }else if(ac.getPhase().getType()=="B"){

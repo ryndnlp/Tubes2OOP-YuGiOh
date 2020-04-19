@@ -93,7 +93,7 @@ public class SkillController {
                 Tuple<Integer, Integer> pos = sc.getPosition();
                 MainPhase phase = (MainPhase) ac.getPhase();
                 SkillCard willBeUsed = (SkillCard) ac.toBeUsed;
-                phase.placeCard(willBeUsed, pos.getFirst(), pos.getSecond(), ac.locToBeBind.getFirst(), ac.locToBeBind.getSecond());
+                phase.placeCard(willBeUsed, pos.getFirst(), pos.getSecond(), ac.locToBeBind.getFirst(), ac.locToBeBind.getSecond(),ac.toBeBindTurn);
                 flush();
                 ac.setPhase(phase,ac.getMain());
                 break;
