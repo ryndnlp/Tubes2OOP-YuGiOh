@@ -174,4 +174,3 @@ public class ActiveCardController {
         ac.setPhase(ac.getPhase(), ac.getMain());
     }
 }
-
