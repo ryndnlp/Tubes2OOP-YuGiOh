@@ -93,12 +93,16 @@ public class CardController {
             if (card.getPower() <= ac.getPhase().seekTurn().getPower().get(card.getElement()).getFirst()) {
                 if (card.getType() == 'C') {
                     actionButton.setText("Summon");
+                    this.actionButton.setVisible(true);
                 } else if (card.getType() == 'L') {
                     actionButton.setText("Put");
+                    this.actionButton.setVisible(true);
                 } else {//Skill
-                    actionButton.setText("Use");
+                    SkillCard sc = (SkillCard) this.card;
+                    ac.toBeUsed = sc;
+                    ac.renderCard4();
                 }
-                this.actionButton.setVisible(true);
+
             }
         }
     }
