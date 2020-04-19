@@ -115,10 +115,22 @@ public class ArenaController  {
     public void setPhase(Phase phase, AvatarDuel main){
         this.phase = phase;
         this.main = main;
-
+        if(this.phase.getType()=="B") {
+            Player p = this.phase.seekTurn();
+            Player opponent;
+            if(p == this.phase.getP1()) {
+                opponent = this.phase.getP2();
+            } else {
+                opponent = this.phase.getP1();
+            }
+            if(p.getHealth()<=0 || opponent.getHealth()<=0) {
+                //endGame goes here
+                Player Px = new Player();
+                Player Py = new Player();
+                this.phase = new EndPhase(Px,Py,false)
+            }
+        }
         nextPhase.setDisable(false);
-
-
         if(battleController!=null){
             battleController.flush();
         }
