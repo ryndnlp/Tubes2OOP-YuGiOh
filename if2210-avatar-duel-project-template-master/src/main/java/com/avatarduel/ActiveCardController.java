@@ -41,12 +41,10 @@ public class ActiveCardController {
 
     @FXML
     void onMouseClicked(MouseEvent event) {
-        if(card.getType()=='C'){
+        if(card.getType()=='C'  && ac.getPhase().getType()=="M"){
             this.actionButton.setText("Change pos");
-        }else if(card.getType()=='S'){
-            this.actionButton.setText("Use");
+            this.actionButton.setVisible(true);
         }
-        this.actionButton.setVisible(true);
     }
     private ArenaController ac;
     private Card card;
@@ -91,6 +89,7 @@ public class ActiveCardController {
         this.nameLabel.setText(this.card.getName());
         this.gambar.setImage(new Image(this.card.getImagepath(),58, 45, false, false));
         this.container.setRotate(0);
+        this.actionButton.setRotate(0);
         if(card.getType()=='L'){//Land
             this.attack.setText("");
             this.defense.setText("");

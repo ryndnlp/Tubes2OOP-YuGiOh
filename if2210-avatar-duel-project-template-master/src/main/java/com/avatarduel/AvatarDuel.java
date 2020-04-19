@@ -11,6 +11,7 @@ import com.avatarduel.hand.Hand;
 import com.avatarduel.phase.DrawPhase;
 import com.avatarduel.phase.Phase;
 import com.avatarduel.player.Player;
+import com.avatarduel.util.Tuple;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;

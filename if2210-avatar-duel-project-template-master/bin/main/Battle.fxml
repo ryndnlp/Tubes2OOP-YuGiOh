@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox maxWidth="-Infinity" minWidth="-Infinity" prefHeight="238.0" prefWidth="64.0" spacing="40.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.avatarduel.BattleController">
+   <VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0">
+      <children>
+         <AnchorPane fx:id="container1" minHeight="-Infinity" minWidth="-Infinity" prefHeight="120.0" prefWidth="64.0" style="-fx-border-color: black;" styleClass="unactivecard" stylesheets="@style.css">
+            <children>
+               <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="17.0" prefWidth="59.0" style="-fx-border-color: black;" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="2.0">
+                  <children>
+                     <HBox nodeOrientation="RIGHT_TO_LEFT" prefHeight="8.0" prefWidth="58.0" AnchorPane.topAnchor="104.5">
+                        <children>
+                           <Label fx:id="powerDefender" prefHeight="9.0" prefWidth="14.0">
+                              <font>
+                                 <Font name="Segoe UI" size="3.0" />
+                              </font>
+                           </Label>
+                           <Label fx:id="defenseDefender" prefHeight="9.0" prefWidth="14.0">
+                              <font>
+                                 <Font name="Segoe UI" size="3.0" />
+                              </font>
+                           </Label>
+                           <Label fx:id="attackDefender" prefHeight="9.0" prefWidth="14.0">
+                              <font>
+                                 <Font name="Segoe UI" size="3.0" />
+                              </font>
+                           </Label>
+                        </children>
+                     </HBox>
+                     <Label fx:id="nameDefender" layoutX="3.0" layoutY="3.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="13.0" prefWidth="38.0" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="2.0" AnchorPane.topAnchor="2.0">
+                        <font>
+                           <Font name="Segoe UI Semilight" size="6.0" />
+                        </font>
+                     </Label>
+                     <ImageView fx:id="elementDefender" fitHeight="13.0" fitWidth="15.0" layoutX="41.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true" styleClass="image" />
+                  </children>
+               </AnchorPane>
+               <Label fx:id="descDefender" alignment="TOP_LEFT" layoutX="3.0" layoutY="74.0" prefHeight="32.0" prefWidth="58.0" style="-fx-border-color: black;" text="&#10;" textAlignment="JUSTIFY" wrapText="true">
+                  <font>
+                     <Font name="Segoe UI" size="4.0" />
+                  </font>
+               </Label>
+               <ImageView fx:id="gambarDefender" fitHeight="45.0" fitWidth="58.0" layoutX="3.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true" AnchorPane.topAnchor="24.0" />
+            </children>
+         </AnchorPane>
+      </children>
+   </VBox>
+   <Button fx:id="attackButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="72.0" text="Attack" visible="false" />
+   <VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0">
+      <children>
+         <AnchorPane fx:id="container" minHeight="-Infinity" minWidth="-Infinity" prefHeight="120.0" prefWidth="64.0" style="-fx-border-color: black;" styleClass="unactivecard" stylesheets="@style.css">
+            <children>
+               <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="17.0" prefWidth="59.0" style="-fx-border-color: black;" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="2.0">
+                  <children>
+                     <HBox nodeOrientation="RIGHT_TO_LEFT" prefHeight="8.0" prefWidth="58.0" AnchorPane.topAnchor="104.5">
+                        <children>
+                           <Label fx:id="powerAttacker" prefHeight="9.0" prefWidth="14.0">
+                              <font>
+                                 <Font name="Segoe UI" size="3.0" />
+                              </font>
+                           </Label>
+                           <Label fx:id="defenseAttacker" prefHeight="9.0" prefWidth="14.0">
+                              <font>
+                                 <Font name="Segoe UI" size="3.0" />
+                              </font>
+                           </Label>
+                           <Label fx:id="attackAttacker" prefHeight="9.0" prefWidth="14.0">
+                              <font>
+                                 <Font name="Segoe UI" size="3.0" />
+                              </font>
+                           </Label>
+                        </children>
+                     </HBox>
+                     <Label fx:id="nameAttacker" layoutX="3.0" layoutY="3.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="13.0" prefWidth="38.0" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="2.0" AnchorPane.topAnchor="2.0">
+                        <font>
+                           <Font name="Segoe UI Semilight" size="6.0" />
+                        </font>
+                     </Label>
+                     <ImageView fx:id="elementAttacker" fitHeight="13.0" fitWidth="15.0" layoutX="41.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true" styleClass="image" />
+                  </children>
+               </AnchorPane>
+               <Label fx:id="descAttacker" alignment="TOP_LEFT" layoutX="3.0" layoutY="74.0" prefHeight="32.0" prefWidth="58.0" style="-fx-border-color: black;" text="&#10;" textAlignment="JUSTIFY" wrapText="true">
+                  <font>
+                     <Font name="Segoe UI" size="4.0" />
+                  </font>
+               </Label>
+               <ImageView fx:id="gambarAttacker" fitHeight="45.0" fitWidth="58.0" layoutX="3.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true" AnchorPane.topAnchor="24.0" />
+            </children>
+         </AnchorPane>
+      </children>
+   </VBox>
+</VBox>

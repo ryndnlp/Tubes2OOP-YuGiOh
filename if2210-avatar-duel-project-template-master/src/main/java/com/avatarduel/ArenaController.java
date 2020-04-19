@@ -24,7 +24,9 @@ public class ArenaController  {
     private AvatarDuel main;
 
     static public Card toBeSummoned;
-
+    static public Card attacker;
+    static public Card defender;
+    //static public Card
 
     @FXML private DetailCardController detailCardController;
     @FXML private FieldController fieldP1Controller;
@@ -35,20 +37,19 @@ public class ArenaController  {
     @FXML private ElementController elmtP1Controller;
     @FXML private ElementController elmtP2Controller;
 
+    @FXML private BattleController battleController;
+    @FXML private SkillController skillController;
+
     @FXML private ImageView gambar;
-
     @FXML private Label drawPhase;
-
     @FXML private Label mainPhase;
-
     @FXML private Label battlePhase;
-
     @FXML private Label endPhase;
-
     @FXML private Button nextPhase;
 
     public void init() {
         detailCardController.init(this);
+        battleController.init(this);
     }
     public Phase getPhase() {
         return this.phase;
@@ -144,6 +145,36 @@ public class ArenaController  {
     public void renderCard(Card card){
 
         detailCardController.renderName(card.getName());
+        detailCardController.renderDesc(card.getDescription());
+        detailCardController.renderImage(card.getImagepath());
+
+        if(card.getElement()== Element.WATER){
+            detailCardController.renderElement("com/avatarduel/card/image/element/Water.jpeg");
+        }else if(card.getElement()==Element.AIR){
+            detailCardController.renderElement("com/avatarduel/card/image/element/Air.jpeg");
+        }else if(card.getElement()==Element.FIRE){
+            detailCardController.renderElement("com/avatarduel/card/image/element/Fire.jpeg");
+        }else {
+            detailCardController.renderElement("com/avatarduel/card/image/element/Earth.jpeg");
+        }
+
+        if (card.getType()=='C'){
+            detailCardController.renderAttackC(Integer.toString(card.getAttack()));
+            detailCardController.renderDefenseC(Integer.toString(card.getDefense()));
+            detailCardController.renderPower(Integer.toString(card.getPower()));
+        }else if(card.getType()=='S'){
+            detailCardController.renderAttackS(Integer.toString(card.getAttack()));
+            detailCardController.renderDefenseS(Integer.toString(card.getDefense()));
+            detailCardController.renderPower(Integer.toString(card.getPower()));
+        }else{
+            detailCardController.renderAttackL();
+            detailCardController.renderDefenseL();
+            detailCardController.renderPowerL();
+        }
+    }
+    public void renderCard2(Card card){
+
+        //battleController.renderName(card.getName());
         detailCardController.renderDesc(card.getDescription());
         detailCardController.renderImage(card.getImagepath());
 

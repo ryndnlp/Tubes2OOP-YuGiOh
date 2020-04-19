@@ -120,5 +120,24 @@ public class FieldController {
 
         renderField();
     }
+    @FXML
+    void mouseClicked(MouseEvent event){
+        if(ac.getPhase().getType()=="B") {
+            Node node = (Node) event.getSource();
+            Integer data = Integer.parseInt((String) node.getUserData());
+
+            Integer x = data / 10;
+            Integer y = data % 10;
+            Tuple<Integer, Integer> loc = new Tuple<Integer, Integer>(x, y);
+
+            for (Tuple<Integer, Integer> key : field.getCardOnField().keySet()) {
+                if (key.getFirst() == loc.getFirst() && key.getSecond() == loc.getSecond()) {
+                    ac.attacker = field.getCardOnField().get(key);
+                    System.out.println(ac.attacker.getName());
+                    break;
+                }
+            }
+        }
+    }
 
 }

@@ -7,9 +7,11 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="660.0" prefWidth="1280.0" styleClass="arena" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.avatarduel.ArenaController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="660.0" prefWidth="1280.0" styleClass="arena" stylesheets="@style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.avatarduel.ArenaController">
 
    <children>
+      <fx:include source="Battle.fxml" fx:id="battle" AnchorPane.leftAnchor="960.0" AnchorPane.topAnchor="155.0" />
+      <fx:include source="Skill.fxml" fx:id="skill" AnchorPane.leftAnchor="260.0" AnchorPane.topAnchor="155.0" />
       <AnchorPane layoutX="-2.0" layoutY="55.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="175.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <fx:include fx:id="active" layoutY="5" source="Player.fxml" />
@@ -22,14 +24,15 @@
             <fx:include fx:id="elmtP1" layoutY="360" source="Element.fxml" />
             <Button fx:id="deckP1" layoutX="24.0" layoutY="539.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="123.0" text="Anggep aja ini deck" />
             <Button fx:id="deckP2" layoutX="27.0" layoutY="110.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="123.0" text="Anggep aja ini deck" />
+            <Button fx:id="nextPhase" layoutX="-1.0" layoutY="318.0" mnemonicParsing="false" onMouseClicked="#nextPhase" prefHeight="25.0" prefWidth="167.0" text="Next Phase" />
          </children>
       </AnchorPane>
-      <VBox alignment="CENTER" layoutX="398.0" layoutY="133.0" prefHeight="160.0" prefWidth="334.0" rotate="180.0" spacing="20.0" AnchorPane.topAnchor="133.0">
+      <VBox alignment="CENTER" layoutX="398.0" layoutY="133.0" prefHeight="160.0" prefWidth="334.0" rotate="180.0" spacing="20.0" AnchorPane.topAnchor="140.0">
          <children>
             <fx:include fx:id="fieldP2" source="Field.fxml" />
          </children>
       </VBox>
-      <VBox alignment="CENTER" layoutX="398.0" layoutY="356.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="160.0" prefWidth="395.0" AnchorPane.bottomAnchor="144.0">
+      <VBox alignment="CENTER" layoutX="398.0" layoutY="356.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="160.0" prefWidth="395.0" AnchorPane.bottomAnchor="140.0">
          <children>
             <fx:include fx:id="fieldP1" source="Field.fxml" />
          </children>
