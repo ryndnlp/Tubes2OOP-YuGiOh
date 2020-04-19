@@ -56,7 +56,7 @@ public class MainPhase extends Phase {
             //throw error iinsufficent power
         }
     }
-    public void placeCard(SkillCard card, int i, int j) {
+    public void placeCard(SkillCard card, int i, int j, int k, int l) {
         Player p = this.seekTurn();
         if(p.getPower().get(card.getElement()).getFirst() >= card.getPower()) {
             HashMap<Tuple<Integer,Integer>, Card> field = p.getField().getCardOnField();
@@ -67,19 +67,14 @@ public class MainPhase extends Phase {
                 //error here there is a card on that box
             }
             else {
-                if(j != 0) {
-                    //TODO:
-                    //error wrong placement, suppose to be placed on row 0, not 1
-                }
-                else {
-                    //reduce power
-                    int newPow = p.getPower().get(card.getElement()).getFirst() - card.getPower();
-                    Tuple<Integer,Integer> newPowState = new Tuple<Integer,Integer>(newPow,p.getPower().get(card.getElement()).getSecond());
-                    p.getPower().put(card.getElement(), newPowState);
-                    //remove card from hands and place it to the field
-                    field.put(key, card);
-                    hand.remove(card);
-                }
+                //reduce power
+                int newPow = p.getPower().get(card.getElement()).getFirst() - card.getPower();
+                Tuple<Integer,Integer> newPowState = new Tuple<Integer,Integer>(newPow,p.getPower().get(card.getElement()).getSecond());
+                p.getPower().put(card.getElement(), newPowState);
+                //remove card from hands and place it to the field
+                field.put(key, card);
+                hand.remove(card);
+                //Skill Logic Goes here
             }
         } else {
             //TODO:
