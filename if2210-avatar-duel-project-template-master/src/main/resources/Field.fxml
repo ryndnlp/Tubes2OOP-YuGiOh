@@ -7,22 +7,22 @@
    <children>
       <HBox prefHeight="100.0" prefWidth="200.0" spacing="50.0">
          <children>
-            <fx:include source="ActiveCard.fxml" fx:id="charCard1" onMouseClicked="#mouseClicked" onMouseEntered="#mouseEntered" userData="00"/>
-            <fx:include source="ActiveCard.fxml" fx:id="charCard2" onMouseClicked="#mouseClicked" onMouseEntered="#mouseEntered" userData="01"/>
-            <fx:include source="ActiveCard.fxml" fx:id="charCard3" onMouseClicked="#mouseClicked" onMouseEntered="#mouseEntered" userData="02"/>
-            <fx:include source="ActiveCard.fxml" fx:id="charCard4" onMouseClicked="#mouseClicked" onMouseEntered="#mouseEntered" userData="03"/>
-            <fx:include source="ActiveCard.fxml" fx:id="charCard5" onMouseClicked="#mouseClicked" onMouseEntered="#mouseEntered" userData="04"/>
-            <fx:include source="ActiveCard.fxml" fx:id="charCard6" onMouseClicked="#mouseClicked" onMouseEntered="#mouseEntered" userData="05"/>
+            <fx:include source="ActiveCard.fxml" fx:id="charCard1" onMouseEntered="#mouseEntered" userData="00"/>
+            <fx:include source="ActiveCard.fxml" fx:id="charCard2" onMouseEntered="#mouseEntered" userData="01"/>
+            <fx:include source="ActiveCard.fxml" fx:id="charCard3" onMouseEntered="#mouseEntered" userData="02"/>
+            <fx:include source="ActiveCard.fxml" fx:id="charCard4" onMouseEntered="#mouseEntered" userData="03"/>
+            <fx:include source="ActiveCard.fxml" fx:id="charCard5" onMouseEntered="#mouseEntered" userData="04"/>
+            <fx:include source="ActiveCard.fxml" fx:id="charCard6" onMouseEntered="#mouseEntered" userData="05"/>
          </children>
       </HBox>
       <HBox prefHeight="35.0" prefWidth="440.0" spacing="50.0">
          <children>
-            <fx:include source="ActiveCard.fxml" fx:id="skillCard1" onMouseClicked="#mouseClicked" onMouseEntered="#mouseEntered" userData="10"/>
-            <fx:include source="ActiveCard.fxml" fx:id="skillCard2" onMouseClicked="#mouseClicked" onMouseEntered="#mouseEntered" userData="11"/>
-            <fx:include source="ActiveCard.fxml" fx:id="skillCard3" onMouseClicked="#mouseClicked" onMouseEntered="#mouseEntered" userData="12"/>
-            <fx:include source="ActiveCard.fxml" fx:id="skillCard4" onMouseClicked="#mouseClicked" onMouseEntered="#mouseEntered" userData="13"/>
-            <fx:include source="ActiveCard.fxml" fx:id="skillCard5" onMouseClicked="#mouseClicked" onMouseEntered="#mouseEntered" userData="14"/>
-            <fx:include source="ActiveCard.fxml" fx:id="skillCard6" onMouseClicked="#mouseClicked" onMouseEntered="#mouseEntered" userData="15"/>
+            <fx:include source="ActiveCard.fxml" fx:id="skillCard1" onMouseEntered="#mouseEntered" userData="10"/>
+            <fx:include source="ActiveCard.fxml" fx:id="skillCard2" onMouseEntered="#mouseEntered" userData="11"/>
+            <fx:include source="ActiveCard.fxml" fx:id="skillCard3" onMouseEntered="#mouseEntered" userData="12"/>
+            <fx:include source="ActiveCard.fxml" fx:id="skillCard4" onMouseEntered="#mouseEntered" userData="13"/>
+            <fx:include source="ActiveCard.fxml" fx:id="skillCard5" onMouseEntered="#mouseEntered" userData="14"/>
+            <fx:include source="ActiveCard.fxml" fx:id="skillCard6" onMouseEntered="#mouseEntered" userData="15"/>
          </children>
       </HBox>
    </children>
