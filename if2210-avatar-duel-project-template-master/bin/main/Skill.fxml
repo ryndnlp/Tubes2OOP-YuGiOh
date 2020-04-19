@@ -8,14 +8,14 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxWidth="-Infinity" minWidth="-Infinity" prefHeight="238.0" prefWidth="64.0" spacing="40.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.avatarduel.SkillController">
+<VBox maxWidth="-Infinity" minWidth="-Infinity" prefHeight="345.0" prefWidth="83.0" spacing="40.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.avatarduel.SkillController">
     <VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0">
         <children>
-            <AnchorPane fx:id="container1" minHeight="-Infinity" minWidth="-Infinity" prefHeight="120.0" prefWidth="64.0" style="-fx-border-color: black;"  stylesheets="@style.css" styleClass="unactivecard">
+            <AnchorPane fx:id="container1" minHeight="-Infinity" minWidth="-Infinity" prefHeight="120.0" prefWidth="64.0" styleClass="arenacard" stylesheets="@style.css">
                 <children>
-                    <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="17.0" prefWidth="59.0" style="-fx-border-color: black;" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="2.0">
+                    <AnchorPane layoutX="4.0" layoutY="4.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="7.0" prefWidth="77.0" AnchorPane.leftAnchor="3.0" AnchorPane.rightAnchor="3.0" AnchorPane.topAnchor="3.0">
                         <children>
-                            <HBox nodeOrientation="RIGHT_TO_LEFT" prefHeight="8.0" prefWidth="58.0" AnchorPane.topAnchor="104.5">
+                            <HBox nodeOrientation="RIGHT_TO_LEFT" prefHeight="8.0" prefWidth="58.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="98.0">
                                 <children>
                                     <Label fx:id="powerChar" prefHeight="9.0" prefWidth="14.0">
                                         <font>
@@ -34,32 +34,32 @@
                                     </Label>
                                 </children>
                             </HBox>
-                            <Label fx:id="nameChar" layoutX="3.0" layoutY="3.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="13.0" prefWidth="38.0" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="2.0" AnchorPane.topAnchor="2.0" >
+                            <Label fx:id="nameChar" layoutX="3.0" layoutY="3.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="7.0" prefWidth="56.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
                                 <font>
                                     <Font name="Segoe UI Semilight" size="6.0" />
                                 </font>
                             </Label>
-                            <ImageView fx:id="elementChar" fitHeight="13.0" fitWidth="15.0" layoutX="41.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true" styleClass="image" />
+                            <ImageView fx:id="elementChar" fitHeight="5.0" fitWidth="15.0" layoutX="41.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.33333333333333304" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="1.666666666666667" />
                         </children>
                     </AnchorPane>
-                    <Label fx:id="descChar" alignment="TOP_LEFT" layoutX="3.0" layoutY="74.0" prefHeight="32.0" prefWidth="58.0" style="-fx-border-color: black;" text="&#10;" textAlignment="JUSTIFY" wrapText="true">
+                    <Label fx:id="descChar" alignment="TOP_LEFT" layoutX="3.0" layoutY="74.0" prefHeight="29.0" prefWidth="75.0" text="&#10;" textAlignment="JUSTIFY" wrapText="true" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="77.0">
                         <font>
                             <Font name="Segoe UI" size="4.0" />
                         </font>
                     </Label>
-                    <ImageView fx:id="gambarChar" fitHeight="45.0" fitWidth="58.0" layoutX="3.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true" AnchorPane.topAnchor="24.0" />
+                    <ImageView fx:id="gambarChar" fitHeight="53.0" fitWidth="72.0" layoutX="3.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="6.0" AnchorPane.topAnchor="13.0" />
                 </children>
             </AnchorPane>
         </children>
     </VBox>
-    <Button fx:id="connectButton" onMouseClicked="#sync" mnemonicParsing="false" prefHeight="25.0" prefWidth="72.0" text="Sync" visible="false" />
+    <Button fx:id="connectButton" mnemonicParsing="false" onMouseClicked="#sync" prefHeight="25.0" prefWidth="84.0" text="Sync" visible="false" />
     <VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0">
         <children>
             <AnchorPane fx:id="container" minHeight="-Infinity" minWidth="-Infinity" prefHeight="120.0" prefWidth="64.0" style="-fx-border-color: black;" styleClass="unactivecard" stylesheets="@style.css">
                 <children>
-                    <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="17.0" prefWidth="59.0" style="-fx-border-color: black;" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="2.0">
+                    <AnchorPane layoutX="4.0" layoutY="4.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="7.0" prefWidth="77.0" AnchorPane.leftAnchor="3.0" AnchorPane.rightAnchor="3.0" AnchorPane.topAnchor="3.0">
                         <children>
-                            <HBox nodeOrientation="RIGHT_TO_LEFT" prefHeight="8.0" prefWidth="58.0" AnchorPane.topAnchor="104.5">
+                            <HBox nodeOrientation="RIGHT_TO_LEFT" prefHeight="8.0" prefWidth="75.0" AnchorPane.topAnchor="98.0">
                                 <children>
                                     <Label fx:id="powerSkill" prefHeight="9.0" prefWidth="14.0">
                                         <font>
@@ -78,20 +78,20 @@
                                     </Label>
                                 </children>
                             </HBox>
-                            <Label fx:id="nameSkill" layoutX="3.0" layoutY="3.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="13.0" prefWidth="38.0" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="2.0" AnchorPane.topAnchor="2.0">
+                            <Label fx:id="nameSkill" layoutX="3.0" layoutY="3.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="13.0" prefWidth="38.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="2.0" AnchorPane.topAnchor="0.0">
                                 <font>
-                                    <Font name="Segoe UI Semilight" size="6.0" />
+                                    <Font name="Segoe UI Semilight" size="3.0" />
                                 </font>
                             </Label>
-                            <ImageView fx:id="elementSkill" fitHeight="13.0" fitWidth="15.0" layoutX="41.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true" styleClass="image" />
+                            <ImageView fx:id="elementSkill" fitHeight="5.0" fitWidth="15.0" layoutX="41.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="1.0" />
                         </children>
                     </AnchorPane>
-                    <Label fx:id="descSkill" alignment="TOP_LEFT" layoutX="3.0" layoutY="74.0" prefHeight="32.0" prefWidth="58.0" style="-fx-border-color: black;" text="&#10;" textAlignment="JUSTIFY" wrapText="true">
+                    <Label fx:id="descSkill" alignment="TOP_LEFT" layoutX="3.0" layoutY="74.0" prefHeight="27.0" prefWidth="73.0" text="&#10;" textAlignment="JUSTIFY" wrapText="true" AnchorPane.leftAnchor="4.0" AnchorPane.topAnchor="75.0">
                         <font>
                             <Font name="Segoe UI" size="4.0" />
                         </font>
                     </Label>
-                    <ImageView fx:id="gambarSkill" fitHeight="45.0" fitWidth="58.0" layoutX="3.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true" AnchorPane.topAnchor="24.0" />
+                    <ImageView fx:id="gambarSkill" fitHeight="53.0" fitWidth="72.0" layoutX="3.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="12.0" />
                 </children>
             </AnchorPane>
         </children>

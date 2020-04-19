@@ -56,15 +56,15 @@ public class CardController {
         this.container.setVisible(true);
         this.name.setText(this.card.getName());
         this.desc.setText(this.card.getDescription());
-        this.gambar.setImage(new Image(this.card.getImagepath(),58, 45, false, false));
+        this.gambar.setImage(new Image(this.card.getImagepath(),76, 56, false, false));
         if(card.getElement()== Element.WATER){
-            this.element.setImage(new Image("com/avatarduel/card/image/element/Water.png",15, 13, false, false));
+            this.element.setImage(new Image("com/avatarduel/card/image/element/Water.png",10, 7, false, false));
         }else if(card.getElement()==Element.AIR){
-            this.element.setImage(new Image("com/avatarduel/card/image/element/Air.png",15, 13, false, false));
+            this.element.setImage(new Image("com/avatarduel/card/image/element/Air.png",10, 7, false, false));
         }else if(card.getElement()==Element.FIRE){
-            this.element.setImage(new Image("com/avatarduel/card/image/element/Fire.png",15, 13, false, false));
+            this.element.setImage(new Image("com/avatarduel/card/image/element/Fire.png",10, 7, false, false));
         }else {
-            this.element.setImage(new Image("com/avatarduel/card/image/element/Earth.png",15, 13, false, false));
+            this.element.setImage(new Image("com/avatarduel/card/image/element/Earth.png",10, 7, false, false));
         }
         if(card.getType()=='L'){//Land
             this.attack.setText("");

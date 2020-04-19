@@ -11,8 +11,8 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="660.0" prefWidth="1280.0" styleClass="arena" stylesheets="@style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.avatarduel.ArenaController">
 
    <children>
-      <fx:include fx:id="battle" source="Battle.fxml" AnchorPane.leftAnchor="960.0" AnchorPane.topAnchor="155.0" />
-      <fx:include fx:id="skill" source="Skill.fxml" AnchorPane.leftAnchor="260.0" AnchorPane.topAnchor="155.0" />
+      <fx:include fx:id="battle" source="Battle.fxml" AnchorPane.leftAnchor="980.0" AnchorPane.topAnchor="155.0" />
+      <fx:include fx:id="skill" source="Skill.fxml" AnchorPane.leftAnchor="230.0" AnchorPane.topAnchor="155.0" />
       <AnchorPane layoutX="-2.0" layoutY="55.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="175.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <fx:include fx:id="p2" layoutY="5" source="Player.fxml" />
@@ -23,18 +23,18 @@
          <children>
             <fx:include fx:id="elmtP2" layoutX="10.0" layoutY="140.0" source="Element.fxml" />
             <fx:include fx:id="elmtP1" layoutX="10.0" layoutY="360" source="Element.fxml" />
-            <Button fx:id="nextPhase" layoutX="10.0" layoutY="315.0" mnemonicParsing="false" onMouseClicked="#nextPhase" prefHeight="25.0" prefWidth="167.0" text="Next Phase">
+            <Button fx:id="nextPhase" layoutX="10.0" layoutY="315.0" mnemonicParsing="false" onMouseClicked="#nextPhase" prefHeight="25.0" prefWidth="167.0" styleClass="button1" stylesheets="@style.css" text="Next Phase">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
          </children>
       </AnchorPane>
-      <VBox alignment="CENTER" layoutX="398.0" layoutY="133.0" prefHeight="160.0" prefWidth="334.0" rotate="180.0" spacing="20.0" AnchorPane.topAnchor="140.0">
+      <VBox alignment="CENTER" layoutX="398.0" layoutY="133.0" prefHeight="160.0" prefWidth="334.0" rotate="180.0" spacing="20.0" AnchorPane.leftAnchor="355.0" AnchorPane.topAnchor="140.0">
          <children>
             <fx:include fx:id="fieldP2" source="Field.fxml" />
          </children>
       </VBox>
-      <VBox alignment="CENTER" layoutX="398.0" layoutY="356.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="160.0" prefWidth="395.0" AnchorPane.bottomAnchor="140.0">
+      <VBox alignment="CENTER" layoutX="398.0" layoutY="356.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="160.0" prefWidth="395.0" AnchorPane.bottomAnchor="140.0" AnchorPane.leftAnchor="355.0">
          <children>
             <fx:include fx:id="fieldP1" source="Field.fxml" />
          </children>
@@ -49,15 +49,15 @@
             <fx:include fx:id="handP2" source="Hand.fxml" />
          </children>
       </VBox>
-      <HBox layoutX="397.0" layoutY="318.0" prefHeight="23.0" prefWidth="490.0" spacing="50.0" AnchorPane.leftAnchor="397.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+      <HBox layoutX="356.0" layoutY="318.0" prefHeight="23.0" prefWidth="574.0" spacing="50.0" AnchorPane.leftAnchor="356.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
          <children>
-            <Label fx:id="drawPhase" alignment="CENTER" onMouseClicked="#DrawPhaseClicked" prefHeight="37.0" prefWidth="105.0" style="-fx-border-color: black;" text="DP" textFill="WHITE" />
+            <Label fx:id="drawPhase" alignment="CENTER" onMouseClicked="#DrawPhaseClicked" prefHeight="23.0" prefWidth="105.0" style="-fx-border-color: #f2f2f2;" text="DP" textFill="WHITE" />
 
-            <Label fx:id="mainPhase" alignment="CENTER" onMouseClicked="#MainPhaseClicked" prefHeight="37.0" prefWidth="105.0" style="-fx-border-color: black;" text="MP" textFill="WHITE" />
+            <Label fx:id="mainPhase" alignment="CENTER" onMouseClicked="#MainPhaseClicked" prefHeight="37.0" prefWidth="105.0" style="-fx-border-color: #f2f2f2;" text="MP" textFill="WHITE" />
 
-            <Label fx:id="battlePhase" alignment="CENTER" onMouseClicked="#BattlePhaseClicked" prefHeight="37.0" prefWidth="105.0" style="-fx-border-color: black;" text="BP" textFill="WHITE" />
+            <Label fx:id="battlePhase" alignment="CENTER" onMouseClicked="#BattlePhaseClicked" prefHeight="37.0" prefWidth="105.0" style="-fx-border-color: #f2f2f2;" text="BP" textFill="WHITE" />
 
-            <Label fx:id="endPhase" alignment="CENTER" onMouseClicked="#EndPhaseClicked" prefHeight="37.0" prefWidth="105.0" style="-fx-border-color: black;" text="EP" textFill="WHITE" />
+            <Label fx:id="endPhase" alignment="CENTER" onMouseClicked="#EndPhaseClicked" prefHeight="37.0" prefWidth="105.0" style="-fx-border-color: #f2f2f2;" text="EP" textFill="WHITE" />
 
          </children>
       </HBox>
