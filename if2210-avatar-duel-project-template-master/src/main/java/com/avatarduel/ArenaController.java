@@ -125,6 +125,11 @@ public class ArenaController  {
             }
             if(p.getHealth()<=0 || opponent.getHealth()<=0) {
                 //endGame goes here
+                if(p.equals(phase.getP1()) && p.getHealth() <= 0) {
+                    //P2 wins
+                } else {
+                    //P1 Wins
+                }
                 Player Px = new Player(null, null, null);
                 Player Py = new Player(null, null, null);
                 this.phase = new EndPhase(Px,Py,false)
@@ -138,8 +143,13 @@ public class ArenaController  {
             } else {
                 opponent = this.phase.getP1();
             }
-            if(p.getDeck().getCardOnDeck().size() == 0 || opponent.getDeck().getCardOnDeck().size() == 0) {
+            if(p.getDeck().getCardOnDeck().size() == 0) {
                 //endGame goes here
+                if(p.equals(this.phase.getP1())) {
+                    // P2 Wins
+                } else {
+                    // P1 Wins
+                }
                 Player Px = new Player(null, null, null);
                 Player Py = new Player(null, null, null);
                 this.phase = new EndPhase(Px,Py,false);
@@ -501,5 +511,4 @@ public class ArenaController  {
     public SkillController getSkillController(){
         return this.skillController;
     }
-
 }
