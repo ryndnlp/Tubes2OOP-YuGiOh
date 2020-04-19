@@ -2,6 +2,8 @@ package com.avatarduel;
 
 import com.avatarduel.card.*;
 import com.avatarduel.model.Element;
+import com.avatarduel.phase.MainPhase;
+
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
@@ -56,13 +58,13 @@ public class CardController {
         this.desc.setText(this.card.getDescription());
         this.gambar.setImage(new Image(this.card.getImagepath(),58, 45, false, false));
         if(card.getElement()== Element.WATER){
-            this.element.setImage(new Image("com/avatarduel/card/image/element/Water.jpeg",15, 13, false, false));
+            this.element.setImage(new Image("com/avatarduel/card/image/element/Water.png",15, 13, false, false));
         }else if(card.getElement()==Element.AIR){
-            this.element.setImage(new Image("com/avatarduel/card/image/element/Air.jpeg",15, 13, false, false));
+            this.element.setImage(new Image("com/avatarduel/card/image/element/Air.png",15, 13, false, false));
         }else if(card.getElement()==Element.FIRE){
-            this.element.setImage(new Image("com/avatarduel/card/image/element/Fire.jpeg",15, 13, false, false));
+            this.element.setImage(new Image("com/avatarduel/card/image/element/Fire.png",15, 13, false, false));
         }else {
-            this.element.setImage(new Image("com/avatarduel/card/image/element/Earth.jpeg",15, 13, false, false));
+            this.element.setImage(new Image("com/avatarduel/card/image/element/Earth.png",15, 13, false, false));
         }
         if(card.getType()=='L'){//Land
             this.attack.setText("");
@@ -93,24 +95,47 @@ public class CardController {
             if (card.getPower() <= ac.getPhase().seekTurn().getPower().get(card.getElement()).getFirst()) {
                 if (card.getType() == 'C') {
                     actionButton.setText("Summon");
+                    this.actionButton.setVisible(true);
                 } else if (card.getType() == 'L') {
-                    actionButton.setText("Put");
-                } else {//Skill
+                    MainPhase mp = (MainPhase) this.ac.getPhase();
                     actionButton.setText("Use");
+                    if(!mp.isLandAlreadyPlaced()) {
+                        this.actionButton.setVisible(true);
+                    }
+                } else {//Skill
+                    //this.ac.hideButtonSkill();
+                    actionButton.setText("Drop");
+                    actionButton.setVisible(true);
+                    SkillCard sc = (SkillCard) this.card;
+                    ac.toBeUsed = sc;
+                    ac.renderCardSkill();
                 }
-                this.actionButton.setVisible(true);
             }
         }
     }
     @FXML
     void cardUnhovered(MouseEvent event) {
+        this.ac.flushDetail();
         this.actionButton.setVisible(false);
     }
     @FXML
     void onButtonClicked(MouseEvent event){
-        ac.toBeSummoned = card;
-        ac.summon();
-        this.actionButton.setVisible(false);
+        if(ac.getPhase().getType()=="M"){
+            if(card.getType()=='C') {
+                ac.toBeSummoned = card;
+                ac.summon();
+            }else if(card.getType()=='S'){
+                ac.getPhase().seekTurn().getHand().getCardOnHand().remove(this.card);
+                ac.getSkillController().flush();
+                ac.setPhase(ac.getPhase(), ac.getMain());
+            }else{
+                MainPhase phase = (MainPhase) ac.getPhase();
+                LandCard willSummoned = (LandCard) this.card;
+                phase.placeCard(willSummoned);
+                ac.setPhase(phase,ac.getMain());
+            }
+            this.actionButton.setVisible(false);
+        }
     }
 }
 

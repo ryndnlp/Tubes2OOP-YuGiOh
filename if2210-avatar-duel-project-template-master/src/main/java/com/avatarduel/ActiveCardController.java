@@ -3,7 +3,7 @@ package com.avatarduel;
 import com.avatarduel.card.Card;
 import com.avatarduel.card.CharacterCard;
 import com.avatarduel.model.Element;
-import com.avatarduel.phase.MainPhase;
+import com.avatarduel.phase.*;
 import com.avatarduel.util.Tuple;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -38,6 +38,9 @@ public class ActiveCardController {
     @FXML
     private Button actionButton;
 
+    @FXML
+    private Button setSkillButton;
+
     private Tuple<Integer, Integer> position;
     private boolean turn;
     private ArenaController ac;
@@ -45,19 +48,43 @@ public class ActiveCardController {
 
     @FXML
     void onMouseClicked(MouseEvent event) {
+        boolean couldAttack = true;
+        if(ac.getPhase().getType()=="B") {
+            ac.hideButtonBattle();
+            BattlePhase bp = (BattlePhase) this.ac.getPhase();
+            for (Tuple<Integer, Integer> loc : bp.getAlreadyAttack()) {
+                if (this.position.getFirst() == loc.getFirst() && this.position.getSecond() == loc.getSecond()) {
+                    couldAttack = false;
+                }
+            }
+        }
+
         if(card.getType()=='C'){
             if(ac.getPhase().getType()=="M"){
-                this.actionButton.setText("Change pos");
-                this.actionButton.setVisible(true);
+                this.ac.hideButtonSkill();
+                if(ac.getPhase().getTurn()==this.turn){
+                    this.actionButton.setText("Change pos");
+                    this.actionButton.setVisible(true);
+                }
+                CharacterCard cc = (CharacterCard) this.card;
+                ac.toBeBind = cc;
+                ac.locToBeBind = this.position;
+                ac.toBeBindTurn = this.turn;
+                ac.renderCardTarget();
+
             }else if(ac.getPhase().getType()=="B"){
+                ac.hideButtonBattle();
+                CharacterCard cc = (CharacterCard) this.card;
                 if(ac.getPhase().getTurn()==this.turn) {
-                    ac.attacker = this.card;
-                    ac.locAttacker = this.position;
-                    ac.renderCard2();
+                    if(cc.getPosition() && couldAttack){
+                        ac.attacker = cc;
+                        ac.locAttacker = this.position;
+                        ac.renderCardAttacker();
+                    }
                 }else{
-                    ac.defender = this.card;
+                    ac.defender = cc;
                     ac.locDefender = this.position;
-                    ac.renderCard3();
+                    ac.renderCardDefender();
                 }
             }
         }
@@ -79,6 +106,7 @@ public class ActiveCardController {
     
     public void resetCard() {
         this.card = null;
+        this.container.setRotate(0);
         //this.position = null;
     }
 

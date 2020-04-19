@@ -47,11 +47,14 @@ public class BattleController {
         }else{
             bp.attack(ac.locAttacker.getFirst(), ac.locAttacker.getSecond(), ac.locDefender.getFirst(), ac.locDefender.getSecond());
         }
-        System.out.println(ac.getPhase().getP1().getHealth());
-        System.out.println(ac.getPhase().getP2().getHealth());
+
+
         flush();
         ac.setPhase(ac.getPhase(), ac.getMain());
 
+    }
+    public void hideButton(){
+        this.attackButton.setVisible(false);
     }
     public void init(ArenaController ac) {
         this.ac = ac;
@@ -66,7 +69,7 @@ public class BattleController {
         this.attackAttacker.setText("ATK/ " + attack + " ");
     }
     public void renderAttackD(String attack){
-        this.attackAttacker.setText("ATK/ " + attack + " ");
+        this.attackDefender.setText("ATK/ " + attack + " ");
     }
     public void renderDefenseA(String defense){
         this.defenseAttacker.setText("DEF/ " + defense + " ");
@@ -96,7 +99,7 @@ public class BattleController {
         this.elementAttacker.setImage(new Image(path, 50, 50, false, false));
     }
     public void renderElementD(String path){
-        this.elementAttacker.setImage(new Image(path, 50, 50, false, false));
+        this.elementDefender.setImage(new Image(path, 50, 50, false, false));
     }
 
     public void flush() {
@@ -104,16 +107,17 @@ public class BattleController {
         this.ac.defender = null;
         this.ac.locAttacker = null;
         this.ac.locDefender = null;
-        this.nameAttacker = new Label();
-        this.nameDefender = new Label();
-        this.attackAttacker = new Label();
-        this.attackDefender = new Label();
-        this.defenseAttacker = new Label();
-        this.defenseDefender = new Label();
-        this.powerAttacker = new Label();
-        this.powerDefender = new Label();
-        this.descAttacker = new Label();
-        this.descDefender = new Label();
+        this.attackButton.setVisible(false);
+        this.nameAttacker.setText("");
+        this.nameDefender.setText("");
+        this.attackAttacker.setText("");
+        this.attackDefender.setText("");
+        this.defenseAttacker.setText("");
+        this.defenseDefender.setText("");
+        this.powerAttacker.setText("");
+        this.powerDefender.setText("");
+        this.descAttacker.setText("");
+        this.descDefender.setText("");
         this.gambarAttacker.setImage(null);
         this.gambarDefender.setImage(null);
         this.elementAttacker.setImage(null);

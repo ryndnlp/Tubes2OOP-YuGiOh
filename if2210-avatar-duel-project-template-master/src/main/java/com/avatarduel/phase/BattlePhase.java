@@ -72,32 +72,15 @@ public class BattlePhase extends Phase {
                 targetLocation = loc;
             }
         }
-
-        //err handle in front
-        if(this.alreadyAttack.contains(attackerLocation)) {
-            //throw error cuz this already attack
-        }
-        
-        //err handle in front
-        if(!p.getField().getCardOnField().get(attackerLocation).getType().equals('C') || !opponent.getField().getCardOnField().get(targetLocation).getType().equals('C')) {
-            //throw error cuz not valid type
-        }
         
         CharacterCard attackerCard = (CharacterCard)p.getField().getCardOnField().get(attackerLocation);
         CharacterCard targetCard = (CharacterCard)opponent.getField().getCardOnField().get(targetLocation);
         
-        //err handle in front
-        if(!attackerCard.getPosition()) {
-            //attackker card on defense pos so throw error
-        }
         //get point
         atkcrPoint = attackerCard.getPoint();
         targetPoint = targetCard.getPoint();
         
-        //err handle in front
-        if(atkcrPoint < targetPoint) {
-            //throw error cuz atckr < target
-        }
+        
         this.alreadyAttack.add(attackerLocation); // so this card cant attack twice
         
         residue = atkcrPoint - targetPoint;
@@ -106,7 +89,7 @@ public class BattlePhase extends Phase {
         }
         this.destroyCard(targetLocation.getFirst(), targetLocation.getSecond(), opponent);  //destroy opponent
 
-        if(targetCard.getPosition()) { //target in atk pos  
+        if(targetCard.getPosition() || attackerCard.isPoweredUp()) { //target in atk pos  
             opponent.setHealth(opponent.getHealth()-residue);
         } //else on defend pos so dont reducce the health but when attacker has power up skill it will ber reduced
     }

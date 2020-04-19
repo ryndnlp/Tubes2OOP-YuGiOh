@@ -86,16 +86,16 @@ public class AvatarDuel extends Application {
     for (String[] row : skillrow) {
       CardFactory cardFactory = new CardFactory();
       SkillCard skillc = (SkillCard)cardFactory.getCard("SkillCard");
-      skillc.setDescription(row[3]);
       skillc.setElement(row[2]);
       skillc.setId(Integer.parseInt(row[0]));
       skillc.setName(row[1]);
       skillc.setImagepath(row[4]);
       skillc.setPower(Integer.parseInt(row[5]));
+      skillc.setSkill(skill);
+      skillc.setType('S');
+        skillc.setDescription(row[3]);
       skillc.setAttack(Integer.parseInt(row[6]));
       skillc.setDefense(Integer.parseInt(row[7]));
-      skillc.setType('S');
-      skillc.setSkill(skill);
       this.listSkillCard.add(skillc);
     }
   }

@@ -34,7 +34,6 @@ public class HandController {
         Node node = (Node) event.getSource();
         String data = (String) node.getUserData();
         ac.renderCard(handCard.getCardOnHand().get(Integer.parseInt(data)));
-
     }
 
     public List<CardController> getListOfCardController(){
