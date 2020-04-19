@@ -326,6 +326,9 @@ public class ArenaController  {
     public void showButtonSkill(){
         skillController.showButton();
     }
+    public void hideButtonSkill(){
+        skillController.hideButton();
+    }
     public void renderHealth(int healthP1, int healthP2){
         p2Controller.setHealthLabel(healthP2);
         p1Controller.setHealthLabel(healthP1);

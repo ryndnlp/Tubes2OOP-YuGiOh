@@ -60,6 +60,7 @@ public class ActiveCardController {
 
         if(card.getType()=='C'){
             if(ac.getPhase().getType()=="M"){
+                this.ac.hideButtonSkill();
                 if(ac.getPhase().getTurn()==this.turn){
                     this.actionButton.setText("Change pos");
                     this.actionButton.setVisible(true);

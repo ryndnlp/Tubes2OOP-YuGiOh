@@ -84,6 +84,9 @@ public class SkillController {
     public void showButton(){
         this.connectButton.setVisible(true);
     }
+    public void hideButton(){
+        this.connectButton.setVisible(false);
+    }
     @FXML public void sync(){
         for (ActiveCardController sc : ac.getFieldController().getListOfSkillController()) {
             if(sc.getCard() == null) {
@@ -91,9 +94,30 @@ public class SkillController {
                 MainPhase phase = (MainPhase) ac.getPhase();
                 SkillCard willBeUsed = (SkillCard) ac.toBeUsed;
                 phase.placeCard(willBeUsed, pos.getFirst(), pos.getSecond(), ac.locToBeBind.getFirst(), ac.locToBeBind.getSecond());
+                flush();
                 ac.setPhase(phase,ac.getMain());
                 break;
             }
         }
+    }
+    public void flush() {
+        this.ac.toBeUsed = null;
+        this.ac.toBeBind = null;
+        this.ac.locToBeBind = null;
+        this.connectButton.setVisible(false);
+        this.nameChar.setText("");
+        this.nameSkill.setText("");
+        this.attackChar.setText("");
+        this.attackSkill.setText("");
+        this.defenseChar.setText("");
+        this.defenseSkill.setText("");
+        this.powerChar.setText("");
+        this.powerSkill.setText("");
+        this.descpowerChar.setText("");
+        this.descSpowerSkill.setText("");
+        this.gambarpowerChar.setImage(null);
+        this.gambarSpowerSkill.setImage(null);
+        this.elementpowerChar.setImage(null);
+        this.elementSpowerSkill.setImage(null);
     }
 }
