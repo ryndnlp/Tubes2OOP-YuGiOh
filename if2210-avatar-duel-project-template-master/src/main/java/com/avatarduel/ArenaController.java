@@ -131,8 +131,10 @@ public class ArenaController  {
                 //endGame goes here
                 if(p.equals(phase.getP1()) && p.getHealth() <= 0) {
                     //P2 wins
+                    System.out.println("P2 WINS!!!!");
                 } else {
                     //P1 Wins
+                    System.out.println("P1 WINS!!!!");
                 }
                 Player Px = new Player(null, null, null);
                 Player Py = new Player(null, null, null);
@@ -151,7 +153,9 @@ public class ArenaController  {
                 //endGame goes here
                 if(p.equals(this.phase.getP1())) {
                     // P2 Wins
+                    System.out.println("P2 WINS!!!!");
                 } else {
+                    System.out.println("P1 WINS!!!!");
                     // P1 Wins
                 }
                 Player Px = new Player(null, null, null);
