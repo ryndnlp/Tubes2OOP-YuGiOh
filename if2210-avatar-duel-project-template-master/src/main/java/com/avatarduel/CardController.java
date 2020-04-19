@@ -115,6 +115,7 @@ public class CardController {
     }
     @FXML
     void cardUnhovered(MouseEvent event) {
+        this.ac.flushDetail();
         this.actionButton.setVisible(false);
     }
     @FXML
