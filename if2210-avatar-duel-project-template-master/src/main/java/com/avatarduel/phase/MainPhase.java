@@ -117,6 +117,8 @@ public class MainPhase extends Phase {
                 }
                 pCharCard = (CharacterCard) opponent.getField().getCardOnField().get(charCardLoc);
             }
+            //set PowerUp
+            pCharCard.setPoweredUp(true);
             System.out.println(pCharCard.getSkillLoc().size());
             //adding skillLoc to characterCard SkillSet
             pCharCard.getSkillLoc().add(key); //key is location of the skillCard

@@ -89,7 +89,7 @@ public class BattlePhase extends Phase {
         }
         this.destroyCard(targetLocation.getFirst(), targetLocation.getSecond(), opponent);  //destroy opponent
 
-        if(targetCard.getPosition()) { //target in atk pos  
+        if(targetCard.getPosition() || attackerCard.isPoweredUp()) { //target in atk pos  
             opponent.setHealth(opponent.getHealth()-residue);
         } //else on defend pos so dont reducce the health but when attacker has power up skill it will ber reduced
     }
