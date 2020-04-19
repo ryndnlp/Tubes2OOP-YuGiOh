@@ -212,13 +212,13 @@ public class ArenaController  {
         detailCardController.renderImage(card.getImagepath());
 
         if(card.getElement()== Element.WATER){
-            detailCardController.renderElement("com/avatarduel/card/image/element/Water.jpeg");
+            detailCardController.renderElement("com/avatarduel/card/image/element/Water.png");
         }else if(card.getElement()==Element.AIR){
-            detailCardController.renderElement("com/avatarduel/card/image/element/Air.jpeg");
+            detailCardController.renderElement("com/avatarduel/card/image/element/Air.png");
         }else if(card.getElement()==Element.FIRE){
-            detailCardController.renderElement("com/avatarduel/card/image/element/Fire.jpeg");
+            detailCardController.renderElement("com/avatarduel/card/image/element/Fire.png");
         }else {
-            detailCardController.renderElement("com/avatarduel/card/image/element/Earth.jpeg");
+            detailCardController.renderElement("com/avatarduel/card/image/element/Earth.png");
         }
 
         if (card.getType()=='C'){
@@ -242,13 +242,13 @@ public class ArenaController  {
         battleController.renderImageA(attacker.getImagepath());
 
         if(attacker.getElement()== Element.WATER){
-            battleController.renderElementA("com/avatarduel/card/image/element/Water.jpeg");
+            battleController.renderElementA("com/avatarduel/card/image/element/Water.png");
         }else if(attacker.getElement()==Element.AIR){
-            battleController.renderElementA("com/avatarduel/card/image/element/Air.jpeg");
+            battleController.renderElementA("com/avatarduel/card/image/element/Air.png");
         }else if(attacker.getElement()==Element.FIRE){
-            battleController.renderElementA("com/avatarduel/card/image/element/Fire.jpeg");
+            battleController.renderElementA("com/avatarduel/card/image/element/Fire.png");
         }else {
-            battleController.renderElementA("com/avatarduel/card/image/element/Earth.jpeg");
+            battleController.renderElementA("com/avatarduel/card/image/element/Earth.png");
         }
 
         battleController.renderAttackA(Integer.toString(attacker.getAttack()));
@@ -281,13 +281,13 @@ public class ArenaController  {
         battleController.renderImageD(defender.getImagepath());
 
         if(defender.getElement()== Element.WATER){
-            battleController.renderElementD("com/avatarduel/card/image/element/Water.jpeg");
+            battleController.renderElementD("com/avatarduel/card/image/element/Water.png");
         }else if(defender.getElement()==Element.AIR){
-            battleController.renderElementD("com/avatarduel/card/image/element/Air.jpeg");
+            battleController.renderElementD("com/avatarduel/card/image/element/Air.png");
         }else if(defender.getElement()==Element.FIRE){
-            battleController.renderElementD("com/avatarduel/card/image/element/Fire.jpeg");
+            battleController.renderElementD("com/avatarduel/card/image/element/Fire.png");
         }else {
-            battleController.renderElementD("com/avatarduel/card/image/element/Earth.jpeg");
+            battleController.renderElementD("com/avatarduel/card/image/element/Earth.png");
         }
 
         battleController.renderAttackD(Integer.toString(defender.getAttack()));
@@ -320,13 +320,13 @@ public class ArenaController  {
         skillController.renderImageS(toBeUsed.getImagepath());
 
         if(toBeUsed.getElement()== Element.WATER){
-            skillController.renderElementS("com/avatarduel/card/image/element/Water.jpeg");
+            skillController.renderElementS("com/avatarduel/card/image/element/Water.png");
         }else if(toBeUsed.getElement()==Element.AIR){
-            skillController.renderElementS("com/avatarduel/card/image/element/Air.jpeg");
+            skillController.renderElementS("com/avatarduel/card/image/element/Air.png");
         }else if(toBeUsed.getElement()==Element.FIRE){
-            skillController.renderElementS("com/avatarduel/card/image/element/Fire.jpeg");
+            skillController.renderElementS("com/avatarduel/card/image/element/Fire.png");
         }else {
-            skillController.renderElementS("com/avatarduel/card/image/element/Earth.jpeg");
+            skillController.renderElementS("com/avatarduel/card/image/element/Earth.png");
         }
 
         skillController.renderAttackS(Integer.toString(toBeUsed.getAttack()));
@@ -344,13 +344,13 @@ public class ArenaController  {
         skillController.renderImageA(toBeBind.getImagepath());
 
         if(toBeBind.getElement()== Element.WATER){
-            skillController.renderElementA("com/avatarduel/card/image/element/Water.jpeg");
+            skillController.renderElementA("com/avatarduel/card/image/element/Water.png");
         }else if(toBeBind.getElement()==Element.AIR){
-            skillController.renderElementA("com/avatarduel/card/image/element/Air.jpeg");
+            skillController.renderElementA("com/avatarduel/card/image/element/Air.png");
         }else if(toBeBind.getElement()==Element.FIRE){
-            skillController.renderElementA("com/avatarduel/card/image/element/Fire.jpeg");
+            skillController.renderElementA("com/avatarduel/card/image/element/Fire.png");
         }else {
-            skillController.renderElementA("com/avatarduel/card/image/element/Earth.jpeg");
+            skillController.renderElementA("com/avatarduel/card/image/element/Earth.png");
         }
 
         skillController.renderAttackA(Integer.toString(toBeBind.getAttack()));
