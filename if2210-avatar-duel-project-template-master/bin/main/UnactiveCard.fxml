@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="container" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#cardClicked" onMouseExited="#cardUnhovered" prefHeight="120.0" prefWidth="64.0" style="-fx-border-color: black;" styleClass="unactivecard" stylesheets="@style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.avatarduel.CardController">
+<AnchorPane fx:id="container" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#cardClicked" onMouseExited="#cardUnhovered" prefHeight="126.0" prefWidth="90.0" style="-fx-border-color: black;" styleClass="unactivecard" stylesheets="@style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.avatarduel.CardController">
    <children>
       <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="17.0" prefWidth="59.0" style="-fx-border-color: black;" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="2.0">
          <children>

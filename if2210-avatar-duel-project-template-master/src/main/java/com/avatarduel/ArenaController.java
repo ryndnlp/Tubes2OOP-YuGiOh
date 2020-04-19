@@ -127,7 +127,7 @@ public class ArenaController  {
                 //endGame goes here
                 Player Px = new Player(null, null, null);
                 Player Py = new Player(null, null, null);
-                this.phase = new EndPhase(Px,Py,false)
+                this.phase = new EndPhase(Px,Py,false);
             }
         }
         if(this.phase.getType()=="D") {
