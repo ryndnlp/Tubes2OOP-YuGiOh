@@ -10,11 +10,16 @@ import com.avatarduel.field.*;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
+import javafx.scene.layout.CornerRadii;
+import javafx.scene.paint.Color;
 
 import java.net.URL;
 import java.util.*;
@@ -70,6 +75,8 @@ public class ArenaController  {
 
     @FXML public void nextPhase(MouseEvent event){
         try{
+            skillController.flush();
+            battleController.flush();
             flush(phase.getTurn());
             flush(!phase.getTurn());
         }catch (Exception err){
@@ -140,7 +147,32 @@ public class ArenaController  {
         runPhase();
     }
 
+    public void setUpPhaseBackground(){
+        if(phase.getType()=="D") {
+            drawPhase.setBackground(new Background(new BackgroundFill(Color.RED, CornerRadii.EMPTY, Insets.EMPTY)));
+            mainPhase.setBackground(new Background(new BackgroundFill(Color.CORNFLOWERBLUE, CornerRadii.EMPTY, Insets.EMPTY)));
+            battlePhase.setBackground(new Background(new BackgroundFill(Color.CORNFLOWERBLUE, CornerRadii.EMPTY, Insets.EMPTY)));
+            endPhase.setBackground(new Background(new BackgroundFill(Color.CORNFLOWERBLUE, CornerRadii.EMPTY, Insets.EMPTY)));
+        }else if(phase.getType()=="M"){
+            mainPhase.setBackground(new Background(new BackgroundFill(Color.RED, CornerRadii.EMPTY, Insets.EMPTY)));
+            drawPhase.setBackground(new Background(new BackgroundFill(Color.CORNFLOWERBLUE, CornerRadii.EMPTY, Insets.EMPTY)));
+            battlePhase.setBackground(new Background(new BackgroundFill(Color.CORNFLOWERBLUE, CornerRadii.EMPTY, Insets.EMPTY)));
+            endPhase.setBackground(new Background(new BackgroundFill(Color.CORNFLOWERBLUE, CornerRadii.EMPTY, Insets.EMPTY)));
+        }else if(phase.getType()=="B"){
+            battlePhase.setBackground(new Background(new BackgroundFill(Color.RED, CornerRadii.EMPTY, Insets.EMPTY)));
+            mainPhase.setBackground(new Background(new BackgroundFill(Color.CORNFLOWERBLUE, CornerRadii.EMPTY, Insets.EMPTY)));
+            drawPhase.setBackground(new Background(new BackgroundFill(Color.CORNFLOWERBLUE, CornerRadii.EMPTY, Insets.EMPTY)));
+            endPhase.setBackground(new Background(new BackgroundFill(Color.CORNFLOWERBLUE, CornerRadii.EMPTY, Insets.EMPTY)));
+        }else{
+            endPhase.setBackground(new Background(new BackgroundFill(Color.RED, CornerRadii.EMPTY, Insets.EMPTY)));
+            mainPhase.setBackground(new Background(new BackgroundFill(Color.CORNFLOWERBLUE, CornerRadii.EMPTY, Insets.EMPTY)));
+            battlePhase.setBackground(new Background(new BackgroundFill(Color.CORNFLOWERBLUE, CornerRadii.EMPTY, Insets.EMPTY)));
+            drawPhase.setBackground(new Background(new BackgroundFill(Color.CORNFLOWERBLUE, CornerRadii.EMPTY, Insets.EMPTY)));
+        }
+    }
+
     public void runPhase(){
+        setUpPhaseBackground();
         if(phase.getType().equals("D")){
             this.nextPhase.setText("Next phase");
             System.out.println("Masuk Draw Phase");
@@ -412,6 +444,9 @@ public class ArenaController  {
         }else{
             return this.fieldP1Controller;
         }
+    }
+    public BattleController getBattleController(){
+        return this.battleController;
     }
 
 }

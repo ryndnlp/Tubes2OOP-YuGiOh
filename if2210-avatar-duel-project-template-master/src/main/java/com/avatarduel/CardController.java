@@ -103,7 +103,8 @@ public class CardController {
                         this.actionButton.setVisible(true);
                     }
                 } else {//Skill
-                    this.ac.hideButtonSkill();
+                    //this.ac.hideButtonSkill();
+                    ac.showButtonSkill();
                     SkillCard sc = (SkillCard) this.card;
                     ac.toBeUsed = sc;
                     ac.renderCard4();

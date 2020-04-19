@@ -103,7 +103,7 @@ public class MainPhase extends Phase {
             pCharCard.getSkillLoc().add(key); //key is location of the skillCard
         } else if(card.getSkill() == "Destroy") { //Destroy opponent Char Card
             // remove skillCard
-            p.getField().getCardOnField().remove(key);//remove SkillCard with loc key
+            field.remove(key);//remove SkillCard with loc key
             //destroy Character Card on pos (k,l) opponent side
             this.destroyCard(k, l, opponent);
         }
@@ -157,7 +157,7 @@ public class MainPhase extends Phase {
         //get Card to destroy
         CharacterCard card = (CharacterCard) p.getField().getCardOnField().get(key);
         //if there are some skillcard binded with this card then destroy it
-        if(card.getSkillLoc().size() != 0) {
+        if(card.getSkillLoc() != null) {
             for(Tuple<Integer,Integer> skilLoc : card.getSkillLoc()) {
                 for(Tuple<Integer,Integer> locSkill : p.getField().getCardOnField().keySet()) {
                     if(locSkill.getFirst()==skilLoc.getFirst() && locSkill.getSecond() == skilLoc.getSecond()) {

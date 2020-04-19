@@ -50,6 +50,7 @@ public class ActiveCardController {
     void onMouseClicked(MouseEvent event) {
         boolean couldAttack = true;
         if(ac.getPhase().getType()=="B") {
+            ac.getBattleController().flush();
             BattlePhase bp = (BattlePhase) this.ac.getPhase();
             for (Tuple<Integer, Integer> loc : bp.getAlreadyAttack()) {
                 if (this.position.getFirst() == loc.getFirst() && this.position.getSecond() == loc.getSecond()) {
