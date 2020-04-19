@@ -142,10 +142,13 @@ public class ArenaController  {
                 //endGame goes here
                 Player Px = new Player(null, null, null);
                 Player Py = new Player(null, null, null);
-                this.phase = new EndPhase(Px,Py,false)
+                this.phase = new EndPhase(Px,Py,false);
             }
         }
         nextPhase.setDisable(false);
+
+        renderHealth(getPhase().getP1().getHealth(), getPhase().getP2().getHealth());
+
         if(battleController!=null){
             battleController.flush();
         }
@@ -427,6 +430,8 @@ public class ArenaController  {
     public void renderHealth(int healthP1, int healthP2){
         p2Controller.setHealthLabel(healthP2);
         p1Controller.setHealthLabel(healthP1);
+        p1Controller.setHealthBar(healthP1);
+        p2Controller.setHealthBar(healthP2);
     }
     public void DrawPhaseClicked() {
         if(phase.getType().equals("D")){
