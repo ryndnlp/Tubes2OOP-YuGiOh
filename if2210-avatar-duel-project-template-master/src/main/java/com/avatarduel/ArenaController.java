@@ -125,8 +125,23 @@ public class ArenaController  {
             }
             if(p.getHealth()<=0 || opponent.getHealth()<=0) {
                 //endGame goes here
-                Player Px = new Player();
-                Player Py = new Player();
+                Player Px = new Player(null, null, null);
+                Player Py = new Player(null, null, null);
+                this.phase = new EndPhase(Px,Py,false)
+            }
+        }
+        if(this.phase.getType()=="D") {
+            Player p = this.phase.seekTurn();
+            Player opponent;
+            if(p == this.phase.getP1()) {
+                opponent = this.phase.getP2();
+            } else {
+                opponent = this.phase.getP1();
+            }
+            if(p.getDeck().getCardOnDeck().size() == 0 || opponent.getDeck().getCardOnDeck().size() == 0) {
+                //endGame goes here
+                Player Px = new Player(null, null, null);
+                Player Py = new Player(null, null, null);
                 this.phase = new EndPhase(Px,Py,false)
             }
         }
