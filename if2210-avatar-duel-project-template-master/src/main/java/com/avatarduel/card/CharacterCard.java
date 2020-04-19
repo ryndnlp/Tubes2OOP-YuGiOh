@@ -1,25 +1,33 @@
 package com.avatarduel.card;
 
+import java.util.*;
+import com.avatarduel.util.*;
+
 public class CharacterCard extends Card{
     private int power;
     private int attack;
     private int defense;
     private boolean position; //true atk, false defense
+    private ArrayList<Tuple<Integer,Integer>> skillLoc; //location of skillcard on field
 
     public CharacterCard(){
         super();
         this.position = true;
+        this.skillLoc = new ArrayList<Tuple<Integer,Integer>>();
+    }
+    
+    public ArrayList<Tuple<Integer,Integer>> getSkillLoc() {
+        return this.skillLoc;
     }
 
-    // public CharacterCard(int id, String name, String element, String description, String imagePath, int power, int attack, int defense, boolean position){
-    //     super(id, name, element, description, imagePath);
-    //     this.power = power;
-    //     this.attack = attack;
-    //     this.defense = defense;
-    // } 
+    public void setSkillLoc(ArrayList<Tuple<Integer,Integer>> loc) {
+        this.skillLoc = loc;
+    }
+
     public void changePosition() {
         this.position = !this.position;
     }
+    
     public int getPower(){
         return power;
     }
