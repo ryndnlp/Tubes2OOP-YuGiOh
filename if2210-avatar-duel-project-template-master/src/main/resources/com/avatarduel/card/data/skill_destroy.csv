@@ -1,0 +1,17 @@
+id	name	element	description	imagepath	power	attack	defense
+93	Destroy Air Funnel	AIR	Technique to create a cannon for small projectiles.	com/avatarduel/card/image/skill/Air Funnel.png	2	4	0
+94	Destroy Air Scooter	AIR	A form of transportation invented by Aang.	com/avatarduel/card/image/skill/Air Scooter.png	2	2	4
+95	Destroy Airbender Staff	AIR	A wooden stave used primarily by airbenders to augment their bending.	com/avatarduel/card/image/skill/Airbender Staff.png	2	2	2
+96	Airbender Upgraded Staff	AIR	Upgraded staff made by Mechanist for Aang at the Fire Nation Invasion.	com/avatarduel/card/image/skill/Airbender Upgraded Staff.png	2	3	3
+97	Asphyxiation	AIR	Manipulates the flow of air within a person's respiratory system and prevents any new intake of breath by forming a ball of air around the head.	com/avatarduel/card/image/skill/Asphyxiation.png	3	-3	-3
+98	Glider	AIR	Aerial transportation made by Mechanist, inspired from Air nomad gliders.	com/avatarduel/card/image/skill/Glider.png	1	2	-1
+99	Hot Air Balloon	AIR	Air balloon created by Mechanist, originally developed for the Fire Nation	com/avatarduel/card/image/skill/Hot Air Balloon.png	3	3	2
+100	Crystal Armor	EARTH	Armor made of crystal that makes the person cannot move.	com/avatarduel/card/image/skill/Crystal Armor.png	3	-4	2
+101	Earth Sink	EARTH	Make the person sink to the ground.	com/avatarduel/card/image/skill/Earth Sink.png	2	-4	2
+102	Lavabending	EARTH	Manipulate molten earth.	com/avatarduel/card/image/skill/Lavabending.png	4	4	-2
+103	Metalbending	EARTH	Ability to bend metal.	com/avatarduel/card/image/skill/Metalbending.png	4	1	3
+104	Rock Gloves	EARTH	Favored weapons of Ba Sing Se's secret police force, known as the Dai Li.	com/avatarduel/card/image/skill/Rock Gloves.png	1	-2	-2
+105	Slinky Tank	EARTH	Stone vehicles provided both transportation and protection during the invasion of the Fire Nation.	com/avatarduel/card/image/skill/Slinky Tank.png	3	-1	5
+106	Surface Rocks	EARTH	Largse rocks used as projectiles of Royal Earthbender Guards.	com/avatarduel/card/image/skill/Surface Rocks.png	2	3	0
+107	Blue Fire	FIRE	Bend completely blue flames, which are hotter than the orange flames.	com/avatarduel/card/image/skill/Blue Fire.png	3	3	0
+108	Combustionbending	FIRE	Ignite objects with their mind instead of traditional firebending methods.	com/avatarduel/card/image/skill/Combustionbending.png	3	3	0
