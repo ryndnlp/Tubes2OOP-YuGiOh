@@ -19,6 +19,11 @@ public class MainPhase extends Phase {
         this.alreadyAttack = new ArrayList<Tuple<Integer,Integer>>();
         this.alreadyPlaceLand = false;
     }
+
+    public boolean isLandAlreadyPlaced() {
+        return this.alreadyPlaceLand;
+    }
+
     // Summon Character Card on field with loc i,j
     public void placeCard(CharacterCard card, int i, int j) {
         // get player
