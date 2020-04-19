@@ -72,12 +72,6 @@ public class BattlePhase extends Phase {
                 targetLocation = loc;
             }
         }
-
-        //err handle in front
-        if(this.alreadyAttack.contains(attackerLocation)) {
-            //this.
-        }
-        
         
         CharacterCard attackerCard = (CharacterCard)p.getField().getCardOnField().get(attackerLocation);
         CharacterCard targetCard = (CharacterCard)opponent.getField().getCardOnField().get(targetLocation);

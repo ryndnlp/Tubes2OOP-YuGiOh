@@ -3,7 +3,7 @@ package com.avatarduel;
 import com.avatarduel.card.Card;
 import com.avatarduel.card.CharacterCard;
 import com.avatarduel.model.Element;
-import com.avatarduel.phase.MainPhase;
+import com.avatarduel.phase.*;
 import com.avatarduel.util.Tuple;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -45,6 +45,14 @@ public class ActiveCardController {
 
     @FXML
     void onMouseClicked(MouseEvent event) {
+        boolean couldAttack = true;
+        BattlePhase bp = (BattlePhase) this.ac.getPhase();
+        for(Tuple<Integer,Integer> loc : bp.getAlreadyAttack()) {
+            if(this.position.getFirst() == loc.getFirst() && this.position.getSecond() == loc.getSecond()) {
+                couldAttack = false;
+            }
+        }
+
         if(card.getType()=='C'){
             if(ac.getPhase().getType()=="M" && ac.getPhase().getTurn()==this.turn){
                 this.actionButton.setText("Change pos");
@@ -53,7 +61,7 @@ public class ActiveCardController {
                 ac.hideButton();
                 CharacterCard cc = (CharacterCard) this.card;
                 if(ac.getPhase().getTurn()==this.turn) {
-                    if(cc.getPosition()){
+                    if(cc.getPosition() && couldAttack){
                         ac.attacker = cc;
                         ac.locAttacker = this.position;
                         ac.renderCard2();
