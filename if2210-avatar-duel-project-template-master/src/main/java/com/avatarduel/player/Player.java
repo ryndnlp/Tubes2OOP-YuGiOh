@@ -28,6 +28,7 @@ public class Player {
         power.put(Element.FIRE, new Tuple<Integer,Integer>(10,10));
         power.put(Element.WATER, new Tuple<Integer,Integer>(10,10));
         power.put(Element.AIR, new Tuple<Integer,Integer>(10,10));
+        power.put(Element.ENERGY, new Tuple<Integer,Integer>(10,10));
     }
 
     public String getName(){

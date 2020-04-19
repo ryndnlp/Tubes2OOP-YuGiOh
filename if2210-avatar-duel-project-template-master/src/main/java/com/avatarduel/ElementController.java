@@ -12,6 +12,7 @@ public class ElementController {
     @FXML private Label water;
     @FXML private Label earth;
     @FXML private Label air;
+    @FXML private Label energy;
 
     private ArenaController ac;
     private HashMap<Element,Tuple<Integer,Integer>> power;
@@ -26,5 +27,6 @@ public class ElementController {
         this.water.setText(power.get(Element.WATER).getFirst() + " / " + power.get(Element.WATER).getSecond());
         this.air.setText(power.get(Element.AIR).getFirst() + " / " + power.get(Element.AIR).getSecond());
         this.earth.setText(power.get(Element.EARTH).getFirst() + " / " + power.get(Element.EARTH).getSecond());
+        this.energy.setText(power.get(Element.ENERGY).getFirst() + " / " + power.get(Element.EARTH).getSecond());
     }
 }
