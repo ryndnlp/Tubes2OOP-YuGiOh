@@ -13,7 +13,7 @@
     -fx-background-position: center center;
 }
 .button1{
-    -fx-border-color: transparent, black;
+    -fx-border-color: transparent, orange;
     -fx-border-width: 1, 1;
     -fx-background-radius: 0;
     -fx-background-color: transparent;
@@ -22,8 +22,8 @@
 }
 
 .button1:hover {
-    -fx-border-color: transparent, black;
-    -fx-background-color: black;
+    -fx-border-color: transparent, orange;
+    -fx-background-color: orange;
     -fx-border-width: 1, 1;
     -fx-border-radius: 0, 0;
     -fx-border-insets: 1 1 1 1, 0;
@@ -31,7 +31,7 @@
 }
 
 .button1:pressed {
-    -fx-background-color: black;
+    -fx-background-color: yellow;
     -fx-text-fill: white;
 }
 .unactivecard:hover{

@@ -58,6 +58,8 @@ public abstract class Card{
             this.element = Element.AIR;
         }else if(element.equals("FIRE")){
             this.element = Element.FIRE;
+        }else if(element.equals("ENERGY")){
+            this.element = Element.ENERGY;
         }else{
             this.element = Element.EARTH;
         }
