@@ -9,11 +9,13 @@ public class CharacterCard extends Card{
     private int defense;
     private boolean position; //true atk, false defense
     private ArrayList<Tuple<Integer,Integer>> skillLoc; //location of skillcard on field
+    private boolean isPoweredUp;
 
     public CharacterCard(){
         super();
         this.position = true;
         this.skillLoc = new ArrayList<Tuple<Integer,Integer>>();
+        this.isPoweredUp = false;
     }
     
     public ArrayList<Tuple<Integer,Integer>> getSkillLoc() {
@@ -68,5 +70,12 @@ public class CharacterCard extends Card{
         System.out.println("Character card");
         super.cekKartu();
         System.out.println(power + "\n" + attack + "\n" + defense);
+    }
+
+    public void setPoweredUp(boolean power) {
+        this.isPoweredUp = power;
+    }
+    public boolean isPoweredUp() {
+        return this.isPoweredUp;
     }
 }

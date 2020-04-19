@@ -421,24 +421,6 @@ public class ArenaController  {
                 }
             }
         }
-        else if(toBeSummoned.getType().equals('S')) {
-            for (ActiveCardController sc : cont.getListOfSkillController()) {
-                if(sc.getCard() == null) {
-                    Tuple<Integer, Integer> pos = sc.getPosition();
-                    MainPhase phase = (MainPhase) this.phase;
-                    SkillCard willSummoned = (SkillCard) toBeSummoned;
-                    //phase.placeCard(willSummoned, pos.getFirst(), pos.getSecond());
-                    this.setPhase(phase,this.main);
-                    break;
-                }
-            }
-        }
-        else { //Land
-            MainPhase phase = (MainPhase) this.phase;
-            LandCard willSummoned = (LandCard) toBeSummoned;
-            phase.placeCard(willSummoned);
-            setPhase(phase,this.main);
-        }
     }
     public HandController getHandController(){
         if(this.phase.getTurn()){
