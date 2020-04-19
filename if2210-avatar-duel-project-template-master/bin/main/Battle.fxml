@@ -55,7 +55,7 @@
    <Button fx:id="attackButton" mnemonicParsing="false" onMouseClicked="#attack" prefHeight="25.0" prefWidth="83.0" text="Sync" visible="false" />
    <VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0">
       <children>
-         <AnchorPane fx:id="container" minHeight="-Infinity" minWidth="-Infinity" prefHeight="120.0" prefWidth="64.0" style="-fx-border-color: black;" styleClass="unactivecard" stylesheets="@style.css">
+         <AnchorPane fx:id="container" minHeight="-Infinity" minWidth="-Infinity" prefHeight="120.0" prefWidth="64.0" styleClass="arenacard" stylesheets="@style.css">
             <children>
                <AnchorPane layoutX="4.0" layoutY="4.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="7.0" prefWidth="77.0" AnchorPane.leftAnchor="3.0" AnchorPane.rightAnchor="3.0" AnchorPane.topAnchor="3.0">
                   <children>

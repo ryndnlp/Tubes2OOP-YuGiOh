@@ -11,9 +11,6 @@ public class PlayerController {
     private Label typePlayer;
 
     @FXML
-    private Label namePlayer;
-
-    @FXML
     private Label heathLabel;
 
     @FXML
@@ -26,10 +23,12 @@ public class PlayerController {
     public void init(ArenaController ac){
 
         this.ac = ac;
+
     }
 
     public void setHealthLabel(int health){
         this.heathLabel.setText("HP: " + health + "/ "+"80");
+
     }
     public void setHealthBar(int health){
         this.healthBar.setProgress((Double.parseDouble(health+""))/80);

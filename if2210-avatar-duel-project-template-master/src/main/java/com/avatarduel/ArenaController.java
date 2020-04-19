@@ -16,9 +16,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundFill;
-import javafx.scene.layout.CornerRadii;
+import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 
 import java.net.URL;
@@ -61,6 +59,7 @@ public class ArenaController  {
     @FXML private Label battlePhase;
     @FXML private Label endPhase;
     @FXML private Button nextPhase;
+    @FXML private AnchorPane arena;
 
     public void init() {
         detailCardController.init(this);
@@ -129,6 +128,11 @@ public class ArenaController  {
             }
             if(p.getHealth()<=0 || opponent.getHealth()<=0) {
                 //endGame goes here
+                BackgroundImage myBI= new BackgroundImage(new Image("Win.jpg",1280,660,false,true),
+                        BackgroundRepeat.REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,
+                        BackgroundSize.DEFAULT);
+                //then you set to your node
+                arena.setBackground(new Background(myBI));
                 if(p.equals(phase.getP1()) && p.getHealth() <= 0) {
                     //P2 wins
                     System.out.println("P2 WINS!!!!");
@@ -151,6 +155,11 @@ public class ArenaController  {
             }
             if(p.getDeck().getCardOnDeck().size() == 0) {
                 //endGame goes here
+                BackgroundImage myBI= new BackgroundImage(new Image("Win.jpg",1280,660,false,true),
+                        BackgroundRepeat.REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,
+                        BackgroundSize.DEFAULT);
+                //then you set to your node
+                arena.setBackground(new Background(myBI));
                 if(p.equals(this.phase.getP1())) {
                     // P2 Wins
                     System.out.println("P2 WINS!!!!");

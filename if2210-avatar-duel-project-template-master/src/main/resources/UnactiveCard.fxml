@@ -8,16 +8,16 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="container" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#cardClicked" onMouseExited="#cardUnhovered" prefHeight="126.0" prefWidth="90.0" style="-fx-border-color: black;" styleClass="unactivecard" stylesheets="@style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.avatarduel.CardController">
+<AnchorPane fx:id="container" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#cardClicked" onMouseExited="#cardUnhovered" prefHeight="126.0" prefWidth="90.0" style="-fx-border-color: black; -fx-border-width: 1.5;" styleClass="unactivecard" stylesheets="@style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.avatarduel.CardController">
    <children>
-      <AnchorPane layoutX="10.0" layoutY="18.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="10.0" prefWidth="74.0" style="-fx-border-color: black;" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="2.0">
+      <AnchorPane layoutX="10.0" layoutY="18.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="10.0" prefWidth="74.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="2.0">
          <children>
             <Label fx:id="name" layoutX="3.0" layoutY="3.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="13.0" prefWidth="38.0" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="2.0" AnchorPane.topAnchor="2.0">
                <font>
                   <Font name="Segoe UI Semilight" size="3.0" />
                </font>
             </Label>
-            <ImageView fx:id="element" fitHeight="7.0" fitWidth="10.0" layoutX="63.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true" styleClass="image" />
+            <ImageView fx:id="element" fitHeight="7.0" fitWidth="10.0" layoutX="63.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true" styleClass="image" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
          </children>
       </AnchorPane>
       <Label fx:id="desc" alignment="TOP_LEFT" layoutX="6.0" layoutY="82.0" prefHeight="23.0" prefWidth="77.0" text="&#10;" textAlignment="JUSTIFY" wrapText="true">
@@ -25,7 +25,7 @@
             <Font name="Segoe UI" size="4.0" />
          </font>
       </Label>
-      <ImageView fx:id="gambar" fitHeight="45.0" fitWidth="76.0" layoutX="7.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true" AnchorPane.topAnchor="24.0" />
+      <ImageView fx:id="gambar" fitHeight="56.0" fitWidth="76.0" layoutX="7.0" layoutY="16.5" pickOnBounds="true" preserveRatio="true" AnchorPane.topAnchor="13.0" />
       <Button fx:id="actionButton" alignment="CENTER" layoutX="11.0" layoutY="-19.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#onButtonClicked" prefHeight="15.0" prefWidth="41.0" text="Summon" visible="false" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="40.0">
          <font>
             <Font size="7.0" />
