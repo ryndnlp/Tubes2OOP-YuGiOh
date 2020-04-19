@@ -11,42 +11,42 @@
 
 <AnchorPane fx:id="container" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#onMouseClicked" onMouseExited="#onMouseExited" prefHeight="75.0" prefWidth="54.0" style="-fx-border-color: black;" styleClass="activecard" stylesheets="@style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.avatarduel.ActiveCardController">
    <children>
-      <AnchorPane layoutX="6.0" layoutY="6.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="12.0" prefWidth="32.0" style="-fx-border-color: black;" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="2.0">
+      <AnchorPane layoutX="-1.0" layoutY="8.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="5.0" prefWidth="53.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-1.0">
          <children>
             <Label fx:id="nameLabel" layoutX="2.0" layoutY="2.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="11.0" prefWidth="17.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="12.0" AnchorPane.topAnchor="1.0">
                <font>
                   <Font name="Segoe UI Semilight" size="3.0" />
                </font>
             </Label>
-            <ImageView fx:id="element" fitHeight="13.0" fitWidth="17.0" layoutX="18.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="element" fitHeight="3.0" fitWidth="5.0" layoutX="24.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
          </children>
       </AnchorPane>
-      <ImageView fx:id="gambar" fitHeight="24.0" fitWidth="32.0" layoutX="4.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true" />
-      <HBox layoutY="59.0" prefHeight="9.0" prefWidth="40.0" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="2.0">
+      <ImageView fx:id="gambar" fitHeight="33.0" fitWidth="46.0" layoutX="4.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true" />
+      <HBox layoutY="59.0" prefHeight="9.0" prefWidth="40.0" AnchorPane.bottomAnchor="4.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="1.5" AnchorPane.topAnchor="48.0">
          <children>
             <Label fx:id="attack" prefHeight="14.0" prefWidth="13.0">
                <font>
-                  <Font size="4.0" />
+                  <Font size="8.0" />
                </font>
             </Label>
             <Label fx:id="defense" prefHeight="14.0" prefWidth="13.0">
                <font>
-                  <Font size="4.0" />
+                  <Font size="8.0" />
                </font>
             </Label>
-            <Label fx:id="power" prefHeight="14.0" prefWidth="13.0">
+            <Label fx:id="power" prefHeight="15.0" prefWidth="13.0">
                <font>
-                  <Font size="4.0" />
+                  <Font size="8.0" />
                </font>
             </Label>
          </children>
       </HBox>
-      <Button fx:id="actionButton" layoutY="-19.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#onButtonClicked" prefHeight="18.0" prefWidth="60.0" visible="false" AnchorPane.leftAnchor="-10.0" AnchorPane.rightAnchor="-10.0" AnchorPane.topAnchor="-22.0">
+      <Button fx:id="actionButton" layoutX="2.0" layoutY="-13.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#onButtonClicked" prefHeight="18.0" prefWidth="53.0" visible="false" AnchorPane.leftAnchor="-5.0" AnchorPane.rightAnchor="-5.0" AnchorPane.topAnchor="-16.0">
          <font>
             <Font name="Segoe UI" size="8.0" />
          </font>
       </Button>
-      <Button fx:id="setSkillButton" layoutX="10.0" layoutY="-9.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#onButtonClicked" prefHeight="18.0" prefWidth="60.0" text="Set" visible="false" AnchorPane.leftAnchor="-10.0" AnchorPane.rightAnchor="-10.0" AnchorPane.topAnchor="-40.0">
+      <Button fx:id="setSkillButton" layoutX="10.0" layoutY="-9.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#onButtonClicked" prefHeight="18.0" prefWidth="60.0" text="Set" visible="false" AnchorPane.leftAnchor="-5.0" AnchorPane.rightAnchor="-5.0" AnchorPane.topAnchor="-40.0">
          <font>
             <Font name="Segoe UI" size="8.0" />
          </font>

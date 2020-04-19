@@ -132,7 +132,7 @@ public class ActiveCardController {
     }
     public void renderCard(){
         this.nameLabel.setText(this.card.getName());
-        this.gambar.setImage(new Image(this.card.getImagepath(),58, 45, false, false));
+        this.gambar.setImage(new Image(this.card.getImagepath(),46, 33, false, false));
         this.container.setRotate(0);
         this.actionButton.setRotate(0);
         if(card.getType()=='L'){//Land
