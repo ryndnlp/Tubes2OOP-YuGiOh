@@ -1,6 +1,7 @@
 package com.avatarduel;
 
 import com.avatarduel.card.Card;
+import com.avatarduel.card.CardHover;
 import com.avatarduel.field.Field;
 import com.avatarduel.util.Tuple;
 import javafx.fxml.FXML;
@@ -11,7 +12,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class FieldController {
+public class FieldController implements CardHover {
     @FXML private ActiveCardController charCard1Controller;
     @FXML private ActiveCardController charCard2Controller;
     @FXML private ActiveCardController charCard3Controller;
