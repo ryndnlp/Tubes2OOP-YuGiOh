@@ -49,6 +49,7 @@ public class BattleController {
         }
         System.out.println(ac.getPhase().getP1().getHealth());
         System.out.println(ac.getPhase().getP2().getHealth());
+        flush();
         ac.setPhase(ac.getPhase(), ac.getMain());
 
     }
@@ -98,5 +99,24 @@ public class BattleController {
         this.elementAttacker.setImage(new Image(path, 50, 50, false, false));
     }
 
-
+    public void flush() {
+        this.ac.attacker = null;
+        this.ac.defender = null;
+        this.ac.locAttacker = null;
+        this.ac.locDefender = null;
+        this.nameAttacker = new Label();
+        this.nameDefender = new Label();
+        this.attackAttacker = new Label();
+        this.attackDefender = new Label();
+        this.defenseAttacker = new Label();
+        this.defenseDefender = new Label();
+        this.powerAttacker = new Label();
+        this.powerDefender = new Label();
+        this.descAttacker = new Label();
+        this.descDefender = new Label();
+        this.gambarAttacker.setImage(null);
+        this.gambarDefender.setImage(null);
+        this.elementAttacker.setImage(null);
+        this.elementDefender.setImage(null);
+    }
 }
