@@ -262,8 +262,8 @@ public class ArenaController  {
         }
         if (card.getType()=='C'){
             CharacterCard cc = (CharacterCard) card;
-            String detail = "[Character Card]\nElement : " + card.getElement() +"\n Total Connected Skill Cards : " + cc.getSkillLoc().size();
-            detail = detail + "\n Skill Card Locations based on the field : \n";
+            String detail = "[Character Card]\nElement : " + card.getElement() +"\nTotal Connected Skill Cards: " + cc.getSkillLoc().size();
+            detail = detail + "\nSkill Card Locations based on the field:\n";
             int i = 1;
             for(Tuple<Integer,Integer> loc : cc.getSkillLoc()) {
                 detail = detail + i +".\tRow : "+loc.getFirst()+"\n\tCol : "+loc.getSecond()+"\n";
@@ -296,7 +296,7 @@ public class ArenaController  {
             detailCardController.renderPowerL();
         }
     }
-    public void renderCard2(){
+    public void renderCardAttacker(){
 
         battleController.renderNameA(attacker.getName());
         battleController.renderDescA(attacker.getDescription());
@@ -335,7 +335,7 @@ public class ArenaController  {
             }
         }
     }
-    public void renderCard3(){
+    public void renderCardDefender(){
 
         battleController.renderNameD(defender.getName());
         battleController.renderDescD(defender.getDescription());
@@ -374,7 +374,7 @@ public class ArenaController  {
             }
         }
     }
-    public void renderCard4(){
+    public void renderCardSkill(){
         skillController.hideButton();
         skillController.renderNameS(toBeUsed.getName());
         skillController.renderDescS(toBeUsed.getDescription());
@@ -404,7 +404,7 @@ public class ArenaController  {
             showButtonSkill();
         }
     }
-    public void renderCard5(){
+    public void renderCardTarget(){
         skillController.hideButton();
         skillController.renderNameA(toBeBind.getName());
         skillController.renderDescA(toBeBind.getDescription());

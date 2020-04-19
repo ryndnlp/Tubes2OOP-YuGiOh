@@ -108,7 +108,7 @@ public class CardController {
                     actionButton.setVisible(true);
                     SkillCard sc = (SkillCard) this.card;
                     ac.toBeUsed = sc;
-                    ac.renderCard4();
+                    ac.renderCardSkill();
                 }
             }
         }
