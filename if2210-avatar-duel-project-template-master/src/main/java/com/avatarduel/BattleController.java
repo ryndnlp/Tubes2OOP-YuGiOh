@@ -47,8 +47,10 @@ public class BattleController {
         }else{
             bp.attack(ac.locAttacker.getFirst(), ac.locAttacker.getSecond(), ac.locDefender.getFirst(), ac.locDefender.getSecond());
         }
+
         System.out.println(ac.getPhase().getP1().getHealth());
         System.out.println(ac.getPhase().getP2().getHealth());
+        ac.renderHealth(ac.getPhase().getP1().getHealth(), ac.getPhase().getP2().getHealth());
         ac.setPhase(ac.getPhase(), ac.getMain());
 
     }
@@ -65,7 +67,7 @@ public class BattleController {
         this.attackAttacker.setText("ATK/ " + attack + " ");
     }
     public void renderAttackD(String attack){
-        this.attackAttacker.setText("ATK/ " + attack + " ");
+        this.attackDefender.setText("ATK/ " + attack + " ");
     }
     public void renderDefenseA(String defense){
         this.defenseAttacker.setText("DEF/ " + defense + " ");
@@ -95,7 +97,7 @@ public class BattleController {
         this.elementAttacker.setImage(new Image(path, 50, 50, false, false));
     }
     public void renderElementD(String path){
-        this.elementAttacker.setImage(new Image(path, 50, 50, false, false));
+        this.elementDefender.setImage(new Image(path, 50, 50, false, false));
     }
 
 

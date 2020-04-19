@@ -14,9 +14,9 @@
       <fx:include source="Skill.fxml" fx:id="skill" AnchorPane.leftAnchor="260.0" AnchorPane.topAnchor="155.0" />
       <AnchorPane layoutX="-2.0" layoutY="55.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="175.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <fx:include fx:id="active" layoutY="5" source="Player.fxml" />
+            <fx:include fx:id="p2" layoutY="5" source="Player.fxml" />
             <fx:include fx:id="detailCard" layoutY="105" source="DetailCard.fxml" />
-            <fx:include fx:id="nonactive" layoutY="545" source="Player.fxml" />
+            <fx:include fx:id="p1" layoutY="545" source="Player.fxml" />
          </children></AnchorPane>
       <AnchorPane layoutX="465.0" layoutY="80.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="187.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>

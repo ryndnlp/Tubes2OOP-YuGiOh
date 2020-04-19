@@ -30,8 +30,13 @@ public class ArenaController  {
     static public Tuple<Integer, Integer> locDefender;
 
     @FXML private DetailCardController detailCardController;
+
+    @FXML private PlayerController p1Controller;
+    @FXML private PlayerController p2Controller;
+
     @FXML private FieldController fieldP1Controller;
     @FXML private FieldController fieldP2Controller;
+
     @FXML private HandController handP1Controller;
     @FXML private HandController handP2Controller;
 
@@ -108,19 +113,23 @@ public class ArenaController  {
         if(!phase.getTurn()){
             Hand handP1 = phase.getP1().getHand();
             handP1Controller.init(this,handP1);
-            Field fieldP1 = phase.getP1().getField();
-            fieldP1Controller.init(this, fieldP1, false);
-
-
         }else{
             Hand handP2 = phase.getP2().getHand();
             handP2Controller.init(this,handP2);
-            Field fieldP2 = phase.getP2().getField();
-            fieldP2Controller.init(this, fieldP2, true);
-
         }
-        this.elmtP1Controller.init(this,phase.getP1().getPower());
-        this.elmtP2Controller.init(this, phase.getP2().getPower());
+        Player p1 = phase.getP1();
+        Player p2 = phase.getP2();
+        p1Controller.init(this);
+        p2Controller.init(this);
+
+        Field fieldP1 = phase.getP1().getField();
+        Field fieldP2 = phase.getP2().getField();
+        fieldP1Controller.init(this, fieldP1, false);
+        fieldP2Controller.init(this, fieldP2, true);
+
+        elmtP1Controller.init(this,phase.getP1().getPower());
+        elmtP2Controller.init(this, phase.getP2().getPower());
+
         System.out.println("Berhasil set phase");
         runPhase();
     }
@@ -240,6 +249,10 @@ public class ArenaController  {
                 battleController.showButton();
             }
         }
+    }
+    public void renderHealth(int healthP1, int healthP2){
+        p2Controller.setHealthLabel(healthP2);
+        p1Controller.setHealthLabel(healthP1);
     }
     public void DrawPhaseClicked(MouseEvent mouseEvent) {
         if(phase.getType().equals("D")){
