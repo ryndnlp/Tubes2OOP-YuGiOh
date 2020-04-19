@@ -50,7 +50,7 @@ public class ActiveCardController {
     void onMouseClicked(MouseEvent event) {
         boolean couldAttack = true;
         if(ac.getPhase().getType()=="B") {
-            ac.getBattleController().flush();
+            ac.hideButtonBattle();
             BattlePhase bp = (BattlePhase) this.ac.getPhase();
             for (Tuple<Integer, Integer> loc : bp.getAlreadyAttack()) {
                 if (this.position.getFirst() == loc.getFirst() && this.position.getSecond() == loc.getSecond()) {
@@ -69,6 +69,7 @@ public class ActiveCardController {
                 CharacterCard cc = (CharacterCard) this.card;
                 ac.toBeBind = cc;
                 ac.locToBeBind = this.position;
+                ac.toBeBindTurn = this.turn;
                 ac.renderCard5();
 
             }else if(ac.getPhase().getType()=="B"){

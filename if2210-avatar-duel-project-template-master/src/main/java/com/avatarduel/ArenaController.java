@@ -35,6 +35,7 @@ public class ArenaController  {
     static public Tuple<Integer, Integer> locDefender;
     static public Card toBeUsed;
     static public Card toBeBind;
+    static public boolean toBeBindTurn;
     static public Tuple<Integer, Integer> locToBeBind;
 
     @FXML private DetailCardController detailCardController;
@@ -74,15 +75,17 @@ public class ArenaController  {
     }
 
     @FXML public void nextPhase(MouseEvent event){
-        try{
+        if(this.getPhase().getType()=="M" && this.getPhase().seekTurn().getHand().getCardOnHand().size()==8){
+            nextPhase.setDisable(true);
+        }else{
             skillController.flush();
             battleController.flush();
             flush(phase.getTurn());
             flush(!phase.getTurn());
-        }catch (Exception err){
-            System.out.print(err.getMessage());
+
+            setPhase(this.getPhase().nextPhase(), this.getMain());
         }
-        setPhase(this.getPhase().nextPhase(), this.getMain());
+
     }
 
     public void flush(boolean isPlayer){
@@ -112,6 +115,10 @@ public class ArenaController  {
     public void setPhase(Phase phase, AvatarDuel main){
         this.phase = phase;
         this.main = main;
+
+        nextPhase.setDisable(false);
+
+
         if(battleController!=null){
             battleController.flush();
         }
@@ -307,6 +314,7 @@ public class ArenaController  {
         }
     }
     public void renderCard4(){
+        skillController.hideButton();
         skillController.renderNameS(toBeUsed.getName());
         skillController.renderDescS(toBeUsed.getDescription());
         skillController.renderImageS(toBeUsed.getImagepath());
@@ -330,6 +338,7 @@ public class ArenaController  {
         }
     }
     public void renderCard5(){
+        skillController.hideButton();
         skillController.renderNameA(toBeBind.getName());
         skillController.renderDescA(toBeBind.getDescription());
         skillController.renderImageA(toBeBind.getImagepath());
@@ -447,6 +456,9 @@ public class ArenaController  {
     }
     public BattleController getBattleController(){
         return this.battleController;
+    }
+    public SkillController getSkillController(){
+        return this.skillController;
     }
 
 }

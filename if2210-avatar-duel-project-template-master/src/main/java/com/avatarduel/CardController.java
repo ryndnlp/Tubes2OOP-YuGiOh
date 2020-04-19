@@ -104,7 +104,8 @@ public class CardController {
                     }
                 } else {//Skill
                     //this.ac.hideButtonSkill();
-                    ac.showButtonSkill();
+                    actionButton.setText("Drop");
+                    actionButton.setVisible(true);
                     SkillCard sc = (SkillCard) this.card;
                     ac.toBeUsed = sc;
                     ac.renderCard4();
@@ -118,9 +119,22 @@ public class CardController {
     }
     @FXML
     void onButtonClicked(MouseEvent event){
-        ac.toBeSummoned = card;
-        ac.summon();
-        this.actionButton.setVisible(false);
+        if(ac.getPhase().getType()=="M"){
+            if(card.getType()=='C') {
+                ac.toBeSummoned = card;
+                ac.summon();
+            }else if(card.getType()=='S'){
+                ac.getPhase().seekTurn().getHand().getCardOnHand().remove(this.card);
+                ac.getSkillController().flush();
+                ac.setPhase(ac.getPhase(), ac.getMain());
+            }else{
+                MainPhase phase = (MainPhase) ac.getPhase();
+                LandCard willSummoned = (LandCard) this.card;
+                phase.placeCard(willSummoned);
+                ac.setPhase(phase,ac.getMain());
+            }
+            this.actionButton.setVisible(false);
+        }
     }
 }
 
