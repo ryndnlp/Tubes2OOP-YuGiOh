@@ -226,9 +226,16 @@ public class ArenaController  {
             detailCardController.renderDefenseC(Integer.toString(card.getDefense()));
             detailCardController.renderPower(Integer.toString(card.getPower()));
         }else if(card.getType()=='S'){
-            detailCardController.renderAttackS(Integer.toString(card.getAttack()));
-            detailCardController.renderDefenseS(Integer.toString(card.getDefense()));
-            detailCardController.renderPower(Integer.toString(card.getPower()));
+            SkillCard sc = (SkillCard) card;
+            if(sc.getSkill()=="Aura") {
+                detailCardController.renderAttackS(Integer.toString(card.getAttack()));
+                detailCardController.renderDefenseS(Integer.toString(card.getDefense()));
+                detailCardController.renderPower(Integer.toString(card.getPower()));
+            } else {
+                detailCardController.renderAttackS("");
+                detailCardController.renderDefenseS("");
+                detailCardController.renderPower("");                
+            }
         }else{
             detailCardController.renderAttackL();
             detailCardController.renderDefenseL();
@@ -328,10 +335,16 @@ public class ArenaController  {
         }else {
             skillController.renderElementS("com/avatarduel/card/image/element/Earth.jpeg");
         }
-
-        skillController.renderAttackS(Integer.toString(toBeUsed.getAttack()));
-        skillController.renderDefenseS(Integer.toString(toBeUsed.getDefense()));
-        skillController.renderPowerS(Integer.toString(toBeUsed.getPower()));
+        SkillCard sc = (SkillCard) toBeUsed;
+        if(sc.getSkill() == "Aura") {
+            skillController.renderAttackS(Integer.toString(toBeUsed.getAttack()));
+            skillController.renderDefenseS(Integer.toString(toBeUsed.getDefense()));
+            skillController.renderPowerS(Integer.toString(toBeUsed.getPower()));
+        } else {
+            skillController.renderAttackS("");
+            skillController.renderDefenseS("");
+            skillController.renderPowerS("");
+        }
 
         if(toBeBind!=null && toBeUsed!=null){
             showButtonSkill();

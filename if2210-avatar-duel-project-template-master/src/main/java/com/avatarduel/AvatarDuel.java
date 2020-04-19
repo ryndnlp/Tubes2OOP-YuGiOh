@@ -42,7 +42,7 @@ public class AvatarDuel extends Application {
   	for (String[] row : landRows) {
       CardFactory cardFactory = new CardFactory();
       Card landc = cardFactory.getCard("LandCard");
-      landc.setDescription(row[3]);
+      landc.setDescription(row[3]+"\n[Land Card]");
       landc.setElement(row[2]);
       landc.setId(Integer.parseInt(row[0]));
       landc.setName(row[1]);
@@ -61,7 +61,7 @@ public class AvatarDuel extends Application {
     for (String[] row : charRows) {
       CardFactory cardFactory = new CardFactory();
       CharacterCard charc = (CharacterCard)cardFactory.getCard("CharacterCard");
-      charc.setDescription(row[3]);
+      charc.setDescription(row[3] + "\n[Character Card]");
       charc.setElement(row[2]);
       charc.setId(Integer.parseInt(row[0]));
       charc.setName(row[1]);
@@ -86,16 +86,22 @@ public class AvatarDuel extends Application {
     for (String[] row : skillrow) {
       CardFactory cardFactory = new CardFactory();
       SkillCard skillc = (SkillCard)cardFactory.getCard("SkillCard");
-      skillc.setDescription(row[3]);
       skillc.setElement(row[2]);
       skillc.setId(Integer.parseInt(row[0]));
       skillc.setName(row[1]);
       skillc.setImagepath(row[4]);
       skillc.setPower(Integer.parseInt(row[5]));
+      skillc.setSkill(skill);
+      skillc.setType('S');
+      if(skill == "Aura") {
+        skillc.setDescription(row[3] + "\n[Skill Card : Aura]");
+      } else if ( skill == "Power Up") {
+        skillc.setDescription(row[3] + "\n[Skill Card : Power Up]");
+      } else {
+        skillc.setDescription(row[3] + "\n[Skill Card : Destroy]");
+      }
       skillc.setAttack(Integer.parseInt(row[6]));
       skillc.setDefense(Integer.parseInt(row[7]));
-      skillc.setType('S');
-      skillc.setSkill(skill);
       this.listSkillCard.add(skillc);
     }
   }
