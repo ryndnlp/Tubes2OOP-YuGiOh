@@ -49,7 +49,7 @@
             <fx:include fx:id="handP2" source="Hand.fxml" />
          </children>
       </VBox>
-      <HBox layoutX="356.0" layoutY="318.0" prefHeight="23.0" prefWidth="574.0" spacing="50.0" AnchorPane.leftAnchor="356.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+      <HBox layoutX="356.0" layoutY="318.0" prefHeight="23.0" prefWidth="574.0" spacing="50.0" AnchorPane.leftAnchor="356.0" AnchorPane.topAnchor="323.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
          <children>
             <Label fx:id="drawPhase" alignment="CENTER" onMouseClicked="#DrawPhaseClicked" prefHeight="23.0" prefWidth="105.0" style="-fx-border-color: #f2f2f2;" text="DP" textFill="WHITE" />
 
