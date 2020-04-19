@@ -69,7 +69,6 @@ public class HandController {
     public void init(ArenaController ac, Hand handCard) {
         this.ac = ac;
         this.handCard = handCard;
-        //System.out.println(handCard);
         renderHand();
     }
 

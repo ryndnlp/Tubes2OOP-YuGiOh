@@ -169,7 +169,7 @@ public class AvatarDuel extends Application {
       FXMLLoader loader = new FXMLLoader(Objects.requireNonNull(getClass().getClassLoader().getResource("Arena.fxml")));
       Parent root = loader.load();
       ArenaController arenaController = loader.getController();
-      System.out.println(arenaController);
+      //System.out.println(arenaController);
       arenaController.setPhase(phase, this);
 
       System.out.println("Berhasil load Area Controller");
@@ -180,8 +180,8 @@ public class AvatarDuel extends Application {
       stage.show();
       stage.setResizable(false);
     }catch (Exception e){
-      System.out.println("Gagal load Arena Controller :(");
-      System.out.println(e);
+      System.out.println("Gagal load Arena Controller");
+      //System.out.println(e);
     }
   }
 

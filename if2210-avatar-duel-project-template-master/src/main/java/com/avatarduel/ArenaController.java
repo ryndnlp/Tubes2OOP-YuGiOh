@@ -128,7 +128,7 @@ public class ArenaController  {
             }
             if(p.getHealth()<=0 || opponent.getHealth()<=0) {
                 //endGame goes here
-                BackgroundImage myBI= new BackgroundImage(new Image("Win.jpg",1280,660,false,true),
+                BackgroundImage myBI= new BackgroundImage(new Image("com/avatarduel/card/image/Win.jpg",1280,660,false,true),
                         BackgroundRepeat.REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,
                         BackgroundSize.DEFAULT);
                 //then you set to your node
@@ -155,7 +155,7 @@ public class ArenaController  {
             }
             if(p.getDeck().getCardOnDeck().size() == 0) {
                 //endGame goes here
-                BackgroundImage myBI= new BackgroundImage(new Image("Win.jpg",1280,660,false,true),
+                BackgroundImage myBI= new BackgroundImage(new Image("com/avatarduel/card/image/Win.jpg",1280,660,false,true),
                         BackgroundRepeat.REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,
                         BackgroundSize.DEFAULT);
                 //then you set to your node
@@ -207,7 +207,7 @@ public class ArenaController  {
         elmtP1Controller.init(this,phase.getP1().getPower());
         elmtP2Controller.init(this, phase.getP2().getPower());
 
-        System.out.println("Berhasil set phase");
+        //System.out.println("Berhasil set phase");
         runPhase();
     }
 
@@ -239,7 +239,7 @@ public class ArenaController  {
         setUpPhaseBackground();
         if(phase.getType().equals("D")){
             this.nextPhase.setText("Next phase");
-            System.out.println("Masuk Draw Phase");
+            //System.out.println("Masuk Draw Phase");
             DrawPhase p = (DrawPhase) this.phase;
             p.draw();
             p.resetPower();
@@ -251,11 +251,11 @@ public class ArenaController  {
                 elmtP1Controller.init(this, p.getP1().getPower());
             }
         }else if(phase.getType().equals("M")){
-            System.out.println("Masuk Main Phase");
+            //System.out.println("Masuk Main Phase");
         }else if(phase.getType().equals("B")){
-            System.out.println("Masuk Battle Phase");
+            //System.out.println("Masuk Battle Phase");
         }else {
-            System.out.println("Masuk End Phase");
+            //System.out.println("Masuk End Phase");
             this.nextPhase.setText("Change turn");
         }
 
@@ -462,28 +462,28 @@ public class ArenaController  {
     }
     public void DrawPhaseClicked() {
         if(phase.getType().equals("D")){
-            System.out.println("Tetap di Draw Phase");
+            //System.out.println("Tetap di Draw Phase");
         }
     }
 
     public void MainPhaseClicked() {
         if(phase.getType().equals("D")){
             this.main.initRoot(this.phase.nextPhase());
-            System.out.println("Berhasil ganti phase ke MainPhase");
+            //System.out.println("Berhasil ganti phase ke MainPhase");
         }
     }
 
     public void BattlePhaseClicked() {
        if(phase.getType().equals("M")){
            this.main.initRoot(this.phase.nextPhase());
-           System.out.println("Berhasil ganti phase ke Battle Phase");
+           //System.out.println("Berhasil ganti phase ke Battle Phase");
        }
     }
 
     public void EndPhaseClicked() {
        if(phase.getType().equals("B")){
            this.main.initRoot(this.phase.nextPhase());
-           System.out.println("Berhasil ganti phase ke End Phase");
+           //System.out.println("Berhasil ganti phase ke End Phase");
        }
 
     }
