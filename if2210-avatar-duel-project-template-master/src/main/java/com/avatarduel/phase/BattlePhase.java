@@ -75,29 +75,18 @@ public class BattlePhase extends Phase {
 
         //err handle in front
         if(this.alreadyAttack.contains(attackerLocation)) {
-            //throw error cuz this already attack
+            //this.
         }
         
-        //err handle in front
-        if(!p.getField().getCardOnField().get(attackerLocation).getType().equals('C') || !opponent.getField().getCardOnField().get(targetLocation).getType().equals('C')) {
-            //throw error cuz not valid type
-        }
         
         CharacterCard attackerCard = (CharacterCard)p.getField().getCardOnField().get(attackerLocation);
         CharacterCard targetCard = (CharacterCard)opponent.getField().getCardOnField().get(targetLocation);
         
-        //err handle in front
-        if(!attackerCard.getPosition()) {
-            //attackker card on defense pos so throw error
-        }
         //get point
         atkcrPoint = attackerCard.getPoint();
         targetPoint = targetCard.getPoint();
         
-        //err handle in front
-        if(atkcrPoint < targetPoint) {
-            //throw error cuz atckr < target
-        }
+        
         this.alreadyAttack.add(attackerLocation); // so this card cant attack twice
         
         residue = atkcrPoint - targetPoint;

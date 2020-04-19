@@ -12,6 +12,7 @@ public class MainPhase extends Phase {
     //constructor
     private ArrayList<Tuple<Integer,Integer>> alreadyAttack;
     private boolean alreadyPlaceLand;
+
     public MainPhase(Player P1, Player P2, boolean turn) {
         super(P1,P2,turn,"M");
         this.isEndphase = false;
@@ -43,6 +44,12 @@ public class MainPhase extends Phase {
     public void placeCard(SkillCard card, int i, int j, int k, int l) {
         //get Player
         Player p = this.seekTurn();
+        Player opponent;
+        if(p == this.P1) {
+            opponent = this.P2;
+        } else {
+            opponent = this.P1;
+        }
         HashMap<Tuple<Integer,Integer>, Card> field = p.getField().getCardOnField();
         ArrayList<Card> hand = p.getHand().getCardOnHand();
         Tuple<Integer,Integer> key = new Tuple<Integer,Integer>(i,j);
@@ -63,35 +70,38 @@ public class MainPhase extends Phase {
         // if card.getSkill == "Aura" bind the aura to char card with loc k,l on player field
         // if card.getSkill == "Power Up" bind the power to char card with loc k,l on player field
         // if card.getSkill == "Destroy" destroy this card and destroy char card on opponent field
-        Tuple<Integer,Integer> charKey = new Tuple<Integer,Integer>(k,l);
-        switch (card.getSkill()){
-            case "Aura":
-            case "Power Up":
-                for(Tuple<Integer,Integer> loc : field.keySet()) {
-                    if(loc.getFirst() == charKey.getFirst() && loc.getSecond() == charKey.getSecond()) {
-                        charKey = loc;
-                    }
+        Tuple<Integer,Integer> charCardLoc = new Tuple<Integer,Integer>(k,l);
+        if(card.getSkill() == "Aura") { //Bind to Player Card
+            for(Tuple<Integer,Integer> loc : field.keySet()) {
+                if(loc.getFirst() == charCardLoc.getFirst() && loc.getSecond() == charCardLoc.getSecond()) {
+                    charCardLoc = loc;
                 }
-                CharacterCard charCard = (CharacterCard) field.get(charKey);
-
-                ArrayList<Tuple<Integer,Integer>> temp = charCard.getSkillLoc();
-                temp.add(key);
-                charCard.setSkillLoc(temp);
-                break;
-            case "Destroy":
-                field.remove(key);
-                Player opp = this.getTurn() ? this.getP1() : this.getP2();
-
-                HashMap<Tuple<Integer,Integer>, Card> oppField = opp.getField().getCardOnField();
-                for(Tuple<Integer,Integer> loc : oppField.keySet()) {
-                    if(loc.getFirst() == charKey.getFirst() && loc.getSecond() == charKey.getSecond()) {
-                        charKey = loc;
-                    }
+            }
+            //get CharCard
+            CharacterCard pCharCard = (CharacterCard) p.getField().getCardOnField().get(charCardLoc);
+            //adding skillLoc to characterCard SkillSet
+            pCharCard.getSkillLoc().add(key); //key is location of the skillCard
+            //added bonus attack and defense aura to charCard
+            pCharCard.setAttack(pCharCard.getAttack()+card.getAttack());
+            pCharCard.setDefense(pCharCard.getDefense()+card.getDefense());
+        } else if(card.getSkill() == "Power Up") { //Bind to player Card
+            for(Tuple<Integer,Integer> loc : field.keySet()) {
+                if(loc.getFirst() == charCardLoc.getFirst() && loc.getSecond() == charCardLoc.getSecond()) {
+                    charCardLoc = loc;
                 }
-                oppField.remove(charKey);
-                break;
+            }
+            //get CharCard
+            CharacterCard pCharCard = (CharacterCard) p.getField().getCardOnField().get(charCardLoc);
+            //adding skillLoc to characterCard SkillSet
+            pCharCard.getSkillLoc().add(key); //key is location of the skillCard
+        } else if(card.getSkill() == "Destroy") { //Destroy opponent Char Card
+            // remove skillCard
+            p.getField().getCardOnField().remove(key);//remove SkillCard with loc key
+            //destroy Character Card on pos (k,l) opponent side
+            this.destroyCard(k, l, opponent);
         }
     }
+
     public void placeCard(LandCard card) {
         Player p = this.seekTurn();
         HashMap<Element,Tuple<Integer,Integer>> power = p.getPower();
@@ -128,6 +138,29 @@ public class MainPhase extends Phase {
         c.changePosition();
         p.getField().getCardOnField().put(key, c);
         System.out.println(c.getName());
+    }
+
+    public void destroyCard(int i, int j, Player p) {
+        Tuple<Integer,Integer> key = new Tuple<Integer,Integer>(i,j);
+        for(Tuple<Integer,Integer> loc : p.getField().getCardOnField().keySet()) {
+            if(loc.getFirst()==key.getFirst() && loc.getSecond() == key.getSecond()) {
+                key = loc;
+            }
+        }
+        //get Card to destroy
+        CharacterCard card = (CharacterCard) p.getField().getCardOnField().get(key);
+        //if there are some skillcard binded with this card then destroy it
+        if(card.getSkillLoc().size() != 0) {
+            for(Tuple<Integer,Integer> skilLoc : card.getSkillLoc()) {
+                for(Tuple<Integer,Integer> locSkill : p.getField().getCardOnField().keySet()) {
+                    if(locSkill.getFirst()==skilLoc.getFirst() && locSkill.getSecond() == skilLoc.getSecond()) {
+                        skilLoc = locSkill;
+                        p.getField().getCardOnField().remove(skilLoc);
+                    }
+                }
+            }
+        }
+        p.getField().getCardOnField().remove(key);
     }
     
     //implement abstract method

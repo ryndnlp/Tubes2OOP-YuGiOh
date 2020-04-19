@@ -102,7 +102,9 @@ public class ArenaController  {
     public void setPhase(Phase phase, AvatarDuel main){
         this.phase = phase;
         this.main = main;
-
+        if(battleController!=null){
+            battleController.flush();
+        }
         battleController.init(this);
         if(handP1Controller.getAC() == null && handP2Controller.getAC() == null) {
             handP1Controller.init(this, phase.getP1().getHand());
@@ -139,6 +141,7 @@ public class ArenaController  {
             System.out.println("Masuk Draw Phase");
             DrawPhase p = (DrawPhase) this.phase;
             p.draw();
+            p.resetPower();
             if(p.getTurn()) {
                 handP2Controller.init(this, p.getP2().getHand());
             } else {
@@ -212,7 +215,13 @@ public class ArenaController  {
             opponent = this.getPhase().getP1();
         }
         if(attacker!=null){
-            if(defender!=null || opponent.isNoCharacterCard()){
+            if(defender!=null){
+                CharacterCard attack = (CharacterCard) attacker;
+                CharacterCard defense = (CharacterCard) defender;
+                if(attack.getPoint()>=defense.getPoint()){
+                    battleController.showButton();
+                }
+            }else if(opponent.isNoCharacterCard()){
                 battleController.showButton();
             }
         }
@@ -246,9 +255,18 @@ public class ArenaController  {
         }
         if(attacker!=null){
             if(defender!=null){
+                CharacterCard attack = (CharacterCard) attacker;
+                CharacterCard defense = (CharacterCard) defender;
+                if(attack.getPoint()>=defense.getPoint()){
+                    battleController.showButton();
+                }
+            }else if(opponent.isNoCharacterCard()){
                 battleController.showButton();
             }
         }
+    }
+    public void hideButton(){
+        battleController.hideButton();
     }
     public void renderHealth(int healthP1, int healthP2){
         p2Controller.setHealthLabel(healthP2);

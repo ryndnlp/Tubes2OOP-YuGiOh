@@ -51,8 +51,12 @@ public class BattleController {
         System.out.println(ac.getPhase().getP1().getHealth());
         System.out.println(ac.getPhase().getP2().getHealth());
         ac.renderHealth(ac.getPhase().getP1().getHealth(), ac.getPhase().getP2().getHealth());
+        flush();
         ac.setPhase(ac.getPhase(), ac.getMain());
 
+    }
+    public void hideButton(){
+        this.attackButton.setVisible(false);
     }
     public void init(ArenaController ac) {
         this.ac = ac;
@@ -100,5 +104,25 @@ public class BattleController {
         this.elementDefender.setImage(new Image(path, 50, 50, false, false));
     }
 
-
+    public void flush() {
+        this.ac.attacker = null;
+        this.ac.defender = null;
+        this.ac.locAttacker = null;
+        this.ac.locDefender = null;
+        this.attackButton.setVisible(false);
+        this.nameAttacker.setText("");
+        this.nameDefender.setText("");
+        this.attackAttacker.setText("");
+        this.attackDefender.setText("");
+        this.defenseAttacker.setText("");
+        this.defenseDefender.setText("");
+        this.powerAttacker.setText("");
+        this.powerDefender.setText("");
+        this.descAttacker.setText("");
+        this.descDefender.setText("");
+        this.gambarAttacker.setImage(null);
+        this.gambarDefender.setImage(null);
+        this.elementAttacker.setImage(null);
+        this.elementDefender.setImage(null);
+    }
 }

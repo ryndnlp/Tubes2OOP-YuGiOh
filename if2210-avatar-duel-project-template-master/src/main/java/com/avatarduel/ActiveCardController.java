@@ -46,16 +46,20 @@ public class ActiveCardController {
     @FXML
     void onMouseClicked(MouseEvent event) {
         if(card.getType()=='C'){
-            if(ac.getPhase().getType()=="M"){
+            if(ac.getPhase().getType()=="M" && ac.getPhase().getTurn()==this.turn){
                 this.actionButton.setText("Change pos");
                 this.actionButton.setVisible(true);
             }else if(ac.getPhase().getType()=="B"){
+                ac.hideButton();
+                CharacterCard cc = (CharacterCard) this.card;
                 if(ac.getPhase().getTurn()==this.turn) {
-                    ac.attacker = this.card;
-                    ac.locAttacker = this.position;
-                    ac.renderCard2();
+                    if(cc.getPosition()){
+                        ac.attacker = cc;
+                        ac.locAttacker = this.position;
+                        ac.renderCard2();
+                    }
                 }else{
-                    ac.defender = this.card;
+                    ac.defender = cc;
                     ac.locDefender = this.position;
                     ac.renderCard3();
                 }
@@ -79,6 +83,7 @@ public class ActiveCardController {
     
     public void resetCard() {
         this.card = null;
+        this.container.setRotate(0);
         //this.position = null;
     }
 
