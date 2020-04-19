@@ -125,6 +125,11 @@ public class ArenaController  {
             }
             if(p.getHealth()<=0 || opponent.getHealth()<=0) {
                 //endGame goes here
+                if(p.equals(phase.getP1()) && p.getHealth() <= 0) {
+                    //P2 wins
+                } else {
+                    //P1 Wins
+                }
                 Player Px = new Player(null, null, null);
                 Player Py = new Player(null, null, null);
                 this.phase = new EndPhase(Px,Py,false);
@@ -138,8 +143,13 @@ public class ArenaController  {
             } else {
                 opponent = this.phase.getP1();
             }
-            if(p.getDeck().getCardOnDeck().size() == 0 || opponent.getDeck().getCardOnDeck().size() == 0) {
+            if(p.getDeck().getCardOnDeck().size() == 0) {
                 //endGame goes here
+                if(p.equals(this.phase.getP1())) {
+                    // P2 Wins
+                } else {
+                    // P1 Wins
+                }
                 Player Px = new Player(null, null, null);
                 Player Py = new Player(null, null, null);
                 this.phase = new EndPhase(Px,Py,false);
@@ -250,23 +260,37 @@ public class ArenaController  {
         }else {
             detailCardController.renderElement("com/avatarduel/card/image/element/Earth.png");
         }
-
         if (card.getType()=='C'){
+            CharacterCard cc = (CharacterCard) card;
+            String detail = "[Character Card]\nElement : " + card.getElement() +"\n Total Connected Skill Cards : " + cc.getSkillLoc().size();
+            detail = detail + "\n Skill Card Locations based on the field : \n";
+            int i = 1;
+            for(Tuple<Integer,Integer> loc : cc.getSkillLoc()) {
+                detail = detail + i +".\tRow : "+loc.getFirst()+"\n\tCol : "+loc.getSecond()+"\n";
+                i+=1; 
+            }
+            detailCardController.renderDetail(detail);
             detailCardController.renderAttackC(Integer.toString(card.getAttack()));
             detailCardController.renderDefenseC(Integer.toString(card.getDefense()));
             detailCardController.renderPower(Integer.toString(card.getPower()));
         }else if(card.getType()=='S'){
             SkillCard sc = (SkillCard) card;
             if(sc.getSkill()=="Aura") {
+                String detail = "[Skill Card] : " + sc.getSkill()+"\nElement : "+sc.getElement();
+                detailCardController.renderDetail(detail);
                 detailCardController.renderAttackS(Integer.toString(card.getAttack()));
                 detailCardController.renderDefenseS(Integer.toString(card.getDefense()));
                 detailCardController.renderPower(Integer.toString(card.getPower()));
             } else {
+                String detail = "[Skill Card] : " + sc.getSkill()+"\nElement : "+sc.getElement();
+                detailCardController.renderDetail(detail);
                 detailCardController.renderAttackS("");
                 detailCardController.renderDefenseS("");
                 detailCardController.renderPower("");                
             }
         }else{
+            String detail = "[Land Card]\nElement : " + card.getElement() ;
+            detailCardController.renderDetail(detail);
             detailCardController.renderAttackL();
             detailCardController.renderDefenseL();
             detailCardController.renderPowerL();
@@ -487,5 +511,4 @@ public class ArenaController  {
     public SkillController getSkillController(){
         return this.skillController;
     }
-
 }

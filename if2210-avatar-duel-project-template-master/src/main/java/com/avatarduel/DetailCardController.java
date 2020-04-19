@@ -28,6 +28,9 @@ public class DetailCardController {
     public void renderName(String name){
         this.name.setText(name);
     }
+    public void renderDetail(String detail) {
+        this.detail.setText(detail);
+    }
     public void renderAttackC(String attack){
         this.attack.setText("ATK/ " + attack + " ");
     }
