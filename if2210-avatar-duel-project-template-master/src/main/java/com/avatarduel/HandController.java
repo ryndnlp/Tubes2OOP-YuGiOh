@@ -1,18 +1,16 @@
 package com.avatarduel;
 
 import com.avatarduel.card.Card;
-import com.avatarduel.card.CharacterCard;
+import com.avatarduel.card.CardHover;
 import com.avatarduel.hand.Hand;
-import com.avatarduel.util.Tuple;
 import javafx.fxml.FXML;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.Node;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
-public class HandController {
+public class HandController implements CardHover {
     @FXML private CardController hc1Controller;
     @FXML private CardController hc2Controller;
     @FXML private CardController hc3Controller;
