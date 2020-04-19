@@ -112,6 +112,10 @@ public class ArenaController  {
 
     }
 
+    public void flushDetail() {
+        this.detailCardController.flush();
+    }
+
     public void setPhase(Phase phase, AvatarDuel main){
         this.phase = phase;
         this.main = main;
@@ -284,9 +288,9 @@ public class ArenaController  {
             } else {
                 String detail = "[Skill Card] : " + sc.getSkill()+"\nElement : "+sc.getElement();
                 detailCardController.renderDetail(detail);
-                detailCardController.renderAttackS("");
-                detailCardController.renderDefenseS("");
-                detailCardController.renderPower("");                
+                detailCardController.renderAttackL();
+                detailCardController.renderDefenseL();
+                detailCardController.renderPowerL();                
             }
         }else{
             String detail = "[Land Card]\nElement : " + card.getElement() ;

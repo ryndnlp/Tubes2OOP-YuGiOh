@@ -74,5 +74,15 @@ public class DetailCardController {
         this.element.setImage(new Image(path, 50, 50, false, false));
     }
 
+    public void flush() {
+        renderAttackL();
+        renderDefenseL();
+        renderDesc("");
+        renderDetail("");
+        this.element.setImage(null);
+        this.gambar.setImage(null);
+        renderPowerL();
+        renderName("");
+    }
 
 }
