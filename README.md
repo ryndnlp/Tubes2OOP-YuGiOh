@@ -1,13 +1,12 @@
-# Standard Calculator
-## Kelompok 12
-* 13518067 / Tifany Angelia
-* 13518106 / Thoriq Akbar Mahmudi
-* 13518109 / Andjani Kiranadewi
-* 13518130 / Ryan Daniel
-* 13518136 / Reyvan Rizky Irsandy
+# Avatar Duel!
+## OOP Kelompok 10
+* 13518067/ Tifany Angelia
+* 13518106/ Thoriq Akbar Mahmudi
+* 13518109/ Andjani Kiranadewi
+* 13518130/ Ryan Daniel
+* 13518136/ Reyvan Rizky Irsandy
 
-
-Asisten: Putu Gery Wahyu Nugraha
+Asisten: Putu Gery Wahyu Nugraha/ 13516100
 
 ## Struktur kode
 Relatif dari folder repository, semua source code terdapat dalam folder `if2210-avatar-duel-project-template-master/src`. Di dalam folder `src`, terdapat 2 folder: `main` dan `test`. 
@@ -42,5 +41,15 @@ Relatif dari folder repository, semua source code terdapat dalam folder `if2210-
    ```
 
 ## Screenshot
+1. Memulai pada Draw Phase.
 ![Avatar Duel!](./NewGame.png?raw=true "New Game")
+2. Melakukan summon pada Main Phase.
+![Avatar Duel!](./Summon.png?raw=true "Summon")
+3. Melakukan sinkronisasi antara SkillCard dan CharacterCard pada field
+![Avatar Duel!](./Sync.png?raw=true "Sync")
+4. Melakukan attack pada Battle Phase.
+![Avatar Duel!](./Attack.png?raw=true "Attack")
+5. End Phase dan melakukan pergantian turn.
+![Avatar Duel!](./ChangeTurn.png?raw=true "Change Turn")
+6. Game berakhir karena nyawa salah satu pemain 0.
 ![Avatar Duel!](./EndGame.png?raw=true "End Game")
